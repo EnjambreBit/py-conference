@@ -11,16 +11,17 @@ L=[01;30m
 
 comandos:
 	@echo ""
-	@echo "${B}COMANDOS DISPONIBLES"
+	@echo "	${B}COMANDOS DISPONIBLES"
 	@echo ""
-	@echo "	${G}iniciar${N}: 			Instalar dependencias"
-	@echo "	${G}ejecutar${N}: 			Correr servidor de pruebas"
-	@echo "	${G}crear_migraciones${N}: 	Crear migraciones"
-	@echo "	${G}migrar${N}: 			Ejecutar migraciones pendientes"
-	@echo "	${G}reset${N}:				Resetear base de datos"
+	@echo "	${G}iniciar${N}:             Instalar dependencias"
+	@echo "	${G}ejecutar${N}:            Correr servidor de pruebas"
+	@echo "	${G}crear_migraciones${N}:   Crear migraciones"
+	@echo "	${G}migrar${N}:              Ejecutar migraciones pendientes"
+	@echo "	${G}reset${N}:               Resetear base de datos"
 	@echo "	${G}collectstatic${N}"
-	@echo "	${G}realizar_backup${N}		Realizar backup de la base de datos"
-	@echo "	${G}cargar_ultimo_dump${N}	Cargar ultimo backup"
+	@echo "	${G}realizar_backup${N}:     Realizar backup de la base de datos"
+	@echo "	${G}cargar_ultimo_dump${N}:  Cargar ultimo backup"
+	@echo "	${G}blacked${N}:             Unificar estilo de codigo"
 	@echo ""
 
 iniciar:
@@ -51,3 +52,6 @@ cargar_ultimo_dump:
 	dropdb --if-exists ${NOMBRE_BD} -e; createdb ${NOMBRE_BD}
 	pg_restore --no-acl --no-owner -d ${NOMBRE_BD} ${DB_DUMP_MAS_RECIENTE}
 	@make migrar
+
+blacked:
+	@echo pipenv run python black .

@@ -7,6 +7,13 @@ name = "pypi"
 django = "==3.2"
 djangorestframework = "*"
 markdown = "*"
+black = "*"
+django-cors-headers = "*"
+django-environ = "*"
+dj-database-url = "*"
+python-dateutil = "*"
+pillow = "*"
+sentry-sdk = "*"
 
 [dev-packages]
 
