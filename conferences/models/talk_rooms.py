@@ -16,5 +16,5 @@ class TalkRoom(models.Model):
         verbose_name = "TalkRoom"
         verbose_name_plural = "talk_rooms"
 
-    def __str__(self):
-        return self.nombre
+    # def __str__(self):
+    #     return self.talk

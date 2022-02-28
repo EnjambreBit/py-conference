@@ -7,5 +7,9 @@ class TalkAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'name',
+        'language',
+        'talk_type',
+        'audience_level',
+        'duration',
     )
 

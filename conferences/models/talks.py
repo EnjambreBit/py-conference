@@ -44,4 +44,4 @@ class Talk(models.Model):
         verbose_name_plural = "talks"
 
     def __str__(self):
-        return self.nombre
+        return self.name
