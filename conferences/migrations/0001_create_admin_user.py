@@ -4,7 +4,6 @@ from django.db import migrations
 from django.contrib.auth.models import User
 
 
-
 def create_admin_user(apps, schema_editor):
     User.objects.create_superuser(
         username="admin", password="asdasd123", email="admin@admin.com"

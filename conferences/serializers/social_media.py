@@ -1,17 +1,16 @@
 from django.contrib.auth.models import User
 from rest_framework.serializers import ModelSerializer, CharField, SerializerMethodField
-
 # from rest_framework_json_api.relations import ResourceRelatedField
 
-from conferences.models.rooms import Room
+from conferences.models.social_media import SocialMedia
 
 
-class RoomSerializer(ModelSerializer):
+class SocialMediaSerializer(ModelSerializer):
     class Meta:
-        model = Room
+        model = SocialMedia
         fields = (
-            "id",
-            "nombre",
+            'id',
+            'nombre',
         )
 
     # included_serializers = {

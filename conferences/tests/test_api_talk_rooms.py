@@ -7,5 +7,5 @@ class APITalkRoomTestCase(APITestCase):
         pass
 
     def test_puede_listar(self):
-        response = self.client.get('/api/talkrooms')
-        self.assertEqual(len(response.data['result']), 0)
+        response = self.client.get("/api/talkrooms")
+        self.assertEqual(len(response.data["result"]), 0)

@@ -3,12 +3,12 @@ from rest_framework.serializers import ModelSerializer, CharField, SerializerMet
 
 # from rest_framework_json_api.relations import ResourceRelatedField
 
-from conferences.models.rooms import Room
+from conferences.models.profiles import Profile
 
 
-class RoomSerializer(ModelSerializer):
+class ProfileSerializer(ModelSerializer):
     class Meta:
-        model = Room
+        model = Profile
         fields = (
             "id",
             "nombre",

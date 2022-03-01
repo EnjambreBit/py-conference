@@ -5,8 +5,7 @@ from conferences.models.talk_rooms import TalkRoom
 class TalkRoomAdmin(admin.ModelAdmin):
     model = TalkRoom
     list_display = (
-        'id',
-        'talk',
-        'room',
+        "id",
+        "talk",
+        "room",
     )
-

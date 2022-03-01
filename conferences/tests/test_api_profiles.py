@@ -1,11 +1,11 @@
 from rest_framework.test import APITestCase
-from conferences.models.rooms import Room
+from conferences.models.profiles import Profile
 
 
-class APIRoomTestCase(APITestCase):
+class APIProfileTestCase(APITestCase):
     def setUp(self):
         pass
 
     def test_puede_listar(self):
-        response = self.client.get("/api/rooms")
+        response = self.client.get("/api/profiles")
         self.assertEqual(len(response.data["result"]), 0)

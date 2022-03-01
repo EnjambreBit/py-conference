@@ -10,7 +10,7 @@ class Country(models.Model):
     last_update = models.DateTimeField(auto_now=True)
 
     class Meta:
-        db_table = 'countries'
+        db_table = "countries"
         verbose_name = "Country"
         verbose_name_plural = "countries"
 

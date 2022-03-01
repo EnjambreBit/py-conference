@@ -9,101 +9,280 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('conferences', '0001_create_admin_user'),
+        ("conferences", "0001_create_admin_user"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Country',
+            name="Country",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(blank=True, default=None, max_length=200, null=True)),
-                ('alpha_2', models.CharField(blank=True, default=None, max_length=2, null=True)),
-                ('alpha_3', models.CharField(blank=True, default=None, max_length=3, null=True)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('last_update', models.DateTimeField(auto_now=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        blank=True, default=None, max_length=200, null=True
+                    ),
+                ),
+                (
+                    "alpha_2",
+                    models.CharField(blank=True, default=None, max_length=2, null=True),
+                ),
+                (
+                    "alpha_3",
+                    models.CharField(blank=True, default=None, max_length=3, null=True),
+                ),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("last_update", models.DateTimeField(auto_now=True)),
             ],
             options={
-                'verbose_name': 'Country',
-                'verbose_name_plural': 'countries',
-                'db_table': 'countries',
+                "verbose_name": "Country",
+                "verbose_name_plural": "countries",
+                "db_table": "countries",
             },
         ),
         migrations.CreateModel(
-            name='Event',
+            name="Event",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(blank=True, default=None, max_length=200, null=True)),
-                ('timezone', models.CharField(blank=True, default='Europe/London', max_length=100, null=True)),
-                ('start_date', models.DateField(blank=True, default=None, null=True)),
-                ('end_date', models.DateField(blank=True, default=None, null=True)),
-                ('call_for_talks_start', models.DateField(blank=True, default=None, null=True)),
-                ('call_for_talks_end', models.DateField(blank=True, default=None, null=True)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('last_update', models.DateTimeField(auto_now=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        blank=True, default=None, max_length=200, null=True
+                    ),
+                ),
+                (
+                    "timezone",
+                    models.CharField(
+                        blank=True, default="Europe/London", max_length=100, null=True
+                    ),
+                ),
+                ("start_date", models.DateField(blank=True, default=None, null=True)),
+                ("end_date", models.DateField(blank=True, default=None, null=True)),
+                (
+                    "call_for_talks_start",
+                    models.DateField(blank=True, default=None, null=True),
+                ),
+                (
+                    "call_for_talks_end",
+                    models.DateField(blank=True, default=None, null=True),
+                ),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("last_update", models.DateTimeField(auto_now=True)),
             ],
             options={
-                'verbose_name': 'Event',
-                'verbose_name_plural': 'events',
-                'db_table': 'events',
+                "verbose_name": "Event",
+                "verbose_name_plural": "events",
+                "db_table": "events",
             },
         ),
         migrations.CreateModel(
-            name='Room',
+            name="Room",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(blank=True, default=None, max_length=200, null=True)),
-                ('internal_name', models.CharField(blank=True, default=None, max_length=200, null=True)),
-                ('capacity', models.IntegerField(blank=True, default=0, null=True)),
-                ('latitude', models.DecimalField(blank=True, decimal_places=7, default=None, max_digits=10, null=True)),
-                ('longitude', models.DecimalField(blank=True, decimal_places=7, default=None, max_digits=10, null=True)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('last_update', models.DateTimeField(auto_now=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        blank=True, default=None, max_length=200, null=True
+                    ),
+                ),
+                (
+                    "internal_name",
+                    models.CharField(
+                        blank=True, default=None, max_length=200, null=True
+                    ),
+                ),
+                ("capacity", models.IntegerField(blank=True, default=0, null=True)),
+                (
+                    "latitude",
+                    models.DecimalField(
+                        blank=True,
+                        decimal_places=7,
+                        default=None,
+                        max_digits=10,
+                        null=True,
+                    ),
+                ),
+                (
+                    "longitude",
+                    models.DecimalField(
+                        blank=True,
+                        decimal_places=7,
+                        default=None,
+                        max_digits=10,
+                        null=True,
+                    ),
+                ),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("last_update", models.DateTimeField(auto_now=True)),
             ],
             options={
-                'verbose_name': 'Room',
-                'verbose_name_plural': 'rooms',
-                'db_table': 'rooms',
+                "verbose_name": "Room",
+                "verbose_name_plural": "rooms",
+                "db_table": "rooms",
             },
         ),
         migrations.CreateModel(
-            name='Talk',
+            name="Talk",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(blank=True, default=None, max_length=200, null=True)),
-                ('talk_type', models.CharField(blank=True, choices=[('Talk', 'Talk'), ('Workshop', 'Workshop'), ('Keynote', 'Keynote'), ('Lightning Talk', 'Lightning Talk'), ('Open Space', 'Open Space'), ('Panel', 'Panel'), ('Other', 'Other')], default=None, max_length=30, null=True)),
-                ('audience_level', models.CharField(blank=True, choices=[('Beginner', 'Beginner'), ('Intermediate', 'Intermediate'), ('Advanced', 'Advanced'), ('All', 'All')], default=None, max_length=30, null=True)),
-                ('language', models.CharField(blank=True, choices=[('English', 'English'), ('Spanish', 'Spanish'), ('English/Spanish', 'English/Spanish')], default=None, max_length=30, null=True)),
-                ('language_slider', models.CharField(blank=True, choices=[('English', 'English'), ('Spanish', 'Spanish'), ('English/Spanish', 'English/Spanish')], default=None, max_length=30, null=True)),
-                ('duration', models.IntegerField(blank=True, default=0, null=True, verbose_name='Duration in minutes')),
-                ('summary', models.TextField(blank=True, default=None, null=True)),
-                ('description', models.TextField(blank=True, default=None, null=True)),
-                ('topics', models.TextField(blank=True, default=None, null=True)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('last_update', models.DateTimeField(auto_now=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        blank=True, default=None, max_length=200, null=True
+                    ),
+                ),
+                (
+                    "talk_type",
+                    models.CharField(
+                        blank=True,
+                        choices=[
+                            ("Talk", "Talk"),
+                            ("Workshop", "Workshop"),
+                            ("Keynote", "Keynote"),
+                            ("Lightning Talk", "Lightning Talk"),
+                            ("Open Space", "Open Space"),
+                            ("Panel", "Panel"),
+                            ("Other", "Other"),
+                        ],
+                        default=None,
+                        max_length=30,
+                        null=True,
+                    ),
+                ),
+                (
+                    "audience_level",
+                    models.CharField(
+                        blank=True,
+                        choices=[
+                            ("Beginner", "Beginner"),
+                            ("Intermediate", "Intermediate"),
+                            ("Advanced", "Advanced"),
+                            ("All", "All"),
+                        ],
+                        default=None,
+                        max_length=30,
+                        null=True,
+                    ),
+                ),
+                (
+                    "language",
+                    models.CharField(
+                        blank=True,
+                        choices=[
+                            ("English", "English"),
+                            ("Spanish", "Spanish"),
+                            ("English/Spanish", "English/Spanish"),
+                        ],
+                        default=None,
+                        max_length=30,
+                        null=True,
+                    ),
+                ),
+                (
+                    "language_slider",
+                    models.CharField(
+                        blank=True,
+                        choices=[
+                            ("English", "English"),
+                            ("Spanish", "Spanish"),
+                            ("English/Spanish", "English/Spanish"),
+                        ],
+                        default=None,
+                        max_length=30,
+                        null=True,
+                    ),
+                ),
+                (
+                    "duration",
+                    models.IntegerField(
+                        blank=True,
+                        default=0,
+                        null=True,
+                        verbose_name="Duration in minutes",
+                    ),
+                ),
+                ("summary", models.TextField(blank=True, default=None, null=True)),
+                ("description", models.TextField(blank=True, default=None, null=True)),
+                ("topics", models.TextField(blank=True, default=None, null=True)),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("last_update", models.DateTimeField(auto_now=True)),
             ],
             options={
-                'verbose_name': 'Talk',
-                'verbose_name_plural': 'talks',
-                'db_table': 'talks',
+                "verbose_name": "Talk",
+                "verbose_name_plural": "talks",
+                "db_table": "talks",
             },
         ),
         migrations.CreateModel(
-            name='TalkRoom',
+            name="TalkRoom",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('date', models.DateField(blank=True, default=None, null=True)),
-                ('start', models.TimeField(blank=True, default=None, null=True)),
-                ('end', models.TimeField(blank=True, default=None, null=True)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('last_update', models.DateTimeField(auto_now=True)),
-                ('room', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='rooms', to='conferences.room')),
-                ('talk', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='talks', to='conferences.talk')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("date", models.DateField(blank=True, default=None, null=True)),
+                ("start", models.TimeField(blank=True, default=None, null=True)),
+                ("end", models.TimeField(blank=True, default=None, null=True)),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("last_update", models.DateTimeField(auto_now=True)),
+                (
+                    "room",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="rooms",
+                        to="conferences.room",
+                    ),
+                ),
+                (
+                    "talk",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="talks",
+                        to="conferences.talk",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'TalkRoom',
-                'verbose_name_plural': 'talk_rooms',
-                'db_table': 'talk_rooms',
+                "verbose_name": "TalkRoom",
+                "verbose_name_plural": "talk_rooms",
+                "db_table": "talk_rooms",
             },
         ),
     ]
