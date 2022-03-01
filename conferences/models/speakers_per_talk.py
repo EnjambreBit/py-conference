@@ -4,7 +4,7 @@ from django.db import models
 class SpeakerPerTalk(models.Model):
     talk = models.ForeignKey("Talk", related_name="speakers_per_talk", on_delete=models.CASCADE)
     speaker = models.ForeignKey("Speaker", related_name="speakers_per_talk", on_delete=models.CASCADE)
-
+    speaker_order = models.IntegerField(default=0)
     created = models.DateTimeField(auto_now_add=True)
     last_update = models.DateTimeField(auto_now=True)
 

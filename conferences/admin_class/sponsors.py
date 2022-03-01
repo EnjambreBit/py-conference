@@ -8,5 +8,7 @@ class SponsorAdmin(admin.ModelAdmin):
         'id',
         'name',
         'sponsor_level',
+        'confirmed',
+        'published',
     )
-
+    search_fields = ("name",)

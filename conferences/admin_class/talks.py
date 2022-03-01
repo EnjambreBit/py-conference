@@ -26,6 +26,7 @@ class TalkAdmin(admin.ModelAdmin):
         "talk_type",
         "audience_level",
         "duration",
+        "published",
     )
     search_fields = (
         "name",

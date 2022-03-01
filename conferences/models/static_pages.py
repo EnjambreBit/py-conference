@@ -16,8 +16,8 @@ class StaticPage(models.Model):
 
     class Meta:
         db_table = 'static_pages'
-        verbose_name = "StaticPage"
-        verbose_name_plural = "static_pages"
+        verbose_name = "Static page"
+        verbose_name_plural = "static pages"
 
     def __str__(self):
-        return self.nombre
+        return self.title

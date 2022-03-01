@@ -16,3 +16,6 @@ class SponsorLevel(models.Model):
 
     def __str__(self):
         return self.name
+
+    def total(self):
+        return self.sponsors.count()

@@ -10,4 +10,4 @@ class StaticPageAdmin(admin.ModelAdmin):
         'format',
         'published',
     )
-
+    search_fields = ("title",)

@@ -7,5 +7,7 @@ class SponsorLevelAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'name',
+        'priority',
+        'total',
     )
 
