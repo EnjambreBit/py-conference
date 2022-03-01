@@ -3,6 +3,7 @@ from django.db import models
 
 class SocialMedia(models.Model):
     TYPES = (
+        ('web', 'Website'),
         ('facebook', 'Facebook'),
         ('twitter', 'Twitter'),
         ('instagram', 'Instagram'),
@@ -22,7 +23,7 @@ class SocialMedia(models.Model):
         ('other', 'Other'),
     )
     profile = models.ForeignKey("Profile", related_name="social_media", on_delete=models.CASCADE)
-    type = models.CharField(max_length=100, choices=TYPES, default="Twitter")
+    type = models.CharField(max_length=100, choices=TYPES, default="web")
     type_other = models.CharField(max_length=100, default=None, blank=True, null=True)
     url = models.CharField(max_length=300, default=None, blank=True, null=True)
 

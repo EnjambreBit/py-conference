@@ -13,4 +13,4 @@ class Speaker(models.Model):
         verbose_name_plural = "speakers"
 
     def __str__(self):
-        return self.profile
+        return self.profile.full_name

@@ -8,4 +8,7 @@ class TalkRoomAdmin(admin.ModelAdmin):
         "id",
         "talk",
         "room",
+        "date", 
+        "start",
+        "end",
     )

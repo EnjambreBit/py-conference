@@ -5,6 +5,7 @@ class Talk(models.Model):
     TALKS_TYPE = (
         ("talk", "Talk"),
         ("workshop", "Workshop"),
+        ("tutorial", "Tutorial"),
         ("keynote", "Keynote"),
         ("lightning_talk", "Lightning Talk"),
         ("open_space", "Open Space"),
@@ -15,6 +16,7 @@ class Talk(models.Model):
     LANGUAGES = (
         ("english", "English"),
         ("spanish", "Spanish"),
+        ("portuguese", "Portuguese"),
         ("english/spanish", "English/Spanish"),
     )
 
@@ -44,6 +46,7 @@ class Talk(models.Model):
     summary = models.TextField(default=None, blank=True, null=True)
     description = models.TextField(default=None, blank=True, null=True)
     topics = models.TextField(default=None, blank=True, null=True)
+    published = models.BooleanField(default=False)
 
     created = models.DateTimeField(auto_now_add=True)
     last_update = models.DateTimeField(auto_now=True)

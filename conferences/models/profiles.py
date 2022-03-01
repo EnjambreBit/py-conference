@@ -1,3 +1,4 @@
+from operator import mod
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -18,6 +19,9 @@ class Profile(models.Model):
         max_length=100, choices=GENDERS, default=None, blank=True, null=True
     )
     phone = models.CharField(max_length=20, blank=True, null=True)
+    is_speaker = models.BooleanField(default=False)
+    is_organizer = models.BooleanField(default=False)
+    asked_for_a_grant = models.BooleanField(default=False)
 
     created = models.DateTimeField(auto_now_add=True)
     last_update = models.DateTimeField(auto_now=True)
@@ -28,7 +32,7 @@ class Profile(models.Model):
         verbose_name_plural = "profiles"
 
     def __str__(self):
-        return self.full_name
+        return f"{self.full_name} - {self.email}"
 
     @property
     def email(self):
