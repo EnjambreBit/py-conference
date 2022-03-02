@@ -39,9 +39,10 @@ if env("ENABLE_SENTRY"):
 # Application definition
 
 INSTALLED_APPS = [
+    "polymorphic",
+    "django.contrib.contenttypes",
     "django.contrib.admin",
     "django.contrib.auth",
-    "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
