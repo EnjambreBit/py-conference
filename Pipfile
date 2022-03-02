@@ -19,6 +19,8 @@ sentry-sdk = "*"
 sorl-thumbnail = "*"
 sorl-thumbnail-serializer-field = "*"
 gunicorn = "*"
+django-rest-polymorphic = "*"
+django-polymorphic = "*"
 
 [dev-packages]
 
