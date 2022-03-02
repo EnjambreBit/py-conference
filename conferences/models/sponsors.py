@@ -17,4 +17,4 @@ class Sponsor(models.Model):
         verbose_name_plural = "sponsors"
 
     def __str__(self):
-        return self.name
+        return f"{self.name} - {self.sponsor_level}"

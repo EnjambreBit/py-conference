@@ -15,8 +15,8 @@ class ContactInformation(models.Model):
 
     class Meta:
         db_table = 'contact_information'
-        verbose_name = "ContactInformation"
-        verbose_name_plural = "contact_information"
+        verbose_name = "Contact Information"
+        verbose_name_plural = "contact information"
 
     def __str__(self):
         return self.profile

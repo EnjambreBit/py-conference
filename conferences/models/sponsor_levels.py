@@ -13,6 +13,7 @@ class SponsorLevel(models.Model):
         db_table = 'sponsor_levels'
         verbose_name = "Sponsor level"
         verbose_name_plural = "Sponsor levels"
+        ordering = ["-priority"]
 
     def __str__(self):
         return self.name

@@ -10,10 +10,15 @@ markdown = "*"
 black = "*"
 django-cors-headers = "*"
 django-environ = "*"
+psycopg2 = "==2.8.6"
+psycopg2-binary = "==2.8.6"
 dj-database-url = "*"
 python-dateutil = "*"
 pillow = "*"
 sentry-sdk = "*"
+sorl-thumbnail = "*"
+sorl-thumbnail-serializer-field = "*"
+gunicorn = "*"
 
 [dev-packages]
 

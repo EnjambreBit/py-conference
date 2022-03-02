@@ -29,8 +29,8 @@ class SocialMedia(models.Model):
 
     class Meta:
         db_table = 'social_media'
-        verbose_name = "SocialMedia"
-        verbose_name_plural = "Social Media"
+        verbose_name = "Social media link"
+        verbose_name_plural = "Social media links"
 
     def __str__(self):
         return f"{self.profile} - {self.type}"

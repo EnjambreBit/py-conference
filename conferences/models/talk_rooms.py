@@ -13,8 +13,8 @@ class TalkRoom(models.Model):
 
     class Meta:
         db_table = "talk_rooms"
-        verbose_name = "TalkRoom"
-        verbose_name_plural = "Talk Rooms"
+        verbose_name = "Talk room"
+        verbose_name_plural = "Talk rooms"
 
-    # def __str__(self):
-    #     return self.talk
+    def __str__(self):
+        return f"{self.talk} - {self.room}"

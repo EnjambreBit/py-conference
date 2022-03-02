@@ -1,5 +1,5 @@
-DB_NOMBRE_DEL_DUMP= ~/Dropbox/Trabajo/Conference/backups/conference_backup_`date +'%Y%m%d_%Hhs%Mmin'`.dump
-DB_DUMP_MAS_RECIENTE=`ls -Art ~/Dropbox/Trabajo/Conference/backups/conference_backup*.dump  | tail -n 1`
+DB_NOMBRE_DEL_DUMP= ~/Dropbox/Trabajo/py-conferences/backups/conference_backup_`date +'%Y%m%d_%Hhs%Mmin'`.dump
+DB_DUMP_MAS_RECIENTE=`ls -Art ~/Dropbox/Trabajo/py-conferences/backups/conference_backup*.dump  | tail -n 1`
 NOMBRE_BD=conference
 
 N=[0m
