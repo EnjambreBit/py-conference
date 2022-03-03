@@ -14,8 +14,8 @@ class Room(models.Model):
         max_digits=10, decimal_places=7, default=None, blank=True, null=True
     )
 
-    created = models.DateTimeField(auto_now_add=True)
-    last_update = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "rooms"

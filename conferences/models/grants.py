@@ -26,8 +26,8 @@ class Grant(models.Model):
     paid_date = models.DateField(default=None, null=True, blank=True)
     paid_by = models.ForeignKey("Profile", related_name="grants_paid", on_delete=models.CASCADE, null=True, blank=True)
 
-    created = models.DateTimeField(auto_now_add=True)
-    last_update = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'grants'

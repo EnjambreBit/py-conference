@@ -19,8 +19,8 @@ class Event(models.Model):
     registration_url = models.CharField(max_length=300, default=None, blank=True, null=True)
     registration_enabled = models.BooleanField(default=False)
 
-    created = models.DateTimeField(auto_now_add=True)
-    last_update = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "events"

@@ -8,8 +8,8 @@ class TalkRoom(models.Model):
     start = models.TimeField(default=None, null=True, blank=True)
     end = models.TimeField(default=None, null=True, blank=True)
 
-    created = models.DateTimeField(auto_now_add=True)
-    last_update = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "talk_rooms"

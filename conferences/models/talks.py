@@ -48,8 +48,8 @@ class Talk(models.Model):
     topics = models.TextField(default=None, blank=True, null=True)
     published = models.BooleanField(default=False)
 
-    created = models.DateTimeField(auto_now_add=True)
-    last_update = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "talks"

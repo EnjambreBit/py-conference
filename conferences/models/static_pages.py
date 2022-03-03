@@ -11,8 +11,8 @@ class StaticPage(models.Model):
     content = models.TextField(default=None, blank=True, null=True)
     format = models.TextField(max_length=4, choices=FORMATS, default="txt")
     published = models.BooleanField(default=False)
-    created = models.DateTimeField(auto_now_add=True)
-    last_update = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'static_pages'

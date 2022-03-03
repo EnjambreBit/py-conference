@@ -23,8 +23,8 @@ class Profile(models.Model):
     is_organizer = models.BooleanField(default=False)
     asked_for_a_grant = models.BooleanField(default=False)
 
-    created = models.DateTimeField(auto_now_add=True)
-    last_update = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "profiles"

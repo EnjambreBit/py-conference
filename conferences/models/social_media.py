@@ -27,6 +27,9 @@ class SocialMedia(models.Model):
     type_other = models.CharField(max_length=100, default=None, blank=True, null=True)
     url = models.CharField(max_length=300, default=None, blank=True, null=True)
 
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
     class Meta:
         db_table = 'social_media'
         verbose_name = "Social media link"

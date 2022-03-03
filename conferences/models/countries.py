@@ -6,8 +6,8 @@ class Country(models.Model):
     alpha_2 = models.CharField(max_length=2, default=None, blank=True, null=True)
     alpha_3 = models.CharField(max_length=3, default=None, blank=True, null=True)
 
-    created = models.DateTimeField(auto_now_add=True)
-    last_update = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "countries"

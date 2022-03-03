@@ -10,8 +10,8 @@ class ContactInformation(models.Model):
     zip_code = models.CharField(max_length=20, default=None, blank=True, null=True)
     country = models.ForeignKey("Country", related_name="contact_information", on_delete=models.CASCADE)
 
-    created = models.DateTimeField(auto_now_add=True)
-    last_update = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'contact_information'
