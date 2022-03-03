@@ -10,7 +10,7 @@ class SpeakerSerializer(ModelSerializer):
         model = Speaker
         fields = (
             'id',
-            'nombre',
+            'profile',
         )
 
     # included_serializers = {

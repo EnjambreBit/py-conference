@@ -1,8 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework.serializers import ModelSerializer, CharField, SerializerMethodField
 
-# from rest_framework_json_api.relations import ResourceRelatedField
-
 from conferences.models.countries import Country
 
 
@@ -11,9 +9,7 @@ class CountrySerializer(ModelSerializer):
         model = Country
         fields = (
             "id",
-            "nombre",
+            "name",
+            "alpha_2",
+            "alpha_3",
         )
-
-    # included_serializers = {
-    #     'user': UserSerializer,
-    # }

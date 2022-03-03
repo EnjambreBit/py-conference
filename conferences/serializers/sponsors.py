@@ -10,9 +10,5 @@ class SponsorSerializer(ModelSerializer):
         model = Sponsor
         fields = (
             'id',
-            'nombre',
+            'name',
         )
-
-    # included_serializers = {
-    #     'user': UserSerializer,
-    # }

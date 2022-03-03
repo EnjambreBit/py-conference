@@ -1,4 +1,6 @@
 from django.db import models
+from django.template import Context, Template
+import markdown as md
 
 
 class StaticPage(models.Model):
@@ -8,6 +10,7 @@ class StaticPage(models.Model):
         ("md", "Markdown"),
     )
     title = models.CharField(max_length=200, default=None, blank=True, null=True)
+    slug = models.SlugField(max_length=100, unique=True, default=None, blank=True, null=True)
     content = models.TextField(default=None, blank=True, null=True)
     format = models.TextField(max_length=4, choices=FORMATS, default="txt")
     published = models.BooleanField(default=False)
@@ -21,3 +24,9 @@ class StaticPage(models.Model):
 
     def __str__(self):
         return self.title
+
+    def rendered_content(self):
+        result = Template(self.content).render(Context({}))
+        if self.format == "md":
+            result = md.markdown(result, extensions=["tables"])
+        return result

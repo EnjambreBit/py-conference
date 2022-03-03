@@ -1,8 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework.serializers import ModelSerializer, CharField, SerializerMethodField
 
-# from rest_framework_json_api.relations import ResourceRelatedField
-
 from conferences.models.talks import Talk
 
 
@@ -11,9 +9,14 @@ class TalkSerializer(ModelSerializer):
         model = Talk
         fields = (
             "id",
-            "nombre",
+            "name",
+            "talk_type",
+            "audience_level",
+            "language",
+            "language_slider",
+            "duration",
+            "summary",
+            "description",
+            "topics",
+            "published",
         )
-
-    # included_serializers = {
-    #     'user': UserSerializer,
-    # }

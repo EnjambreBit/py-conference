@@ -21,6 +21,7 @@ sorl-thumbnail-serializer-field = "*"
 gunicorn = "*"
 django-rest-polymorphic = "*"
 django-polymorphic = "*"
+django-filter = "*"
 
 [dev-packages]
 

@@ -2,4 +2,6 @@ from django.http import HttpResponse
 from django.template import loader
 
 
-def index(request):
+
+def profile_register(request):
+    return HttpResponse("register Ok")

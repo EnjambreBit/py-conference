@@ -7,6 +7,7 @@ class StaticPageAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'title',
+        "slug",
         'format',
         'published',
     )

@@ -5,6 +5,7 @@ import dj_database_url
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-lb20fhk-*omdr5^!z_ntq((5(*(oy!@jqq5q(ps47o*srt(l*^"
 
@@ -36,8 +37,6 @@ if env("ENABLE_SENTRY"):
         send_default_pii=True
     )
 
-# Application definition
-
 INSTALLED_APPS = [
     "polymorphic",
     "django.contrib.contenttypes",
@@ -47,7 +46,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "sorl.thumbnail",
+    "rest_framework",
     "conferences",
+    "pages",
 ]
 
 MIDDLEWARE = [
@@ -65,7 +66,9 @@ ROOT_URLCONF = "backend.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            os.path.join(BASE_DIR, "pages", "templates"),
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

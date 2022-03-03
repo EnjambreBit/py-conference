@@ -7,4 +7,6 @@ class RoomAdmin(admin.ModelAdmin):
     list_display = (
         "id",
         "name",
+        "internal_name",
+        "capacity",
     )

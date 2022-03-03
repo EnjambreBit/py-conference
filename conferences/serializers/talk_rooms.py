@@ -11,9 +11,7 @@ class TalkRoomSerializer(ModelSerializer):
         model = TalkRoom
         fields = (
             "id",
-            "nombre",
+            "talk",
+            "room",
         )
 
-    # included_serializers = {
-    #     'user': UserSerializer,
-    # }

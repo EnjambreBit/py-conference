@@ -1,6 +1,5 @@
 from django.contrib.auth.models import User
 from rest_framework.serializers import ModelSerializer, CharField, SerializerMethodField
-# from rest_framework_json_api.relations import ResourceRelatedField
 
 from conferences.models.static_pages import StaticPage
 
@@ -10,9 +9,9 @@ class StaticPageSerializer(ModelSerializer):
         model = StaticPage
         fields = (
             'id',
-            'nombre',
+            'title',
+            "content",
+            "format",
+            "rendered_content",
+            "published",
         )
-
-    # included_serializers = {
-    #     'user': UserSerializer,
-    # }

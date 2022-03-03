@@ -1,8 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework.serializers import ModelSerializer, CharField, SerializerMethodField
 
-# from rest_framework_json_api.relations import ResourceRelatedField
-
 from conferences.models.events import Event
 
 
@@ -11,9 +9,12 @@ class EventSerializer(ModelSerializer):
         model = Event
         fields = (
             "id",
-            "nombre",
+            "name",
+            "timezone",
+            "start_date",
+            "end_date",
+            "call_for_talks_start",
+            "call_for_talks_end",
+            "registration_start",
+            "registration_end",
         )
-
-    # included_serializers = {
-    #     'user': UserSerializer,
-    # }
