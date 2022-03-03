@@ -9,14 +9,16 @@ class Event(models.Model):
     )
     start_date = models.DateField(default=None, null=True, blank=True)
     end_date = models.DateField(default=None, null=True, blank=True)
-    #call for talks
+    # call for talks
     call_for_talks_start = models.DateField(default=None, null=True, blank=True)
     call_for_talks_end = models.DateField(default=None, null=True, blank=True)
-    #registration
+    # registration
     registration_start = models.DateField(default=None, null=True, blank=True)
     registration_end = models.DateField(default=None, null=True, blank=True)
 
-    registration_url = models.CharField(max_length=300, default=None, blank=True, null=True)
+    registration_url = models.CharField(
+        max_length=300, default=None, blank=True, null=True
+    )
     registration_enabled = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)

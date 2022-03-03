@@ -14,4 +14,3 @@ class TalkRoomSerializer(ModelSerializer):
             "talk",
             "room",
         )
-

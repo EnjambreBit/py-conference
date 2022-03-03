@@ -11,4 +11,3 @@ class RoomSerializer(ModelSerializer):
             "id",
             "name",
         )
-

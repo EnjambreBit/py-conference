@@ -11,6 +11,4 @@ class CountryAdmin(admin.ModelAdmin):
         "alpha_2",
         "alpha_3",
     )
-    search_fields = (
-        "name",
-    )
+    search_fields = ("name",)

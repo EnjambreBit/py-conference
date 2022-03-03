@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0014_staticpage_slug'),
+        ("conferences", "0014_staticpage_slug"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='staticpage',
-            name='slug',
-            field=models.SlugField(blank=True, default=None, max_length=100, null=True, unique=True),
+            model_name="staticpage",
+            name="slug",
+            field=models.SlugField(
+                blank=True, default=None, max_length=100, null=True, unique=True
+            ),
         ),
     ]

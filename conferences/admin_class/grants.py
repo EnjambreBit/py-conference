@@ -6,8 +6,11 @@ from conferences.models.grants import Grant
 class GrantAdmin(admin.ModelAdmin):
     model = Grant
     list_display = (
-        'id',
-        'profile',
-        'status',
+        "id",
+        "profile",
+        "status",
     )
-    search_fields = ("profile__first_name", "profile__last_name",)
+    search_fields = (
+        "profile__first_name",
+        "profile__last_name",
+    )

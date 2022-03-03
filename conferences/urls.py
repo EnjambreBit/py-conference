@@ -1,7 +1,8 @@
 from django.urls import path
 from django.conf.urls import include, url
 from rest_framework import routers
-#from rest_framework.authtoken.views import obtain_auth_token
+
+# from rest_framework.authtoken.views import obtain_auth_token
 
 from conferences.views.countries import CountryViewSet
 from conferences.views.events import EventViewSet

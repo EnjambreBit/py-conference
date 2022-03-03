@@ -8,6 +8,6 @@ class SponsorLevelSerializer(ModelSerializer):
     class Meta:
         model = SponsorLevel
         fields = (
-            'id',
-            'name',
+            "id",
+            "name",
         )

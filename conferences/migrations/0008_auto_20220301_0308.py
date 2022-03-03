@@ -6,17 +6,20 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0007_staticpage'),
+        ("conferences", "0007_staticpage"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='staticpage',
-            options={'verbose_name': 'Static page', 'verbose_name_plural': 'static pages'},
+            name="staticpage",
+            options={
+                "verbose_name": "Static page",
+                "verbose_name_plural": "static pages",
+            },
         ),
         migrations.AddField(
-            model_name='speakerpertalk',
-            name='speaker_order',
+            model_name="speakerpertalk",
+            name="speaker_order",
             field=models.IntegerField(default=0),
         ),
     ]

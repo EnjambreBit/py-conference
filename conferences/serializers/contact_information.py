@@ -7,6 +7,4 @@ from conferences.models.contact_information import ContactInformation
 class ContactInformationSerializer(ModelSerializer):
     class Meta:
         model = ContactInformation
-        fields = (
-            'id',
-        )
+        fields = ("id",)

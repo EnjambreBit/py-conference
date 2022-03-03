@@ -5,20 +5,21 @@ import csv
 
 
 def populate_countries(apps, schema):
-    Country = apps.get_model('conferences', 'Country')
+    Country = apps.get_model("conferences", "Country")
 
-    with open('resources/countries_codes_and_coordinates.csv', 'r') as file:
+    with open("resources/countries_codes_and_coordinates.csv", "r") as file:
         reader = csv.reader(file)
-        next(reader, None) #skip header
+        next(reader, None)  # skip header
         for row in reader:
             name, alpha2, alpha3, _, _, _ = row
-            alpha2 = alpha2.replace('"', '').strip()
-            alpha3 = alpha3.replace('"', '').strip()
+            alpha2 = alpha2.replace('"', "").strip()
+            alpha3 = alpha3.replace('"', "").strip()
             Country.objects.create(name=name, alpha_2=alpha2, alpha_3=alpha3)
+
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('conferences', '0008_auto_20220301_0308'),
+        ("conferences", "0008_auto_20220301_0308"),
     ]
 
     operations = [

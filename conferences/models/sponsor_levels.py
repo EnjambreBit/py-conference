@@ -10,7 +10,7 @@ class SponsorLevel(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        db_table = 'sponsor_levels'
+        db_table = "sponsor_levels"
         verbose_name = "Sponsor level"
         verbose_name_plural = "Sponsor levels"
         ordering = ["-priority"]

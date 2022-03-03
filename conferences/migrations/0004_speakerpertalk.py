@@ -7,21 +7,43 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0003_auto_20220228_2120'),
+        ("conferences", "0003_auto_20220228_2120"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='SpeakerPerTalk',
+            name="SpeakerPerTalk",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('speaker', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='speakers_per_talk', to='conferences.speaker')),
-                ('talk', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='speakers_per_talk', to='conferences.talk')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "speaker",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="speakers_per_talk",
+                        to="conferences.speaker",
+                    ),
+                ),
+                (
+                    "talk",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="speakers_per_talk",
+                        to="conferences.talk",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'SpeakerPerTalk',
-                'verbose_name_plural': 'speakers per talk',
-                'db_table': 'speakers_per_talk',
+                "verbose_name": "SpeakerPerTalk",
+                "verbose_name_plural": "speakers per talk",
+                "db_table": "speakers_per_talk",
             },
         ),
     ]

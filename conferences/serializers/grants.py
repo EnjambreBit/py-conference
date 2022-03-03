@@ -7,7 +7,4 @@ from conferences.models.grants import Grant
 class GrantSerializer(ModelSerializer):
     class Meta:
         model = Grant
-        fields = (
-            'id',
-        )
-
+        fields = ("id",)

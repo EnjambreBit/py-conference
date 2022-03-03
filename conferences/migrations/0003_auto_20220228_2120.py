@@ -9,98 +9,295 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('conferences', '0002_country_event_room_talk_talkroom'),
+        ("conferences", "0002_country_event_room_talk_talkroom"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Profile',
+            name="Profile",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('first_name', models.CharField(blank=True, default=None, max_length=200, null=True)),
-                ('last_name', models.CharField(blank=True, default=None, max_length=200, null=True)),
-                ('nickname', models.CharField(blank=True, default=None, max_length=100, null=True)),
-                ('gender', models.CharField(blank=True, choices=[('man', 'Man'), ('woman', 'Woman'), ('nonbinary', 'Nonbinary'), ('prefer no say', 'Prefer no say'), ('other', 'Other')], default=None, max_length=100, null=True)),
-                ('phone', models.CharField(blank=True, max_length=20, null=True)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('last_update', models.DateTimeField(auto_now=True)),
-                ('user', models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='profile', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "first_name",
+                    models.CharField(
+                        blank=True, default=None, max_length=200, null=True
+                    ),
+                ),
+                (
+                    "last_name",
+                    models.CharField(
+                        blank=True, default=None, max_length=200, null=True
+                    ),
+                ),
+                (
+                    "nickname",
+                    models.CharField(
+                        blank=True, default=None, max_length=100, null=True
+                    ),
+                ),
+                (
+                    "gender",
+                    models.CharField(
+                        blank=True,
+                        choices=[
+                            ("man", "Man"),
+                            ("woman", "Woman"),
+                            ("nonbinary", "Nonbinary"),
+                            ("prefer no say", "Prefer no say"),
+                            ("other", "Other"),
+                        ],
+                        default=None,
+                        max_length=100,
+                        null=True,
+                    ),
+                ),
+                ("phone", models.CharField(blank=True, max_length=20, null=True)),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("last_update", models.DateTimeField(auto_now=True)),
+                (
+                    "user",
+                    models.OneToOneField(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="profile",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Profile',
-                'verbose_name_plural': 'profiles',
-                'db_table': 'profiles',
+                "verbose_name": "Profile",
+                "verbose_name_plural": "profiles",
+                "db_table": "profiles",
             },
         ),
         migrations.AlterModelOptions(
-            name='talkroom',
-            options={'verbose_name': 'TalkRoom', 'verbose_name_plural': 'Talk Rooms'},
+            name="talkroom",
+            options={"verbose_name": "TalkRoom", "verbose_name_plural": "Talk Rooms"},
         ),
         migrations.AlterField(
-            model_name='talk',
-            name='audience_level',
-            field=models.CharField(blank=True, choices=[('beginner', 'Beginner'), ('intermediate', 'Intermediate'), ('advanced', 'Advanced'), ('all', 'All')], default=None, max_length=30, null=True),
+            model_name="talk",
+            name="audience_level",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("beginner", "Beginner"),
+                    ("intermediate", "Intermediate"),
+                    ("advanced", "Advanced"),
+                    ("all", "All"),
+                ],
+                default=None,
+                max_length=30,
+                null=True,
+            ),
         ),
         migrations.AlterField(
-            model_name='talk',
-            name='language',
-            field=models.CharField(blank=True, choices=[('english', 'English'), ('spanish', 'Spanish'), ('english/spanish', 'English/Spanish')], default=None, max_length=30, null=True),
+            model_name="talk",
+            name="language",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("english", "English"),
+                    ("spanish", "Spanish"),
+                    ("english/spanish", "English/Spanish"),
+                ],
+                default=None,
+                max_length=30,
+                null=True,
+            ),
         ),
         migrations.AlterField(
-            model_name='talk',
-            name='language_slider',
-            field=models.CharField(blank=True, choices=[('english', 'English'), ('spanish', 'Spanish'), ('english/spanish', 'English/Spanish')], default=None, max_length=30, null=True),
+            model_name="talk",
+            name="language_slider",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("english", "English"),
+                    ("spanish", "Spanish"),
+                    ("english/spanish", "English/Spanish"),
+                ],
+                default=None,
+                max_length=30,
+                null=True,
+            ),
         ),
         migrations.AlterField(
-            model_name='talk',
-            name='talk_type',
-            field=models.CharField(blank=True, choices=[('talk', 'Talk'), ('workshop', 'Workshop'), ('keynote', 'Keynote'), ('lightning_talk', 'Lightning Talk'), ('open_space', 'Open Space'), ('panel', 'Panel'), ('other', 'Other')], default=None, max_length=30, null=True),
+            model_name="talk",
+            name="talk_type",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("talk", "Talk"),
+                    ("workshop", "Workshop"),
+                    ("keynote", "Keynote"),
+                    ("lightning_talk", "Lightning Talk"),
+                    ("open_space", "Open Space"),
+                    ("panel", "Panel"),
+                    ("other", "Other"),
+                ],
+                default=None,
+                max_length=30,
+                null=True,
+            ),
         ),
         migrations.CreateModel(
-            name='Speaker',
+            name="Speaker",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('photo', models.ImageField(blank=True, default=None, null=True, upload_to='speakers/photos/')),
-                ('biography', models.TextField(blank=True, default=None, null=True)),
-                ('profile', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='speaker', to='conferences.profile')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "photo",
+                    models.ImageField(
+                        blank=True,
+                        default=None,
+                        null=True,
+                        upload_to="speakers/photos/",
+                    ),
+                ),
+                ("biography", models.TextField(blank=True, default=None, null=True)),
+                (
+                    "profile",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="speaker",
+                        to="conferences.profile",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Speaker',
-                'verbose_name_plural': 'speakers',
-                'db_table': 'speakers',
+                "verbose_name": "Speaker",
+                "verbose_name_plural": "speakers",
+                "db_table": "speakers",
             },
         ),
         migrations.CreateModel(
-            name='SocialMedia',
+            name="SocialMedia",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('type', models.CharField(choices=[('facebook', 'Facebook'), ('twitter', 'Twitter'), ('instagram', 'Instagram'), ('telegram', 'Telegram'), ('youtube', 'Youtube'), ('linkedin', 'Linkedin'), ('github', 'Github'), ('gitlab', 'Gitlab'), ('reddit', 'Reddit'), ('google', 'Google'), ('pinterest', 'Pinterest'), ('snapchat', 'Snapchat'), ('tumblr', 'Tumblr'), ('vine', 'Vine'), ('flickr', 'Flickr'), ('foursquare', 'Foursquare'), ('other', 'Other')], default='Twitter', max_length=100)),
-                ('type_other', models.CharField(blank=True, default=None, max_length=100, null=True)),
-                ('url', models.CharField(blank=True, default=None, max_length=300, null=True)),
-                ('profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='social_media', to='conferences.profile')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "type",
+                    models.CharField(
+                        choices=[
+                            ("facebook", "Facebook"),
+                            ("twitter", "Twitter"),
+                            ("instagram", "Instagram"),
+                            ("telegram", "Telegram"),
+                            ("youtube", "Youtube"),
+                            ("linkedin", "Linkedin"),
+                            ("github", "Github"),
+                            ("gitlab", "Gitlab"),
+                            ("reddit", "Reddit"),
+                            ("google", "Google"),
+                            ("pinterest", "Pinterest"),
+                            ("snapchat", "Snapchat"),
+                            ("tumblr", "Tumblr"),
+                            ("vine", "Vine"),
+                            ("flickr", "Flickr"),
+                            ("foursquare", "Foursquare"),
+                            ("other", "Other"),
+                        ],
+                        default="Twitter",
+                        max_length=100,
+                    ),
+                ),
+                (
+                    "type_other",
+                    models.CharField(
+                        blank=True, default=None, max_length=100, null=True
+                    ),
+                ),
+                (
+                    "url",
+                    models.CharField(
+                        blank=True, default=None, max_length=300, null=True
+                    ),
+                ),
+                (
+                    "profile",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="social_media",
+                        to="conferences.profile",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'SocialMedia',
-                'verbose_name_plural': 'Social Media',
-                'db_table': 'social_media',
+                "verbose_name": "SocialMedia",
+                "verbose_name_plural": "Social Media",
+                "db_table": "social_media",
             },
         ),
         migrations.CreateModel(
-            name='Resource',
+            name="Resource",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(blank=True, max_length=100, null=True)),
-                ('type', models.CharField(choices=[('file', 'File'), ('link', 'Link')], default='File', max_length=10)),
-                ('url', models.CharField(blank=True, default=None, max_length=200, null=True)),
-                ('file', models.FileField(blank=True, default=None, null=True, upload_to='resources/')),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('last_update', models.DateTimeField(auto_now=True)),
-                ('talk', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='resources', to='conferences.talk')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(blank=True, max_length=100, null=True)),
+                (
+                    "type",
+                    models.CharField(
+                        choices=[("file", "File"), ("link", "Link")],
+                        default="File",
+                        max_length=10,
+                    ),
+                ),
+                (
+                    "url",
+                    models.CharField(
+                        blank=True, default=None, max_length=200, null=True
+                    ),
+                ),
+                (
+                    "file",
+                    models.FileField(
+                        blank=True, default=None, null=True, upload_to="resources/"
+                    ),
+                ),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("last_update", models.DateTimeField(auto_now=True)),
+                (
+                    "talk",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="resources",
+                        to="conferences.talk",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Resource',
-                'verbose_name_plural': 'resources',
-                'db_table': 'resources',
+                "verbose_name": "Resource",
+                "verbose_name_plural": "resources",
+                "db_table": "resources",
             },
         ),
     ]

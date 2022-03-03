@@ -7,20 +7,21 @@ class SocialMediaInline(admin.TabularInline):
     model = SocialMedia
     extra = 0
 
+
 class ProfileAdmin(admin.ModelAdmin):
     model = Profile
     list_display = (
         "id",
-        "first_name", 
+        "first_name",
         "last_name",
         "email",
         "is_speaker",
         "is_organizer",
     )
     search_fields = (
-        'fist_name',
-        'last_name',
-        'user__email',
+        "fist_name",
+        "last_name",
+        "user__email",
     )
     inlines = [
         SocialMediaInline,

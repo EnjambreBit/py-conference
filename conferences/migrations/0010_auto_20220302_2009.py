@@ -6,24 +6,34 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0009_populate_countries_database'),
+        ("conferences", "0009_populate_countries_database"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='contactinformation',
-            options={'verbose_name': 'Contact Information', 'verbose_name_plural': 'contact information'},
+            name="contactinformation",
+            options={
+                "verbose_name": "Contact Information",
+                "verbose_name_plural": "contact information",
+            },
         ),
         migrations.AlterModelOptions(
-            name='socialmedia',
-            options={'verbose_name': 'Social media link', 'verbose_name_plural': 'Social media links'},
+            name="socialmedia",
+            options={
+                "verbose_name": "Social media link",
+                "verbose_name_plural": "Social media links",
+            },
         ),
         migrations.AlterModelOptions(
-            name='sponsorlevel',
-            options={'ordering': ['-priority'], 'verbose_name': 'Sponsor level', 'verbose_name_plural': 'Sponsor levels'},
+            name="sponsorlevel",
+            options={
+                "ordering": ["-priority"],
+                "verbose_name": "Sponsor level",
+                "verbose_name_plural": "Sponsor levels",
+            },
         ),
         migrations.AlterModelOptions(
-            name='talkroom',
-            options={'verbose_name': 'Talk room', 'verbose_name_plural': 'Talk rooms'},
+            name="talkroom",
+            options={"verbose_name": "Talk room", "verbose_name_plural": "Talk rooms"},
         ),
     ]

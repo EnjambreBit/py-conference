@@ -26,10 +26,10 @@ class Resource(PolymorphicModel):
 class ResourceFile(Resource):
     file = models.FileField(upload_to="resources/", default=None, blank=True, null=True)
 
+
 class ResourceImage(Resource):
     photo = ImageField(upload_to="resources/", default=None, blank=True, null=True)
 
+
 class ResourceLink(Resource):
     url = models.CharField(max_length=200, default=None, blank=True, null=True)
-
-

@@ -11,7 +11,9 @@ class Profile(models.Model):
         ("prefer no say", "Prefer no say"),
         ("other", "Other"),
     )
-    user = models.OneToOneField(User, related_name="profile", null=True, blank=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(
+        User, related_name="profile", null=True, blank=True, on_delete=models.CASCADE
+    )
     first_name = models.CharField(max_length=200, default=None, blank=True, null=True)
     last_name = models.CharField(max_length=200, default=None, blank=True, null=True)
     nickname = models.CharField(max_length=100, default=None, blank=True, null=True)

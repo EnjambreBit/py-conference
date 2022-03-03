@@ -8,8 +8,8 @@ class StaticPageSerializer(ModelSerializer):
     class Meta:
         model = StaticPage
         fields = (
-            'id',
-            'title',
+            "id",
+            "title",
             "content",
             "format",
             "rendered_content",
