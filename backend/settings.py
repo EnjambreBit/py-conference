@@ -15,9 +15,10 @@ env = environ.Env(
     DEBUG=(bool, True),
     DATABASE_URL=(str, ""),
     ENVIROMENT=(str, "DEVELOPMENT"),
-    ALLOWED_HOSTS=(str, "127.0.0.1"),
+    ALLOWED_HOSTS=(str, "127.0.0.1;localhost"),
     ENABLE_SENTRY=(bool, False),
     SENTRY_DSN=(str, ""),
+    SECRET_KEY=(str, "demo123"),
 )
 environ.Env.read_env()
 
@@ -86,20 +87,24 @@ WSGI_APPLICATION = "backend.wsgi.application"
 DATABASES = {}
 DATABASES["default"] = dj_database_url.parse(env("DATABASE_URL"), conn_max_age=600)
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
-    },
-]
+if ENVIROMENT == "DEVELOPMENT":
+    AUTH_PASSWORD_VALIDATORS = []
+
+else:
+    AUTH_PASSWORD_VALIDATORS = [
+        {
+            "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        },
+        {
+            "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        },
+        {
+            "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+        },
+        {
+            "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        },
+    ]
 
 
 LANGUAGE_CODE = "es"
