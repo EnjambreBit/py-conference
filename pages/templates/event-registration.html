@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_content %}
+  <div class="container">
+    <div class="h3 pt-3 px-3">
+      {{ event.name }} Registration Form
+    </div>
+
+    <div class="p-3">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at molestie 
+      urna, sit amet semper dolor. In hac habitasse platea dictumst. Aenean 
+      placerat elit a molestie cursus. Fusce ut augue nulla. Fusce interdum lorem 
+      dui, in suscipit est maximus ac. Sed eget ligula dapibus, mollis tellus vitae, 
+      efficitur risus. Quisque eu vehicula dolor. Maecenas dignissim tristique 
+      nulla, ac ultrices mi ornare non. Aenean dictum nisi ut arcu aliquet, sed 
+      sagittis enim pharetra.
+    </div>
+
+
+        <form action="#" method="post">
+          {% csrf_token %}
+          
+          <div class="row">
+          {% for field in form %}
+            <div class="col-md-6">
+              <div class="form-group p-3">
+                <label for="{{ field.name }}">{{ field.label }}</label>
+                {{ field }}
+              </div>
+            </div>
+          {% endfor %}
+          </div>
+
+          <div class="p-3">
+            <input type="submit" value="Registrarse" class="btn btn-primary">
+          </div>
+          
+        </form>
+      </div>
+    </div>
+    
+  </div>
+{% endblock %}

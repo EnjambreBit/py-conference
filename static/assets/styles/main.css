@@ -1,0 +1,13 @@
+/** Main styles **/
+
+.w4 {
+    width: 3rem;
+}
+
+.white {
+    color: white;
+}
+
+.bg-black {
+    background-color: black !important;
+}
