@@ -15,8 +15,6 @@ class ProfileAdmin(admin.ModelAdmin):
         "first_name",
         "last_name",
         "email",
-        "is_speaker",
-        "is_organizer",
     )
     search_fields = (
         "fist_name",

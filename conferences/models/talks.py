@@ -28,6 +28,7 @@ class Talk(models.Model):
     )
 
     name = models.CharField(max_length=200, default=None, blank=True, null=True)
+    event = models.ForeignKey("Event", related_name="talks", on_delete=models.CASCADE, blank=True, null=True, default=None)
     talk_type = models.CharField(
         max_length=30, choices=TALKS_TYPE, default=None, blank=True, null=True
     )

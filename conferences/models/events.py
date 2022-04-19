@@ -4,6 +4,7 @@ from django.db import models
 
 class Event(models.Model):
     name = models.CharField(max_length=200, default=None, blank=True, null=True)
+    description = models.TextField(default=None, null=True, blank=True)
     timezone = models.CharField(
         max_length=100, default="Europe/London", blank=True, null=True
     )
@@ -20,9 +21,11 @@ class Event(models.Model):
         max_length=300, default=None, blank=True, null=True
     )
     registration_enabled = models.BooleanField(default=False)
+    active = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    
 
     class Meta:
         db_table = "events"

@@ -10,12 +10,13 @@ class EventAdmin(admin.ModelAdmin):
         "timezone",
         "start_date",
         "end_date",
+        "active",
     )
 
-    def has_add_permission(self, request, obj=None):
-        if Event.objects.count() > 0:
-            return False
-        return True
+    # def has_add_permission(self, request, obj=None):
+    #     if Event.objects.count() > 0:
+    #         return False
+    #     return True
 
-    def has_delete_permission(self, request, obj=None):
-        return False
+    # def has_delete_permission(self, request, obj=None):
+    #     return False

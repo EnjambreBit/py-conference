@@ -30,7 +30,7 @@ from conferences.admin_class.resources import (
     ResourceLink,
     ResourceLinkAdmin,
 )
-
+from conferences.admin_class.event_registrations import EventRegistration, EventRegistrationAdmin
 
 # Register your models here.
 admin.site.register(Country, CountryAdmin)
@@ -47,6 +47,7 @@ admin.site.register(SponsorLevel, SponsorLevelAdmin)
 admin.site.register(Sponsor, SponsorAdmin)
 admin.site.register(Grant, GrantAdmin)
 admin.site.register(StaticPage, StaticPageAdmin)
+admin.site.register(EventRegistration, EventRegistrationAdmin)
 
 # polymorphic
 admin.site.register(Resource, ResourceAdmin)
