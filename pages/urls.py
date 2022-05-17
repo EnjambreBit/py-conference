@@ -12,6 +12,7 @@ from pages.views.sponsors import sponsors_page
 # Create your views here.
 urlpatterns = [
     path("register", profile_register, name="register"),
+    path("registration-successful", render_static_page, {"template_name": "event-registration-successful.html"}, name="registration-successful"),
     path("location", location_page, name="location"),
     path("cronogram", event_cronogram_page, name="cronogram"),
     path("sponsors", sponsors_page, name="sponsors"),
