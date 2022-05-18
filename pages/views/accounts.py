@@ -1,7 +1,7 @@
 from django.views.generic.base import TemplateView
-from django.views import View
-from django.http import HttpResponse
+from django.views.generic.edit import FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 from conferences.models.profiles import Profile
 
