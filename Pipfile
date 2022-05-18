@@ -22,6 +22,7 @@ gunicorn = "*"
 django-rest-polymorphic = "*"
 django-polymorphic = "*"
 django-filter = "*"
+django-widget-tweaks = "*"
 
 [dev-packages]
 
