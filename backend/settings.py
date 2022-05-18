@@ -30,6 +30,9 @@ CORS_ORIGIN_WHITELIST = [f"http://{url}" for url in env("ALLOWED_HOSTS").split("
 CORS_ORIGIN_WHITELIST += [f"https://{url}" for url in env("ALLOWED_HOSTS").split(";")]
 CORS_ORIGIN_WHITELIST.sort()
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = "/"
+
 if env("ENABLE_SENTRY"):
     sentry_sdk.init(
         dsn=env("SENTRY_DSN"),
@@ -48,6 +51,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "sorl.thumbnail",
     "rest_framework",
+    'widget_tweaks',
     "conferences",
     "pages",
 ]

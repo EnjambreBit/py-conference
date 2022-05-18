@@ -28,7 +28,7 @@
   <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-        <img class="w4" src="{% static 'assets/images/scipy-icon.svg' %}" alt="">
+        <img class="w2" src="{% static 'assets/images/scipy-icon.svg' %}" alt="">
         <span class="fs-4 px-3"> {{ event.name }} </span>
       </a>
 
@@ -41,9 +41,16 @@
         <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
       </ul>
 
-      <div class="col-md-1 text-end">
-        <button type="button" class="btn btn-outline-primary me-2">Login</button>
-      </div>
+      {% if user.is_authenticated %}
+        <div class="col-md-1 pt-2 text-end">
+          
+          <a href="{% url 'profile' %}" class="no-underline bold">{{ user.email }}</a>
+        </div>
+      {% else %}
+        <div class="col-md-1 text-end">
+          <a href="{% url 'login' %}" class="btn btn-outline-primary me-2">Login</a>
+        </div>
+      {% endif %}
     </header>
   </div>
 
@@ -55,7 +62,8 @@
   <div class="container">
     <footer class="p-4">
       <div class="d-flex justify-content-between py-3 border-top">
-        <p>&copy; 2022 EnjambreBit SRL.</p>
+        <!-- <p>&copy; 2022 EnjambreBit SRL.</p> -->
+        <div></div>
         <ul class="list-unstyled d-flex">
           <li class="ms-3"><a href="#" class="text-dark"><i class="fa-brands fa-facebook fa-xl"></i></a></li>
           <li class="ms-3"><a href="#" class="text-dark"><i class="fa-brands fa-twitter fa-xl"></i></a></li>
