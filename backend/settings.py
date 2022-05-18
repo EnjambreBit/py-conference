@@ -24,6 +24,7 @@ env = environ.Env(
     EMAIL_HOST_USER=(str, ""),
     EMAIL_HOST_PASSWORD=(str, ""),
     EMAIL_USE_TLS=(bool, False),
+    MEDIA_ROOT=(str, "")
 )
 environ.Env.read_env()
 
@@ -135,10 +136,12 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-STATIC_ROOT = "/static/"
+STATIC_ROOT = "staticfiles"
 STATIC_URL = "/static/"
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
-MEDIA_ROOT = os.environ.get("MEDIA_ROOT", "media_archivos_locales")
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+MEDIA_ROOT = os.environ.get("MEDIA_ROOT", "media")
 MEDIA_URL = "/media/"
 
 
