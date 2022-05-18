@@ -137,7 +137,8 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-STATIC_ROOT = os.environ.get("STATIC_ROOT", "staticfiles")
+#STATIC_ROOT = os.environ.get("STATIC_ROOT", "staticfiles")
+STATIC_ROOT = "staticfiles"
 STATIC_URL = "/static/"
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
