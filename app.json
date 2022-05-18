@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "dokku": {
+      "predeploy": "python manage.py collectstatic --noinput"
+    }
+  }
+}
+
+  
