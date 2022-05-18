@@ -22,6 +22,7 @@ comandos:
 	@echo "	${G}realizar_backup${N}:     Realizar backup de la base de datos"
 	@echo "	${G}cargar_ultimo_dump${N}:  Cargar ultimo backup"
 	@echo "	${G}blacked${N}:             Unificar estilo de codigo"
+	@echo "	${G}deploy${N}:              Push app on dokku server"
 	@echo ""
 
 iniciar:
@@ -54,4 +55,7 @@ cargar_ultimo_dump:
 	@make migrar
 
 blacked:
-	@echo pipenv run python black .
+	@pipenv run black .
+
+deploy:
+	@git push dokku main:master
