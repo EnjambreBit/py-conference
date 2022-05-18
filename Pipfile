@@ -23,6 +23,7 @@ django-rest-polymorphic = "*"
 django-polymorphic = "*"
 django-filter = "*"
 django-widget-tweaks = "*"
+whitenoise = "*"
 
 [dev-packages]
 
