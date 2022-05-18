@@ -17,7 +17,14 @@ class Grant(models.Model):
     profile = models.ForeignKey(
         "Profile", related_name="grants", on_delete=models.CASCADE
     )
-    event = models.ForeignKey("Event", related_name="grants", on_delete=models.CASCADE, blank=True, null=True, default=None)
+    event = models.ForeignKey(
+        "Event",
+        related_name="grants",
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        default=None,
+    )
     status = models.CharField(max_length=20, choices=STATUS, default="requested")
     type = models.CharField(max_length=20, choices=TYPES, default="other")
     reasons = models.TextField(default=None, blank=True, null=True)

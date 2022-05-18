@@ -30,7 +30,10 @@ from conferences.admin_class.resources import (
     ResourceLink,
     ResourceLinkAdmin,
 )
-from conferences.admin_class.event_registrations import EventRegistration, EventRegistrationAdmin
+from conferences.admin_class.event_registrations import (
+    EventRegistration,
+    EventRegistrationAdmin,
+)
 
 # Register your models here.
 admin.site.register(Country, CountryAdmin)

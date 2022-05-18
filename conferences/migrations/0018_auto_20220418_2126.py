@@ -6,25 +6,25 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0017_event_active'),
+        ("conferences", "0017_event_active"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='profile',
-            name='asked_for_a_grant',
+            model_name="profile",
+            name="asked_for_a_grant",
         ),
         migrations.RemoveField(
-            model_name='profile',
-            name='is_organizer',
+            model_name="profile",
+            name="is_organizer",
         ),
         migrations.RemoveField(
-            model_name='profile',
-            name='is_speaker',
+            model_name="profile",
+            name="is_speaker",
         ),
         migrations.AddField(
-            model_name='event',
-            name='description',
+            model_name="event",
+            name="description",
             field=models.TextField(blank=True, default=None, null=True),
         ),
     ]

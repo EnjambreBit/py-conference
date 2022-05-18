@@ -32,8 +32,8 @@
         <span class="fs-4 px-3"> {{ event.name }} </span>
       </a>
 
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-end mb-md-0">
-        <li><a href="{% url 'register' %}" class="nav-link px-2 link-secondary">Register</a></li>
+      <ul class="nav col-10 col-md-auto mb-2 justify-content-end mb-md-0">
+        <li><a href="{% url 'available_events' %}" class="nav-link px-2 link-secondary">Register</a></li>
         <li><a href="{% url 'location' %}" class="nav-link px-2 link-dark">Location</a></li>
         <li><a href="{% url 'cronogram' %}" class="nav-link px-2 link-dark">Cronogram</a></li>
         <li><a href="{% url 'sponsors' %}" class="nav-link px-2 link-dark">Sponsors</a></li>
@@ -42,13 +42,13 @@
       </ul>
 
       {% if user.is_authenticated %}
-        <div class="col-md-1 pt-2 text-end">
-          
+        <div class="col-md-2 pt-2 text-end">
           <a href="{% url 'profile' %}" class="no-underline bold">{{ user.email }}</a>
         </div>
       {% else %}
-        <div class="col-md-1 text-end">
-          <a href="{% url 'login' %}" class="btn btn-outline-primary me-2">Login</a>
+        <div class="col-md-2 text-end">
+          <a href="{% url 'login' %}" class="btn btn-outline-primary me-2">Log in</a>
+          <a href="{% url 'login' %}" class="btn btn-outline-primary me-2">Sign up</a>
         </div>
       {% endif %}
     </header>
@@ -60,8 +60,8 @@
 
 
   <div class="container">
-    <footer class="p-4">
-      <div class="d-flex justify-content-between py-3 border-top">
+    <footer class="pv-4">
+      <div class="d-flex justify-content-between py-3 border-top p-4">
         <!-- <p>&copy; 2022 EnjambreBit SRL.</p> -->
         <div></div>
         <ul class="list-unstyled d-flex">

@@ -1,5 +1,4 @@
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
@@ -12,7 +11,10 @@ class ProfileView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         try:
-            context["profile"] = Profile.objects.get(user=self.request.user)
+            profile = Profile.objects.get(user=self.request.user)
+            context["profile"] = profile
+            context["registrations"] = profile.registrations.all()
+            
         except Profile.DoesNotExist:
             context["profile"] = None
         

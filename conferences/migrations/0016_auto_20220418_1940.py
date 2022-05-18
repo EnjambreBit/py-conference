@@ -7,27 +7,52 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0015_alter_staticpage_slug'),
+        ("conferences", "0015_alter_staticpage_slug"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='country',
-            options={'ordering': ['name'], 'verbose_name': 'Country', 'verbose_name_plural': 'countries'},
+            name="country",
+            options={
+                "ordering": ["name"],
+                "verbose_name": "Country",
+                "verbose_name_plural": "countries",
+            },
         ),
         migrations.AddField(
-            model_name='grant',
-            name='event',
-            field=models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='grants', to='conferences.event'),
+            model_name="grant",
+            name="event",
+            field=models.ForeignKey(
+                blank=True,
+                default=None,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="grants",
+                to="conferences.event",
+            ),
         ),
         migrations.AddField(
-            model_name='sponsor',
-            name='event',
-            field=models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='sponsors', to='conferences.event'),
+            model_name="sponsor",
+            name="event",
+            field=models.ForeignKey(
+                blank=True,
+                default=None,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="sponsors",
+                to="conferences.event",
+            ),
         ),
         migrations.AddField(
-            model_name='talk',
-            name='event',
-            field=models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='talks', to='conferences.event'),
+            model_name="talk",
+            name="event",
+            field=models.ForeignKey(
+                blank=True,
+                default=None,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="talks",
+                to="conferences.event",
+            ),
         ),
     ]

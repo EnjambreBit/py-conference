@@ -25,7 +25,6 @@ class Event(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
 
     class Meta:
         db_table = "events"
@@ -34,3 +33,6 @@ class Event(models.Model):
 
     def __str__(self):
         return self.name
+
+    def registered_menbers(self):
+        return self.registrations.count()

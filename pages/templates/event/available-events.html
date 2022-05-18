@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_content %}
+
+  <div class="container">
+    {% for object in object_list %}
+      <div class="mb-4">  
+        <div class="h3">
+          {{ object.name }}
+        </div>
+        <div class="border-bottom mb-3 f7">
+          {{ object.start_date }} / {{ object.end_date }}
+        </div>
+        <div class="mb-3">
+          {% if object.description %}
+            {{ object.description }}
+          {% else %}
+            No description available.
+          {% endif %}
+        </div>
+        <div>
+          {% if user.is_authenticated %}
+            {% if object.registration_enabled %}
+              <a href="{% url 'event_registration' object.id %}">Join Now</a>
+            {% else %}
+              <div class="alert alert-danger">
+                Registration is not enabled for this event.
+              </div>
+            {% endif %}
+            
+          {% else %}
+            <div class="alert alert-warning">
+              Please log in or register to be able to join this event.
+            </div>
+            <div>
+              <a href="{% url 'login' %}" class="">Log in</a> or
+              <a href="{% url 'login' %}" class="">Sign up</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}
+
+

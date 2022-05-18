@@ -7,24 +7,49 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0018_auto_20220418_2126'),
+        ("conferences", "0018_auto_20220418_2126"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='EventRegistration',
+            name="EventRegistration",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('is_speaker', models.BooleanField(default=False)),
-                ('is_organizer', models.BooleanField(default=False)),
-                ('asked_for_a_grant', models.BooleanField(default=False)),
-                ('event', models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='registrations', to='conferences.event')),
-                ('profile', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='registrations', to='conferences.profile')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("is_speaker", models.BooleanField(default=False)),
+                ("is_organizer", models.BooleanField(default=False)),
+                ("asked_for_a_grant", models.BooleanField(default=False)),
+                (
+                    "event",
+                    models.ForeignKey(
+                        blank=True,
+                        default=None,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="registrations",
+                        to="conferences.event",
+                    ),
+                ),
+                (
+                    "profile",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="registrations",
+                        to="conferences.profile",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Event Registration',
-                'verbose_name_plural': 'Events Registrations',
-                'db_table': 'event_registrations',
+                "verbose_name": "Event Registration",
+                "verbose_name_plural": "Events Registrations",
+                "db_table": "event_registrations",
             },
         ),
     ]

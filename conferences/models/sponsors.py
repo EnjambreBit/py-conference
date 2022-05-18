@@ -3,7 +3,14 @@ from sorl.thumbnail import ImageField
 
 
 class Sponsor(models.Model):
-    event = models.ForeignKey("Event", related_name="sponsors", on_delete=models.CASCADE, blank=True, null=True, default=None)
+    event = models.ForeignKey(
+        "Event",
+        related_name="sponsors",
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        default=None,
+    )
     name = models.CharField(max_length=200, default=None, blank=True, null=True)
     description = models.TextField(default=None, blank=True, null=True)
     logo = ImageField(upload_to="sponsors/logos/", default=None, blank=True, null=True)

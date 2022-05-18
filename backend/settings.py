@@ -19,6 +19,11 @@ env = environ.Env(
     ENABLE_SENTRY=(bool, False),
     SENTRY_DSN=(str, ""),
     SECRET_KEY=(str, "demo123"),
+    EMAIL_PORT=(int, 587),
+    EMAIL_HOST=(str, "smtp.gmail.com"),
+    EMAIL_HOST_USER=(str, ""),
+    EMAIL_HOST_PASSWORD=(str, ""),
+    EMAIL_USE_TLS=(bool, False),
 )
 environ.Env.read_env()
 
@@ -30,8 +35,7 @@ CORS_ORIGIN_WHITELIST = [f"http://{url}" for url in env("ALLOWED_HOSTS").split("
 CORS_ORIGIN_WHITELIST += [f"https://{url}" for url in env("ALLOWED_HOSTS").split(";")]
 CORS_ORIGIN_WHITELIST.sort()
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = "/"
+# Sentry Configuration
 
 if env("ENABLE_SENTRY"):
     sentry_sdk.init(
@@ -40,6 +44,15 @@ if env("ENABLE_SENTRY"):
         traces_sample_rate=1.0,
         send_default_pii=True,
     )
+
+# Email Settings
+
+EMAIL_PORT = os.environ.get("EMAIL_PORT")
+EMAIL_HOST = os.environ.get("EMAIL_HOST")
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
+EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS", "")
+
 
 INSTALLED_APPS = [
     "polymorphic",
@@ -51,7 +64,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "sorl.thumbnail",
     "rest_framework",
-    'widget_tweaks',
+    "widget_tweaks",
     "conferences",
     "pages",
 ]
@@ -109,6 +122,11 @@ else:
             "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
         },
     ]
+
+# Django.contrib.auth settings
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
 
 LANGUAGE_CODE = "es"

@@ -11,6 +11,8 @@ class EventAdmin(admin.ModelAdmin):
         "start_date",
         "end_date",
         "active",
+        "registration_enabled",
+        "registered_menbers",
     )
 
     # def has_add_permission(self, request, obj=None):
@@ -18,5 +20,6 @@ class EventAdmin(admin.ModelAdmin):
     #         return False
     #     return True
 
-    # def has_delete_permission(self, request, obj=None):
-    #     return False
+    def has_delete_permission(self, request, obj=None):
+        """Disable delete button for all events."""
+        return False
