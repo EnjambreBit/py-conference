@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
 
-from pages.forms.event_registration import EventRegistrationForm
+from pages.forms.account_registration import EventRegistrationForm
 from django.contrib.auth.models import User
 
 from django.views.generic import ListView

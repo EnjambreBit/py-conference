@@ -11,7 +11,8 @@ from pages.views.static_page import render_static_page
 from pages.views.event_cronogram import event_cronogram_page
 from pages.views.location import location_page
 from pages.views.sponsors import sponsors_page
-from pages.views.accounts import ProfileView
+from pages.views.accounts.account_profile_detail import ProfileDetailView
+from pages.views.accounts.account_registration import AccountRegistrationView
 from pages.views.not_implemented import NotImplementedView
 from pages.views.events.event_registration_list import EventRegistrationListView
 from pages.views.events.event_registration import EventRegistrationView
@@ -19,7 +20,8 @@ from pages.views.events.event_registration import EventRegistrationView
 
 # Create your views here.
 urlpatterns = [
-    path("accounts/profile/", ProfileView.as_view(), name="profile"),
+    path("accounts/profile/", ProfileDetailView.as_view(), name="profile"),
+    path("accounts/registration/", AccountRegistrationView.as_view(), name="registration"),
     path("accounts/profile/edit/", NotImplementedView.as_view(), name="profile_edit"),
     path(
         "accounts/change-password/",
