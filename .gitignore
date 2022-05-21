@@ -14,6 +14,8 @@ notebook/
 postgres_volume/
 notebook/
 releases/
-media_locale_files/
 media/
+media_files/
+media_locale_files/
+media_archivos_locales/
 *.sh
