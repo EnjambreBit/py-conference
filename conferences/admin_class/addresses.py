@@ -11,5 +11,6 @@ class AddressAdmin(admin.ModelAdmin):
         'city',
         'state',
         'country',
+        'zipcode',
     )
-
+    autocomplete_fields = ('country',)

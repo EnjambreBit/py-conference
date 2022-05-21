@@ -7,6 +7,7 @@ class Address(models.Model):
     city = models.CharField(max_length=200, default=None, blank=True, null=True)
     state = models.CharField(max_length=200, default=None, blank=True, null=True)
     country = models.ForeignKey("Country", on_delete=models.CASCADE, null=True, blank=True)
+    zipcode = models.CharField(max_length=100, default=None, blank=True, null=True)
     latitude = models.DecimalField(
         max_digits=10, decimal_places=7, default=None, blank=True, null=True
     )
