@@ -35,10 +35,16 @@
 .w-two-thirds { width: calc(100% / 1.5); }
 .w-auto { width: auto; }
 
+.w12rem {
+  width: 12rem;
+}
+
+
 /** Colors **/
 
 .white { color: white; }
 .black { color: black; }
+.black-80 { color: rgba(0,0,0,0.8); }
 .red { color: #FF4136; }
 
 .bg-red { background-color: #FF4136; }

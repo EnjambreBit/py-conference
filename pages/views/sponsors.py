@@ -18,10 +18,12 @@ class SponsorListView(TemplateView):
     def get_sponsors_groups_by_level(self):
         sponsors_groups_by_level = []
         for sponsor_level in SponsorLevel.objects.all().order_by("-priority"):
-            sponsors_groups_by_level.append(
-                {
-                    "detail": sponsor_level, 
-                    "sponsors": Sponsor.objects.filter(sponsor_level=sponsor_level, published=True)
-                }
-            )
+            queryset = Sponsor.objects.filter(sponsor_level=sponsor_level, published=True)
+            if queryset.count() > 0:
+                sponsors_groups_by_level.append(
+                    {
+                        "detail": sponsor_level, 
+                        "sponsors": queryset
+                    }
+                )
         return sponsors_groups_by_level

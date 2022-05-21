@@ -14,7 +14,7 @@ VERSION_NUMBER = "0.1.0"
 env = environ.Env(
     DEBUG=(bool, True),
     DATABASE_URL=(str, ""),
-    ENVIROMENT=(str, "DEVELOPMENT"),
+    ENVIRONMENT=(str, "DEVELOPMENT"),
     ALLOWED_HOSTS=(str, "127.0.0.1;localhost"),
     ENABLE_SENTRY=(bool, False),
     SENTRY_DSN=(str, ""),
@@ -30,7 +30,7 @@ env = environ.Env(
 environ.Env.read_env()
 
 DEBUG = env("DEBUG")
-ENVIROMENT = env("ENVIROMENT")
+ENVIRONMENT = env("ENVIRONMENT")
 
 ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(";")
 CORS_ORIGIN_WHITELIST = [f"http://{url}" for url in env("ALLOWED_HOSTS").split(";")]
@@ -107,7 +107,7 @@ WSGI_APPLICATION = "backend.wsgi.application"
 DATABASES = {}
 DATABASES["default"] = dj_database_url.parse(env("DATABASE_URL"), conn_max_age=600)
 
-if ENVIROMENT == "DEVELOPMENT":
+if ENVIRONMENT == "DEVELOPMENT":
     AUTH_PASSWORD_VALIDATORS = []
 
 else:

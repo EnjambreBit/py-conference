@@ -12,6 +12,7 @@ class Sponsor(models.Model):
         default=None,
     )
     name = models.CharField(max_length=200, default=None, blank=True, null=True)
+    url = models.CharField(max_length=200, default="https://", blank=True, null=True)
     description = models.TextField(default=None, blank=True, null=True)
     logo = ImageField(upload_to="sponsors/logos/", default=None, blank=True, null=True)
     sponsor_level = models.ForeignKey(
