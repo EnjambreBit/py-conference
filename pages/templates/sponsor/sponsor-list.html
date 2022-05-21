@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block body_content %}
+
+  <div class="container">
+    {% for sponsor_level in sponsors_level  %}
+    <div class=" mb-4">
+      <div class="border-bottom">
+        {{ sponsor_level.detail.name }}
+      </div>
+      {% for sponsor in sponsor_level.sponsors  %}
+      <div>
+        <img src="{{ sponsor.logo  }}" alt="">
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  
+{% endblock %}

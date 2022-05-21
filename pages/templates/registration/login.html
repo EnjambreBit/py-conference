@@ -28,10 +28,16 @@
         </div>
       </form>
 
-      <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+      <div class="mt-3">
+        <a href="{% url 'password_reset' %}">Lost password?</a>
+      </div>
+
+      <div class="mt-3">
+        <a href="{% url 'registration' %}">Sign Up</a>
+      </div>
 
       {% if form.errors %}
-        <div class="h7 red">
+        <div class="h7 alert alert-warning">
           Your username and password didn't match. Please try again.
         </div>
       {% endif %}

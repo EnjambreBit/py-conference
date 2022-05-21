@@ -13,16 +13,16 @@
       <h3>User Profile</h3>
     </div>
     <div class="row">
-      <div class="col-sm-6 col-md-2">Name: </div>
-      <div class="col-sm-6 col-md-10">{{ profile.full_name }}</div>
+      <div class="col-sm-6 col-md-1">Name: </div>
+      <div class="col-sm-6 col-md-11">{{ profile.full_name }}</div>
     </div>
     <div class="row">
-      <div class="col-sm-6 col-md-2">Email: </div>
-      <div class="col-sm-6 col-md-10">{{ profile.email }}</div>
+      <div class="col-sm-6 col-md-1">Email: </div>
+      <div class="col-sm-6 col-md-11">{{ profile.email }}</div>
     </div>
     <div class="row">
-      <div class="col-sm-6 col-md-2">Phone: </div>
-      <div class="col-sm-6 col-md-10">{{ profile.phone }}</div>
+      <div class="col-sm-6 col-md-1">Phone: </div>
+      <div class="col-sm-6 col-md-11">{{ profile.phone }}</div>
     </div>
   </div>
 
@@ -50,8 +50,16 @@
               <td> {{ registration.event.end_date }} </td>
               <td> {{ registration.event.active }} </td>
               <td> <a href="">Cronogram</a> </td>
+              <td></td>
             </tr>
           {% endfor %}
+
+          {% if not registrations|length %}
+              <tr>
+                <td colspan="6"> Don't have availables events. </td>
+              </tr>
+
+          {% endif %}
         </tbody>
       </table>
     </div>
