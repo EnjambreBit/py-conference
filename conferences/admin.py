@@ -34,6 +34,7 @@ from conferences.admin_class.event_registrations import (
     EventRegistration,
     EventRegistrationAdmin,
 )
+from conferences.admin_class.addresses import Address, AddressAdmin
 
 # Register your models here.
 admin.site.register(Country, CountryAdmin)
@@ -51,6 +52,7 @@ admin.site.register(Sponsor, SponsorAdmin)
 admin.site.register(Grant, GrantAdmin)
 admin.site.register(StaticPage, StaticPageAdmin)
 admin.site.register(EventRegistration, EventRegistrationAdmin)
+admin.site.register(Address, AddressAdmin)
 
 # polymorphic
 admin.site.register(Resource, ResourceAdmin)

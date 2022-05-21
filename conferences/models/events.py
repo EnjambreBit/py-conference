@@ -23,6 +23,8 @@ class Event(models.Model):
     registration_enabled = models.BooleanField(default=False)
     active = models.BooleanField(default=False)
 
+    address = models.OneToOneField("Address", on_delete=models.CASCADE, related_name="event", null=True, blank=True)
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
