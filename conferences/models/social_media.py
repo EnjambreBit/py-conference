@@ -20,6 +20,7 @@ class SocialMedia(models.Model):
         ("vine", "Vine"),
         ("flickr", "Flickr"),
         ("foursquare", "Foursquare"),
+        ("peertube", "PeerTube"),
         ("other", "Other"),
     )
     profile = models.ForeignKey(

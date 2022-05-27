@@ -8,9 +8,19 @@ class GrantAdmin(admin.ModelAdmin):
     list_display = (
         "id",
         "profile",
+        "event",
         "status",
+        "request_amount_str",
+        "approbed_amount_str",
+        "paid"
     )
     search_fields = (
         "profile__first_name",
         "profile__last_name",
+    )
+    autocomplete_fields = (
+        "profile", 
+        "event",
+        "approbed_by",
+        "paid_by",
     )

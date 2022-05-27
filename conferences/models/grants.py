@@ -1,3 +1,4 @@
+from statistics import mode
 from django.db import models
 
 
@@ -14,6 +15,12 @@ class Grant(models.Model):
         ("food", "Food"),
         ("other", "Other"),
     )
+    CURRENCIES = (
+        ('USD', 'US Dollar'),
+        ('EUR', 'Euro'),
+        ("ARS", "Pesos Argentinos"),
+        ("BRL", "Real"),
+    )
     profile = models.ForeignKey(
         "Profile", related_name="grants", on_delete=models.CASCADE
     )
@@ -29,6 +36,8 @@ class Grant(models.Model):
     type = models.CharField(max_length=20, choices=TYPES, default="other")
     reasons = models.TextField(default=None, blank=True, null=True)
     request_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    currency = models.CharField(max_length=10, default="ARS", choices=CURRENCIES)
+    usd_exchanged_rate = models.DecimalField(max_digits=10, decimal_places=5, default=0)
     approbed_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     approbed_date = models.DateField(default=None, null=True, blank=True)
     approbed_by = models.ForeignKey(
@@ -38,7 +47,6 @@ class Grant(models.Model):
         null=True,
         blank=True,
     )
-    paid = models.BooleanField(default=False)
     paid_date = models.DateField(default=None, null=True, blank=True)
     paid_by = models.ForeignKey(
         "Profile",
@@ -57,4 +65,18 @@ class Grant(models.Model):
         verbose_name_plural = "grants"
 
     def __str__(self):
-        return str(self.profile)
+        return f"{self.profile} - {self.request_amount} {self.currency}"
+
+    def request_amount_str(self):
+        return f"{self.request_amount} {self.currency}"
+
+    def approbed_amount_str(self):
+        if self.approbed_amount:
+            return f"{self.approbed_amount} {self.currency}"
+        return f"0.0 {self.currency}"
+    
+    def paid(self):
+        if self.paid_date:
+            return True
+        return False
+    paid.boolean = True
