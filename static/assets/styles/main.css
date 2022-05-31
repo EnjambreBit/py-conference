@@ -39,7 +39,6 @@
   width: 12rem;
 }
 
-
 /** Colors **/
 
 .white { color: white; }
@@ -72,6 +71,8 @@
 .strike       { text-decoration: line-through; }
 .underline    { text-decoration: underline; }
 .no-underline { text-decoration: none; }
+.text-left    { text-align: left; }
+.text-right   { text-align: right; }
 
 /** Others **/
 

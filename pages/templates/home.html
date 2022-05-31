@@ -6,8 +6,8 @@
   <div class="px-4 py-5 my-5 text-center">
     <img class="d-block mx-auto mb-4" src="{% static 'assets/images/scipy-logo.svg' %}" alt="">
     <h1 class="display-5 fw-bold">{{ event.name }}</h1>
-    <div class="col-lg-6 mx-auto text-left">
-      <p class="lead mb-4"> {{ event.description }} </p>
+    <div class="col-lg-6 mx-auto text-start">
+      <p class="lead mb-4"> {{ event.description|format_as_md }} </p>
     </div>
   </div>
 

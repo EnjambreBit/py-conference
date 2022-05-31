@@ -4,7 +4,7 @@ from django.conf.urls import include, url
 
 from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
 
-from pages.views.home import home_page
+from pages.views.home import HomePageView
 from pages.views.static_page import render_static_page
 
 # from pages.views.registration import profile_register
@@ -51,5 +51,5 @@ urlpatterns = [
     path("sponsors", SponsorListView.as_view(), name="sponsors"),
     
     path("pages/<slug:slug>/", render_static_page, name="page"),
-    path("", home_page, name="home"),
+    path("", HomePageView.as_view(), name="home"),
 ]
