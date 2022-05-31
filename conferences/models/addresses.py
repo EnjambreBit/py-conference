@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Address(models.Model):
+    name = models.CharField(max_length=200, default=None, blank=True, null=True)
     address_line_1 = models.CharField(max_length=200, default=None, blank=True, null=True)
     address_line_2 = models.CharField(max_length=200, default=None, blank=True, null=True)
     city = models.CharField(max_length=200, default=None, blank=True, null=True)
@@ -24,4 +25,4 @@ class Address(models.Model):
         verbose_name_plural = "addresses"
 
     def __str__(self):
-        return f"{self.address_line_1}, {self.city}, {self.state}, {self.country}"
+        return f"{self.name} - {self.address_line_1}, {self.city}, {self.state}, {self.country}"
