@@ -1,5 +1,3 @@
-from django.http import HttpResponse
-from django.template import loader
 from conferences.models.events import Event
 from django.views.generic import TemplateView
 

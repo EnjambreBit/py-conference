@@ -9,7 +9,7 @@ from pages.views.static_page import render_static_page
 
 # from pages.views.registration import profile_register
 from pages.views.event_cronogram import event_cronogram_page
-from pages.views.location import location_page
+from pages.views.location import LocationPageView
 from pages.views.accounts.account_profile_detail import ProfileDetailView
 from pages.views.accounts.account_registration import AccountRegistrationView
 from pages.views.not_implemented import NotImplementedView
@@ -47,7 +47,7 @@ urlpatterns = [
         EventRegistrationView.as_view(),
         name="event_registration",
     ),
-    path("location", location_page, name="location"),
+    path("location", LocationPageView.as_view(), name="location"),
     path("cronogram", event_cronogram_page, name="cronogram"),
     path("sponsors", SponsorListView.as_view(), name="sponsors"),
     path("pages/<slug:slug>/", render_static_page, name="page"),

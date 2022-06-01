@@ -135,7 +135,7 @@ LOGOUT_REDIRECT_URL = "/"
 LANGUAGE_CODE = "es"
 TIME_ZONE = "America/Argentina/Buenos_Aires"
 USE_I18N = True
-USE_L10N = True
+USE_L10N = False
 USE_TZ = True
 
 # STATIC_ROOT = os.environ.get("STATIC_ROOT", "staticfiles")
