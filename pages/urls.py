@@ -21,7 +21,9 @@ from pages.views.sponsors import SponsorListView
 # Create your views here.
 urlpatterns = [
     path("accounts/profile/", ProfileDetailView.as_view(), name="profile"),
-    path("accounts/registration/", AccountRegistrationView.as_view(), name="registration"),
+    path(
+        "accounts/registration/", AccountRegistrationView.as_view(), name="registration"
+    ),
     path("accounts/profile/edit/", NotImplementedView.as_view(), name="profile_edit"),
     path(
         "accounts/change-password/",
@@ -47,9 +49,7 @@ urlpatterns = [
     ),
     path("location", location_page, name="location"),
     path("cronogram", event_cronogram_page, name="cronogram"),
-
     path("sponsors", SponsorListView.as_view(), name="sponsors"),
-    
     path("pages/<slug:slug>/", render_static_page, name="page"),
     path("", HomePageView.as_view(), name="home"),
 ]

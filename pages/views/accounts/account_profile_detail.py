@@ -14,8 +14,8 @@ class ProfileDetailView(LoginRequiredMixin, TemplateView):
             profile = Profile.objects.get(user=self.request.user)
             context["profile"] = profile
             context["registrations"] = profile.registrations.all()
-            
+
         except Profile.DoesNotExist:
             context["profile"] = None
-        
+
         return context

@@ -7,28 +7,70 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0021_sponsor_url'),
+        ("conferences", "0021_sponsor_url"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Address',
+            name="Address",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('address_line_1', models.CharField(blank=True, default=None, max_length=200, null=True)),
-                ('address_line_2', models.CharField(blank=True, default=None, max_length=200, null=True)),
-                ('city', models.CharField(blank=True, default=None, max_length=200, null=True)),
-                ('state', models.CharField(blank=True, default=None, max_length=200, null=True)),
-                ('map_latitude', models.FloatField(blank=True, default=None, null=True)),
-                ('map_longitude', models.FloatField(blank=True, default=None, null=True)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('country', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='conferences.country')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "address_line_1",
+                    models.CharField(
+                        blank=True, default=None, max_length=200, null=True
+                    ),
+                ),
+                (
+                    "address_line_2",
+                    models.CharField(
+                        blank=True, default=None, max_length=200, null=True
+                    ),
+                ),
+                (
+                    "city",
+                    models.CharField(
+                        blank=True, default=None, max_length=200, null=True
+                    ),
+                ),
+                (
+                    "state",
+                    models.CharField(
+                        blank=True, default=None, max_length=200, null=True
+                    ),
+                ),
+                (
+                    "map_latitude",
+                    models.FloatField(blank=True, default=None, null=True),
+                ),
+                (
+                    "map_longitude",
+                    models.FloatField(blank=True, default=None, null=True),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "country",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="conferences.country",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Address',
-                'verbose_name_plural': 'addresses',
-                'db_table': 'addresses',
+                "verbose_name": "Address",
+                "verbose_name_plural": "addresses",
+                "db_table": "addresses",
             },
         ),
     ]

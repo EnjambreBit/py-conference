@@ -9,6 +9,3 @@ def event_cronogram_page(request):
         "event": Event.objects.filter(active=True).first(),
     }
     return HttpResponse(template.render(context, request))
-
-
-

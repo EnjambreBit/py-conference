@@ -13,4 +13,7 @@ class SponsorAdmin(admin.ModelAdmin):
         "published",
     )
     search_fields = ("name",)
-    list_filter =("event", "sponsor_level",)
+    list_filter = (
+        "event",
+        "sponsor_level",
+    )

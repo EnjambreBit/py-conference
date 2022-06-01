@@ -16,7 +16,9 @@ class EventRegistrationView(LoginRequiredMixin, DetailView):
 
         if self.request.user.is_authenticated:
             user_profile, _ = Profile.objects.get_or_create(user=self.request.user)
-            event_registration, _ = EventRegistration.objects.get_or_create(event=self.object, profile=user_profile)
+            event_registration, _ = EventRegistration.objects.get_or_create(
+                event=self.object, profile=user_profile
+            )
             context["event_registration"] = event_registration
             context["profile"] = user_profile
         return context

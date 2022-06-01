@@ -4,7 +4,6 @@ from conferences.models.events import Event
 from django.views.generic import TemplateView
 
 
-
 class HomePageView(TemplateView):
     template_name = "home.html"
 

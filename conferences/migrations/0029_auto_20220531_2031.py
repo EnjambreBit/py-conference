@@ -7,23 +7,41 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0028_alter_event_address'),
+        ("conferences", "0028_alter_event_address"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='profile',
-            name='address',
-            field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='profile', to='conferences.address'),
+            model_name="profile",
+            name="address",
+            field=models.OneToOneField(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="profile",
+                to="conferences.address",
+            ),
         ),
         migrations.AlterField(
-            model_name='event',
-            name='address',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='events', to='conferences.address'),
+            model_name="event",
+            name="address",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="events",
+                to="conferences.address",
+            ),
         ),
         migrations.AlterField(
-            model_name='room',
-            name='address',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='rooms', to='conferences.address'),
+            model_name="room",
+            name="address",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="rooms",
+                to="conferences.address",
+            ),
         ),
     ]

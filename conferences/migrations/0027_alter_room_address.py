@@ -7,13 +7,19 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0026_remove_grant_paid'),
+        ("conferences", "0026_remove_grant_paid"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='room',
-            name='address',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='room', to='conferences.address'),
+            model_name="room",
+            name="address",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="room",
+                to="conferences.address",
+            ),
         ),
     ]

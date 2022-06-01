@@ -6,23 +6,56 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0024_address_zipcode'),
+        ("conferences", "0024_address_zipcode"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='grant',
-            name='currency',
-            field=models.CharField(choices=[('USD', 'US Dollar'), ('EUR', 'Euro'), ('ARS', 'Pesos Argentinos'), ('BRL', 'Real')], default='ARS', max_length=10),
+            model_name="grant",
+            name="currency",
+            field=models.CharField(
+                choices=[
+                    ("USD", "US Dollar"),
+                    ("EUR", "Euro"),
+                    ("ARS", "Pesos Argentinos"),
+                    ("BRL", "Real"),
+                ],
+                default="ARS",
+                max_length=10,
+            ),
         ),
         migrations.AddField(
-            model_name='grant',
-            name='usd_exchanged_rate',
+            model_name="grant",
+            name="usd_exchanged_rate",
             field=models.DecimalField(decimal_places=5, default=0, max_digits=10),
         ),
         migrations.AlterField(
-            model_name='socialmedia',
-            name='type',
-            field=models.CharField(choices=[('web', 'Website'), ('facebook', 'Facebook'), ('twitter', 'Twitter'), ('instagram', 'Instagram'), ('telegram', 'Telegram'), ('youtube', 'Youtube'), ('linkedin', 'Linkedin'), ('github', 'Github'), ('gitlab', 'Gitlab'), ('reddit', 'Reddit'), ('google', 'Google'), ('pinterest', 'Pinterest'), ('snapchat', 'Snapchat'), ('tumblr', 'Tumblr'), ('vine', 'Vine'), ('flickr', 'Flickr'), ('foursquare', 'Foursquare'), ('peertube', 'PeerTube'), ('other', 'Other')], default='web', max_length=100),
+            model_name="socialmedia",
+            name="type",
+            field=models.CharField(
+                choices=[
+                    ("web", "Website"),
+                    ("facebook", "Facebook"),
+                    ("twitter", "Twitter"),
+                    ("instagram", "Instagram"),
+                    ("telegram", "Telegram"),
+                    ("youtube", "Youtube"),
+                    ("linkedin", "Linkedin"),
+                    ("github", "Github"),
+                    ("gitlab", "Gitlab"),
+                    ("reddit", "Reddit"),
+                    ("google", "Google"),
+                    ("pinterest", "Pinterest"),
+                    ("snapchat", "Snapchat"),
+                    ("tumblr", "Tumblr"),
+                    ("vine", "Vine"),
+                    ("flickr", "Flickr"),
+                    ("foursquare", "Foursquare"),
+                    ("peertube", "PeerTube"),
+                    ("other", "Other"),
+                ],
+                default="web",
+                max_length=100,
+            ),
         ),
     ]

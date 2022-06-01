@@ -16,8 +16,8 @@ class Grant(models.Model):
         ("other", "Other"),
     )
     CURRENCIES = (
-        ('USD', 'US Dollar'),
-        ('EUR', 'Euro'),
+        ("USD", "US Dollar"),
+        ("EUR", "Euro"),
         ("ARS", "Pesos Argentinos"),
         ("BRL", "Real"),
     )
@@ -74,9 +74,10 @@ class Grant(models.Model):
         if self.approbed_amount:
             return f"{self.approbed_amount} {self.currency}"
         return f"0.0 {self.currency}"
-    
+
     def paid(self):
         if self.paid_date:
             return True
         return False
+
     paid.boolean = True

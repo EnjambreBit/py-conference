@@ -7,44 +7,60 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0022_address'),
+        ("conferences", "0022_address"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='address',
-            name='map_latitude',
+            model_name="address",
+            name="map_latitude",
         ),
         migrations.RemoveField(
-            model_name='address',
-            name='map_longitude',
+            model_name="address",
+            name="map_longitude",
         ),
         migrations.RemoveField(
-            model_name='room',
-            name='latitude',
+            model_name="room",
+            name="latitude",
         ),
         migrations.RemoveField(
-            model_name='room',
-            name='longitude',
+            model_name="room",
+            name="longitude",
         ),
         migrations.AddField(
-            model_name='address',
-            name='latitude',
-            field=models.DecimalField(blank=True, decimal_places=7, default=None, max_digits=10, null=True),
+            model_name="address",
+            name="latitude",
+            field=models.DecimalField(
+                blank=True, decimal_places=7, default=None, max_digits=10, null=True
+            ),
         ),
         migrations.AddField(
-            model_name='address',
-            name='longitude',
-            field=models.DecimalField(blank=True, decimal_places=7, default=None, max_digits=10, null=True),
+            model_name="address",
+            name="longitude",
+            field=models.DecimalField(
+                blank=True, decimal_places=7, default=None, max_digits=10, null=True
+            ),
         ),
         migrations.AddField(
-            model_name='event',
-            name='address',
-            field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='event', to='conferences.address'),
+            model_name="event",
+            name="address",
+            field=models.OneToOneField(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="event",
+                to="conferences.address",
+            ),
         ),
         migrations.AddField(
-            model_name='room',
-            name='address',
-            field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='room', to='conferences.address'),
+            model_name="room",
+            name="address",
+            field=models.OneToOneField(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="room",
+                to="conferences.address",
+            ),
         ),
     ]

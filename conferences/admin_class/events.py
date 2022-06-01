@@ -14,9 +14,7 @@ class EventAdmin(admin.ModelAdmin):
         "registration_enabled",
         "registered_menbers",
     )
-    search_fields = (
-        "name",
-    )
+    search_fields = ("name",)
 
     # def has_add_permission(self, request, obj=None):
     #     if Event.objects.count() > 0:

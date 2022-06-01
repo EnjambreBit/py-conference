@@ -12,14 +12,14 @@ class GrantAdmin(admin.ModelAdmin):
         "status",
         "request_amount_str",
         "approbed_amount_str",
-        "paid"
+        "paid",
     )
     search_fields = (
         "profile__first_name",
         "profile__last_name",
     )
     autocomplete_fields = (
-        "profile", 
+        "profile",
         "event",
         "approbed_by",
         "paid_by",
