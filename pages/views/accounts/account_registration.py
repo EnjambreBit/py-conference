@@ -28,6 +28,14 @@ class AccountRegistrationView(FormView):
             nickname=form.cleaned_data["nickname"],
             gender=form.cleaned_data["gender"],
             phone=form.cleaned_data["phone"],
+            document_type=form.cleaned_data["document_type"],
+            document_number=form.cleaned_data["document_number"],
+            birth_date=form.cleaned_data["birth_date"],
+            company=form.cleaned_data["company"],
+            job_title=form.cleaned_data["job_title"],
+            institution_name=form.cleaned_data["institution_name"],
+            study_program=form.cleaned_data["study_program"],
+            student_id=form.cleaned_data["student_id"]
         )
 
         return HttpResponseRedirect(self.get_success_url())
