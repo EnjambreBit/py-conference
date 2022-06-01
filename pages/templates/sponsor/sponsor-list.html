@@ -5,19 +5,42 @@
   <div class="container">
     {% for sponsor_level in sponsors_level  %}
     <div class=" mb-4">
-      <div class="border-bottom h3">
+      <div class="h2 text-center p-3">
         {{ sponsor_level.detail.name }}
       </div>
-      <div class="text-center">
+      <div class="">
         {% for sponsor in sponsor_level.sponsors  %}
-        <a href="{{ sponsor.url }}" class="no-underline m-3">
+
+        <div class="container p-3">
+          <div class="row">
+            <div class="col-md-8 text-left">
+              <div class="h4">
+                {{ sponsor.name }}
+              </div>
+              <div>
+                {{ sponsor.description|format_as_md }}
+              </div>
+              <div>
+                Contact at <a href="{{ sponsor.url }}" target="_blank">{{ sponsor.url }}</a>
+              </div>
+            </div>
+            <div class="col-md-4 p-4 text-center">
+              <img src="{{ sponsor.logo.url  }}" alt="{{ sponsor.name }}" class="w-80">
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- <a href="{{ sponsor.url }}" class="no-underline m-3">
           <div class="w12rem tc">
             <img src="{{ sponsor.logo.url  }}" alt="{{ sponsor.name }}" class="w12rem mh4">
           </div>
           <div class="text-center black-80 w12rem h6 mt-1">
             {{ sponsor.name }}
           </div>
-        </a>
+        </a> -->
+
         {% endfor %}
       </div>
     </div>
