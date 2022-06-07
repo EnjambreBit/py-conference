@@ -110,3 +110,15 @@
   height: 12rem;
   border-radius: 50%;
 }
+
+* {
+  font-family: 'Red Hat Text','Open Sans', sans-serif;
+}
+
+.red-hat-font {
+  font-family: 'Red Hat Text';
+}
+
+.open-sans-font {
+  font-family: 'Open Sans';
+}

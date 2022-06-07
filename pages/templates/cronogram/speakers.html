@@ -2,7 +2,7 @@
 
 {% block body_content %}
   <div class="container minh-60vh">
-    <div class="flex">
+    <div class="flex mb-4">
       <div class="flex1 pt-4 pl-3">
         <div class="border"></div>
       </div>
@@ -14,21 +14,31 @@
       </div>
     </div>
 
-    <h2>Keynotes</h2>
+    <!-- <div class="mb-3 border-bottom">
+      <h2>Keynotes</h2>
+    </div> -->
 
     {% for speaker in speakers %}
-    <div class="row">
+    <div class="row mb-4 pb-4">
       <div class="col-md-3 text-center">
-        <img src="{{ speaker.photo }}" alt="" class="profile-photo-thumb">
+        {% if speaker.photo %}
+        <img src="{{ speaker.photo.url }}" alt="" class="profile-photo-thumb">
+        {% else %}
+        <img src="/static/assets/images/perfil-hombre-default.jpg" alt="" class="profile-photo-thumb">
+        {% endif %}
       </div>
       <div class="col-md-9">
         <div class="h4">
           {{ speaker.profile.full_name }}
         </div>
-        <div>
-          {{ speaker.profile.title }}
+        <div class="h7 mb-3 em">
+          {% if speaker.profile.job_title %}
+            {{ speaker.profile.job_title }}
+          {% endif %}
         </div>
-        Tincidunt fermentum quam potenti cubilia aliquet nisl vestibulum nunc. Ligula tempus libero sagittis eleifend curabitur. Eleifend commodo malesuada laoreet efficitur himenaeos faucibus massa fames. Molestie mauris arcu viverra faucibus vitae litora venenatis laoreet at rhoncus. Sollicitudin netus leo nisi purus ultrices risus mattis.
+        <div>
+          {{ speaker.biography|format_as_md }}
+        </div>
       </div>
     </div>
     {% endfor %}
