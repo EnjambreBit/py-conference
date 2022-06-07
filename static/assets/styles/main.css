@@ -87,6 +87,8 @@
 .text-left    { text-align: left; }
 .text-right   { text-align: right; }
 
+.em           { font-style: italic; }
+
 /** Others **/
 
 .parent {

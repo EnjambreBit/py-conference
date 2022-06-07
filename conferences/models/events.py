@@ -28,8 +28,8 @@ class Event(models.Model):
         blank=True,
     )
 
-    call_for_papers_page = models.ForeignKey("StaticPage", related_name="events_cfp_page", on_delete=models.CASCADE, null=True)
-    location_content = models.ForeignKey("StaticPage", related_name="events_location", on_delete=models.CASCADE, null=True)
+    call_for_papers_page = models.ForeignKey("StaticPage", related_name="events_cfp_page", on_delete=models.CASCADE, null=True, blank=True)
+    location_content = models.ForeignKey("StaticPage", related_name="events_location", on_delete=models.CASCADE, null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

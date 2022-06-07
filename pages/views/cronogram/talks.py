@@ -1,16 +1,23 @@
 from django.views.generic import TemplateView
 from conferences.models.events import Event
-from conferences.models.speakers_per_talk import SpeakerPerTalk
-from conferences.models.speakers import Speaker
+from conferences.models.talks import Talk
 
 
 class EventTalksPageView(TemplateView):
-    template_name = "talks.html"
+    template_name = "cronogram/talks.html"
 
     def get_context_data(self, **kwargs):
+        event_id = kwargs.get("pk", False)
+        if event_id:
+            event = Event.objects.get(id=event_id)
+        else:
+            event = Event.objects.filter(active=True).first()
+
+        talks = Talk.objects.filter(event=event, published=True)
+
         context = super().get_context_data(**kwargs)
-        event = Event.objects.filter(active=True).first()
-        context["event"] = event        
+        context["event"] = event
+        context["talks"] = talks
         return context
 
 

@@ -48,6 +48,10 @@ realizar_backup:
 	@echo "Creando el archivo ${DB_NOMBRE_DEL_DUMP}"
 	@pg_dump -F c ${NOMBRE_BD} > ${DB_NOMBRE_DEL_DUMP}
 
+realizar_backup_desde_produccion:
+	@echo "${G}Creando el archivo ${DB_NOMBRE_DEL_DUMP}${N}"
+	@ssh dokku@pythoncientifico.ar postgres:export conference > ${DB_NOMBRE_DEL_DUMP}
+
 cargar_ultimo_dump:
 	@echo "Se cargará el dump mas reciente: ${DB_DUMP_MAS_RECIENTE}"
 	dropdb --if-exists ${NOMBRE_BD} -e; createdb ${NOMBRE_BD}
@@ -59,3 +63,4 @@ blacked:
 
 deploy:
 	@git push dokku main:master
+
