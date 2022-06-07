@@ -58,9 +58,14 @@
         <div>
           {{ event.address.city }}, {{ event.address.state }}, {{ event.address.country.name }}
         </div>
-        
       </div>
     </div>
   </div>
 
+  <div class="container p-3">
+    {% if event.location_content %}
+      {{ event.location_content.content | format_as_md  }}
+    {% endif %}
+  </div>
+  
 {% endblock %}

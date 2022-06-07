@@ -1,4 +1,5 @@
 from operator import mod
+from statistics import mode
 from django.db import models
 
 
@@ -16,10 +17,6 @@ class Event(models.Model):
     # registration
     registration_start = models.DateField(default=None, null=True, blank=True)
     registration_end = models.DateField(default=None, null=True, blank=True)
-
-    registration_url = models.CharField(
-        max_length=300, default=None, blank=True, null=True
-    )
     registration_enabled = models.BooleanField(default=False)
     active = models.BooleanField(default=False)
 
@@ -30,6 +27,9 @@ class Event(models.Model):
         null=True,
         blank=True,
     )
+
+    call_for_papers_page = models.ForeignKey("StaticPage", related_name="events_cfp_page", on_delete=models.CASCADE, null=True)
+    location_content = models.ForeignKey("StaticPage", related_name="events_location", on_delete=models.CASCADE, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
