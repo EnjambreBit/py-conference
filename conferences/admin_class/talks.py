@@ -39,6 +39,7 @@ class TalkAdmin(admin.ModelAdmin):
     model = Talk
     list_display = (
         "id",
+        "event",
         "name",
         "language",
         "talk_type",
@@ -54,3 +55,7 @@ class TalkAdmin(admin.ModelAdmin):
         ResourceImageInline,
         ResourceLinkInline,
     ]
+    list_filter = (
+        "event",
+        "talk_type",
+    )

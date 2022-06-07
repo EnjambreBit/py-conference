@@ -6,8 +6,6 @@ from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
 
 from pages.views.home import HomePageView
 from pages.views.static_page import render_static_page
-
-from pages.views.event_cronogram import event_cronogram_page
 from pages.views.location import LocationPageView
 from pages.views.accounts.account_profile_detail import ProfileDetailView
 from pages.views.accounts.account_registration import AccountRegistrationView
@@ -15,6 +13,8 @@ from pages.views.not_implemented import NotImplementedView
 from pages.views.events.event_registration_list import EventRegistrationListView
 from pages.views.events.event_registration import EventRegistrationView
 from pages.views.sponsors import SponsorListView
+from pages.views.speakers import EventSpeakersPageView
+from pages.views.talks import EventTalksPageView
 
 
 # Create your views here.
@@ -47,7 +47,8 @@ urlpatterns = [
         name="event_registration",
     ),
     path("location", LocationPageView.as_view(), name="location"),
-    path("cronogram", event_cronogram_page, name="cronogram"),
+    path("talks", EventTalksPageView.as_view(), name="talks"),
+    path("speakers", EventSpeakersPageView.as_view(), name="speakers"),
     path("sponsors", SponsorListView.as_view(), name="sponsors"),
     path("pages/<slug:slug>/", render_static_page, name="static_page"),
     path("", HomePageView.as_view(), name="home"),

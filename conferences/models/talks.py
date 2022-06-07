@@ -66,3 +66,9 @@ class Talk(models.Model):
 
     def __str__(self):
         return self.name
+
+    def is_keynote(self):
+        return self.talk_type == "keynote"
+
+    def is_workshop(self):
+        return self.talk_type == "workshop"

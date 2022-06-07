@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block body_content %}
+  <div class="container minh-60vh">
+    <div class="flex">
+      <div class="flex1 pt-4 pl-3">
+        <div class="border"></div>
+      </div>
+      <div class="px-3">
+        <h1>{{ event.name }}</h1>
+      </div>
+      <div class="flex1 pt-4 pl-3">
+        <div class="border"></div>
+      </div>
+    </div>
+
+    <h2>Keynotes</h2>
+
+    {% for speaker in speakers %}
+    <div class="row">
+      <div class="col-md-3 text-center">
+        <img src="{{ speaker.photo }}" alt="" class="profile-photo-thumb">
+      </div>
+      <div class="col-md-9">
+        <div class="h4">
+          {{ speaker.profile.full_name }}
+        </div>
+        <div>
+          {{ speaker.profile.title }}
+        </div>
+        Tincidunt fermentum quam potenti cubilia aliquet nisl vestibulum nunc. Ligula tempus libero sagittis eleifend curabitur. Eleifend commodo malesuada laoreet efficitur himenaeos faucibus massa fames. Molestie mauris arcu viverra faucibus vitae litora venenatis laoreet at rhoncus. Sollicitudin netus leo nisi purus ultrices risus mattis.
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

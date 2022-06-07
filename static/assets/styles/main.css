@@ -39,8 +39,17 @@
   width: 12rem;
 }
 
-.mw42rem {
-  max-width: 38rem;
+.mw42rem { max-width: 38rem; }
+
+.minh-100vh { min-height: 100vh; }
+.minh-80vh { min-height: 80vh; }
+.minh-60vh { min-height: 60vh; }
+
+
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.flex1 {
+  flex: 1;
 }
 
 /** Colors **/
@@ -91,4 +100,11 @@
   display: table-cell;
   text-align: center;
   vertical-align: middle;
+}
+
+
+.profile-photo-thumb {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
 }
