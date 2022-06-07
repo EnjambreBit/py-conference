@@ -13,8 +13,8 @@ from pages.views.not_implemented import NotImplementedView
 from pages.views.events.event_registration_list import EventRegistrationListView
 from pages.views.events.event_registration import EventRegistrationView
 from pages.views.sponsors import SponsorListView
-from pages.views.speakers import EventSpeakersPageView
-from pages.views.talks import EventTalksPageView
+from pages.views.cronogram.speakers import EventSpeakersPageView
+from pages.views.cronogram.talks import EventTalksPageView
 
 
 # Create your views here.
