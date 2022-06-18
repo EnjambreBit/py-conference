@@ -24,6 +24,8 @@ django-polymorphic = "*"
 django-filter = "*"
 django-widget-tweaks = "*"
 whitenoise = "*"
+django-crispy-forms = "*"
+crispy-bootstrap5 = "*"
 
 [dev-packages]
 

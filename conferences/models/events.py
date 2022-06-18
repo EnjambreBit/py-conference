@@ -1,6 +1,6 @@
-from operator import mod
-from statistics import mode
 from django.db import models
+from django.utils import timezone
+
 
 
 class Event(models.Model):
@@ -46,3 +46,9 @@ class Event(models.Model):
 
     def registered_menbers(self):
         return self.registrations.count()
+
+    def call_for_talks_active(self):
+        now = timezone.now().date()
+        if now >= self.call_for_talks_start and now <= self.call_for_talks_end:
+            return True
+        return False

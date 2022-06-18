@@ -13,6 +13,13 @@ class Talk(models.Model):
         ("other", "Other"),
     )
 
+    STATUS = (
+        ("draft", "draft"),
+        ("in_review", "in_review"),
+        ("published", "published"),
+        ("rejected", "rejected"),
+    )
+
     LANGUAGES = (
         ("english", "English"),
         ("spanish", "Spanish"),
@@ -36,6 +43,7 @@ class Talk(models.Model):
         null=True,
         default=None,
     )
+    status = models.CharField(max_length=20, choices=STATUS, default="draft")
     talk_type = models.CharField(
         max_length=30, choices=TALKS_TYPE, default=None, blank=True, null=True
     )
@@ -54,7 +62,6 @@ class Talk(models.Model):
     summary = models.TextField(default=None, blank=True, null=True)
     description = models.TextField(default=None, blank=True, null=True)
     topics = models.TextField(default=None, blank=True, null=True)
-    published = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -72,3 +79,7 @@ class Talk(models.Model):
 
     def is_workshop(self):
         return self.talk_type == "workshop"
+
+    @property
+    def published(self):
+        return self.status == "published"

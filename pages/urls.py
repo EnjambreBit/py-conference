@@ -15,6 +15,7 @@ from pages.views.events.event_registration import EventRegistrationView
 from pages.views.sponsors import SponsorListView
 from pages.views.cronogram.speakers import EventSpeakersPageView
 from pages.views.cronogram.talks import EventTalksPageView
+from pages.views.events.event_talk_registration import EventTalkRegistrationView, EventTalkRegistrationSuccesfull
 
 
 # Create your views here.
@@ -46,6 +47,9 @@ urlpatterns = [
         EventRegistrationView.as_view(),
         name="event_registration",
     ),
+    path("events/<int:pk>/talks/talk-registration", EventTalkRegistrationView.as_view(), name="event-talk-registration"),
+    path("events/talks/talk-registration-succesfull/<int:pk>/", EventTalkRegistrationSuccesfull.as_view(), name="event-talk-registration-succesfull"),
+
     path("location", LocationPageView.as_view(), name="location"),
     path("talks", EventTalksPageView.as_view(), name="talks"),
     path("talks/<int:pk>/", EventTalksPageView.as_view(), name="event_talks"),
