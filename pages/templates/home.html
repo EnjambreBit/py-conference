@@ -4,7 +4,7 @@
 {% block body_content %}
   {{ block.super }}
 
-  <div class="px-4 py-5 my-5 text-center">
+  <div class="px-4 mb-5 text-center">
     <img class="d-block mx-auto mb-4" src="{% static 'assets/images/scipy-logo.svg' %}" alt="">
     <h1 class="display-5 fw-bold">{{ event.name }}</h1>
     
@@ -21,7 +21,6 @@
         {% if event.call_for_talks_active %}
           <a href="{% url 'event-talk-registration' event.id %}">Join as speaker</a>
         {% endif %}
-        
       </div>
     </div>
 

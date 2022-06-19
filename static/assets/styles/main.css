@@ -94,7 +94,6 @@
 .no-underline { text-decoration: none; }
 .text-left    { text-align: left; }
 .text-right   { text-align: right; }
-
 .em           { font-style: italic; }
 
 /** Others **/
@@ -129,4 +128,20 @@
 
 .open-sans-font {
   font-family: 'Open Sans';
+}
+
+.ttu {
+  text-transform: uppercase;
+}
+
+.navbar a.nav-link,
+.navbar .dropdown-item {
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #111 !important;
+}
+
+.navbar a.bold {
+  font-weight: 700;
 }

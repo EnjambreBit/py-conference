@@ -13,6 +13,15 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'home' %}">Home</a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Acerca de 
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="{% url 'talks' %}">Charlas</a></li>
+            <li><a class="dropdown-item" href="https://www.scipy.lat/es/scipycon.html" target="_blank">Conferencias anteriores</a></li>
+          </ul>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'available_events' %}">Registrate</a>
         </li>
@@ -24,15 +33,12 @@
             Cronograma
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a href="#" class="dropdown-item" href="{% url 'talks' %}">Charlas</a></li>
-            <li><a href="#" class="dropdown-item" href="{% url 'speakers' %}">Speakers</a></li>
+            <li><a class="dropdown-item" href="{% url 'talks' %}">Charlas</a></li>
+            <li><a class="dropdown-item" href="{% url 'speakers' %}">Speakers</a></li>
           </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'sponsors' %}">Sponsors</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://www.scipy.lat/es/scipycon.html" target="_blank">Conferencias</a>
         </li>
 
         <li class="nav-item">
