@@ -16,7 +16,7 @@ from pages.views.sponsors import SponsorListView
 from pages.views.cronogram.speakers import EventSpeakersPageView
 from pages.views.cronogram.talks import EventTalksPageView
 from pages.views.events.event_talk_registration import EventTalkRegistrationView, EventTalkRegistrationSuccesfull
-
+from pages.views.playground import PlaygroundView
 
 # Create your views here.
 urlpatterns = [
@@ -56,5 +56,7 @@ urlpatterns = [
     path("speakers", EventSpeakersPageView.as_view(), name="speakers"),
     path("sponsors", SponsorListView.as_view(), name="sponsors"),
     path("pages/<slug:slug>/", render_static_page, name="static_page"),
+    path("pages/<slug:slug>/", render_static_page, name="static_page"),
+    path("playground/", PlaygroundView.as_view(), name="playground"),
     path("", HomePageView.as_view(), name="home"),
 ]

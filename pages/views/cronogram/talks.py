@@ -13,7 +13,7 @@ class EventTalksPageView(TemplateView):
         else:
             event = Event.objects.filter(active=True).first()
 
-        talks = Talk.objects.filter(event=event, published=True)
+        talks = Talk.objects.filter(event=event, status="published")
 
         context = super().get_context_data(**kwargs)
         context["event"] = event

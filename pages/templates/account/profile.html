@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block body_content %}
+{{ block.super }}
   <div class="container text-end">
     <a href="{% url 'profile_edit' %}">Edit Profile</a>
     <a href="{% url 'change_password' %}">Change Password</a>

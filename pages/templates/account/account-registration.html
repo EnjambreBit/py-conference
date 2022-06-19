@@ -3,6 +3,8 @@
 {% load widget_tweaks %}
 
 {% block body_content %}
+  {{ block.super }}
+  
   <div class="container mw6 mx-auto py-4">
     <form method="post" action="{% url 'registration' %}">
       {% csrf_token %}
