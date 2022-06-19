@@ -18,8 +18,7 @@
             Acerca de 
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="{% url 'talks' %}">Charlas</a></li>
-            <li><a class="dropdown-item" href="https://www.scipy.lat/es/scipycon.html" target="_blank">Conferencias anteriores</a></li>
+            {% event_urls %}
           </ul>
         </li>
         <li class="nav-item">

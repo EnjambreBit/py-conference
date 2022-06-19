@@ -1,0 +1,8 @@
+{% for link in urls %}
+  {% if link.url %}
+  <li><a class="dropdown-item" href="{{ link.url }}" target="_blank">{{ link.name }}</a></li>
+  {% else %}
+  <li><a class="dropdown-item" href="{% url 'static_page' link.static_page.slug %}">{{ link.name }}</a></li>
+  {% endif %}
+  
+{% endfor %}

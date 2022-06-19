@@ -18,6 +18,9 @@ class EventRegistration(models.Model):
     is_organizer = models.BooleanField(default=False)
     asked_for_a_grant = models.BooleanField(default=False)
 
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
     class Meta:
         db_table = "event_registrations"
         verbose_name = "Event Registration"

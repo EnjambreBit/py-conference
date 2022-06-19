@@ -56,7 +56,6 @@ urlpatterns = [
     path("speakers", EventSpeakersPageView.as_view(), name="speakers"),
     path("sponsors", SponsorListView.as_view(), name="sponsors"),
     path("pages/<slug:slug>/", render_static_page, name="static_page"),
-    path("pages/<slug:slug>/", render_static_page, name="static_page"),
     path("playground/", PlaygroundView.as_view(), name="playground"),
     path("", HomePageView.as_view(), name="home"),
 ]
