@@ -67,6 +67,8 @@ INSTALLED_APPS = [
     "sorl.thumbnail",
     "rest_framework",
     "widget_tweaks",
+    "crispy_forms",
+    "crispy_bootstrap5",
     "conferences",
     "pages",
 ]
@@ -131,7 +133,11 @@ else:
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
+# Crispy Forms settings
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
+# TZ settings
 LANGUAGE_CODE = "es"
 TIME_ZONE = "America/Argentina/Buenos_Aires"
 USE_I18N = True

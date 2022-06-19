@@ -17,8 +17,8 @@
       <div>
         From {{ event.start_date }}
         to {{ event.end_date }} 
-        {% if event.call_for_papers_page %}
-          <a href="{% url 'static_page' event.call_for_papers_page.slug %}">Join as speaker</a>
+        {% if event.call_for_talks_active %}
+          <a href="{% url 'event-talk-registration' event.id %}">Join as speaker</a>
         {% endif %}
         
       </div>
