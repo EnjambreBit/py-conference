@@ -43,5 +43,11 @@
       </div>
     </div>
     {% endfor %}
+
+    {% if not_speakers %}
+    <div class="my-3 alert alert-warning">
+      Disculpe las molestias, aun no se ha publicado el cronograma de los oradores.
+    </div>
+    {% endif %}
   </div>
 {% endblock %}

@@ -13,6 +13,7 @@ class SponsorListView(TemplateView):
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
         context["sponsors_level"] = self.get_sponsors_groups_by_level()
+        context["not_sponsors"] = Sponsor.objects.filter(published=True).count() == 0
         return self.render_to_response(context)
 
     def get_sponsors_groups_by_level(self):

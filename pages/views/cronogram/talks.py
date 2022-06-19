@@ -18,6 +18,7 @@ class EventTalksPageView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["event"] = event
         context["talks"] = talks
+        context["not_talks"] = talks.count() == 0
         return context
 
 

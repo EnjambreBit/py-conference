@@ -15,5 +15,6 @@ class EventSpeakersPageView(TemplateView):
         speakers = Speaker.objects.filter(id__in=speakers_ids)
         context["event"] = event
         context["speakers"] = speakers
+        context["not_speakers"] = speakers.count() == 0
 
         return context

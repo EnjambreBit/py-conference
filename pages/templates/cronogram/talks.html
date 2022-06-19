@@ -83,6 +83,11 @@
     </div>
     {% endfor %}
 
+    {% if not_talks %}
+    <div class="my-3 alert alert-warning">
+      Disculpe las molestias, aun no se ha publicado el cronograma de charlas.
+    </div>
+    {% endif %}
 
   </div>
 {% endblock %}
