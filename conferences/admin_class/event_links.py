@@ -6,7 +6,10 @@ class EventLinkAdmin(admin.ModelAdmin):
     model = EventLink
     list_display = (
         'id',
-        'event',
+        'order',
         'name',
+        'event',
     )
-    
+    list_filter = (
+        "event",
+    )

@@ -145,3 +145,9 @@
 .navbar a.bold {
   font-weight: 700;
 }
+
+.no-bullet {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; 
+}

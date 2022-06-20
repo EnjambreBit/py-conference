@@ -8,4 +8,8 @@ class EventRegistrationAdmin(admin.ModelAdmin):
         "id",
         "profile",
         "event",
+        "created_at",
+    )
+    list_filter = (
+        "event",
     )

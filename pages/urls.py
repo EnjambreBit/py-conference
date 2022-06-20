@@ -17,6 +17,8 @@ from pages.views.cronogram.speakers import EventSpeakersPageView
 from pages.views.cronogram.talks import EventTalksPageView
 from pages.views.events.event_talk_registration import EventTalkRegistrationView, EventTalkRegistrationSuccesfull
 from pages.views.playground import PlaygroundView
+from pages.views.events.event_talk_preview import TalkPreviewView
+
 
 # Create your views here.
 urlpatterns = [
@@ -49,10 +51,13 @@ urlpatterns = [
     ),
     path("events/<int:pk>/talks/talk-registration", EventTalkRegistrationView.as_view(), name="event-talk-registration"),
     path("events/talks/talk-registration-succesfull/<int:pk>/", EventTalkRegistrationSuccesfull.as_view(), name="event-talk-registration-succesfull"),
+    path("events/talks/", EventTalksPageView.as_view(), name="talks"),
+    path("talks/preview/<int:pk>/", TalkPreviewView.as_view(), name="talk_preview"),
+    path("talks/edit/<int:pk>/", TalkPreviewView.as_view(), name="talk_edit"),
+    path("talks/edit/<int:pk>/upload-resource/", TalkPreviewView.as_view(), name="talk_upload_resource"),
+    path("talks/<int:pk>/", EventTalksPageView.as_view(), name="event_talks"),
 
     path("location", LocationPageView.as_view(), name="location"),
-    path("talks", EventTalksPageView.as_view(), name="talks"),
-    path("talks/<int:pk>/", EventTalksPageView.as_view(), name="event_talks"),
     path("speakers", EventSpeakersPageView.as_view(), name="speakers"),
     path("sponsors", SponsorListView.as_view(), name="sponsors"),
     path("pages/<slug:slug>/", render_static_page, name="static_page"),
