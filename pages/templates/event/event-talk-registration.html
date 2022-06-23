@@ -17,9 +17,11 @@
     <h3>Envio de Propuestas</h3>
   </div>
 
+  {% if event.call_for_papers_page %}
   <div class="mb-3">
     Adjuntamos una <a href="{% url 'static_page' event.call_for_papers_page.slug %}">guía de presentación de propuestas.</a>
   </div>
+  {% endif %}
 
   {% if user.is_authenticated %}
   <div class="">
