@@ -14,7 +14,11 @@
 
 <div class="container mw6 center mb-3">
   <div class="mt-3">
-    <h3>Talk proposal</h3>
+    <h3>Envio de Propuestas</h3>
+  </div>
+
+  <div class="mb-3">
+    Adjuntamos una <a href="{% url 'static_page' event.call_for_papers_page.slug %}">guía de presentación de propuestas.</a>
   </div>
 
   {% if user.is_authenticated %}

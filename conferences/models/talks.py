@@ -5,12 +5,13 @@ class Talk(models.Model):
     TALKS_TYPE = (
         ("talk", "Talk"),
         ("workshop", "Workshop"),
-        ("tutorial", "Tutorial"),
+        # ("tutorial", "Tutorial"),
         ("keynote", "Keynote"),
         ("lightning_talk", "Lightning Talk"),
+        ("sprints", "Sprints"),
         ("open_space", "Open Space"),
         ("panel", "Panel"),
-        ("other", "Other"),
+        # ("other", "Other"),
     )
 
     STATUS = (

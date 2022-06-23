@@ -17,3 +17,10 @@ class TalkRegistrationForm(forms.ModelForm):
             "topics",
             "description",
         ]
+        labels = {
+            "name": "Titulo de la propuesta",
+            "talk_type": "Tipo",
+            "summary": "Resumen / Abstract",
+            "topics": "Palabras claves / Keywords",
+            "description": "Descripcion Ampliada",
+        }
