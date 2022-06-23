@@ -12,14 +12,15 @@ class ProfileDetailView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        profile = None
         try:
             profile = Profile.objects.get(user=self.request.user)
-
         except Profile.DoesNotExist:
-            context["profile"] = None
+            pass
+
+        context["profile"] = profile
 
         if profile is not None:
-            context["profile"] = profile
             context["registrations"] = profile.registrations.all()
 
             speaker_profile = Speaker.objects.filter(profile=profile).first()
