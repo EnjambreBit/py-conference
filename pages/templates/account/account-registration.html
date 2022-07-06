@@ -6,19 +6,23 @@
   {{ block.super }}
   
   <div class="container mw6 mx-auto py-4">
+    <div class="h2 mb-3">
+      Registrarse
+    </div>
+    
     <form method="post" action="{% url 'registration' %}">
       {% csrf_token %}
 
-      <div class="form-group">
+      <div class="form-group mb-3">
         {{ form.email.label_tag }}
         {% render_field form.email class="form-control" %}
 
         {% if form.email.errors %}
-          <ol>
+          <ul>
             {% for error in form.email.errors %}
-              <li class="alert-warning h7 p-2 mt-3">{{ error|escape }}</li>
+              <li class="alert-warning h7 p-2 mt-1">{{ error|escape }}</li>
             {% endfor %}
-          </ol>
+          </ul>
         {% endif %}
       </div>
 
@@ -27,63 +31,63 @@
         {% render_field form.password class="form-control" %}
 
         {% if form.password.errors %}
-          <ol>
+          <ul>
             {% for error in form.password.errors %}
-              <li class="alert-warning h7 p-2 mt-3">{{ error|escape }}</li>
+              <li class="alert-warning h7 p-2 mt-1">{{ error|escape }}</li>
             {% endfor %}
-          </ol>
+          </ul>
         {% endif %}
       </div>
 
-      <div class="form-group">
+      <div class="form-group mb-3">
         {{ form.first_name.label_tag }}
         {% render_field form.first_name class="form-control" %}
 
         {% if form.first_name.errors %}
-          <ol>
+          <ul>
             {% for error in form.first_name.errors %}
-              <li class="alert-warning h7 p-2 mt-3">{{ error|escape }}</li>
+              <li class="alert-warning h7 p-2 mt-1">{{ error|escape }}</li>
             {% endfor %}
-          </ol>
+          </ul>
         {% endif %}
       </div>
 
-      <div class="form-group">
+      <div class="form-group mb-3">
         {{ form.last_name.label_tag }}
         {% render_field form.last_name class="form-control" %}
 
         {% if form.last_name.errors %}
-          <ol>
+          <ul>
             {% for error in form.last_name.errors %}
-              <li class="alert-warning h7 p-2 mt-3">{{ error|escape }}</li>
+              <li class="alert-warning h7 p-2 mt-1">{{ error|escape }}</li>
             {% endfor %}
-          </ol>
+          </ul>
         {% endif %}
       </div>
 
-      <div class="form-group">
+      <div class="form-group mb-3">
         {{ form.phone.label_tag }}
         {% render_field form.phone class="form-control" %}
 
         {% if form.phone.errors %}
-          <ol>
+          <ul>
             {% for error in form.phone.errors %}
-              <li class="alert-warning h7 p-2 mt-3">{{ error|escape }}</li>
+              <li class="alert-warning h7 p-2 mt-1">{{ error|escape }}</li>
             {% endfor %}
-          </ol>
+          </ul>
         {% endif %}
       </div>
 
-      <div class="form-group">
+      <div class="form-group mb-3">
         {{ form.nickname.label_tag }}
         {% render_field form.nickname class="form-control" %}
 
         {% if form.nickname.errors %}
-          <ol>
+          <ul>
             {% for error in form.nickname.errors %}
-              <li class="alert-warning h7 p-2 mt-3">{{ error|escape }}</li>
+              <li class="alert-warning h7 p-2 mt-1">{{ error|escape }}</li>
             {% endfor %}
-          </ol>
+          </ul>
         {% endif %}
       </div>
 
@@ -92,11 +96,11 @@
         {% render_field form.gender class="form-control" %}
 
         {% if form.gender.errors %}
-          <ol>
+          <ul>
             {% for error in form.gender.errors %}
-              <li class="alert-warning h7 p-2 mt-3">{{ error|escape }}</li>
+              <li class="alert-warning h7 p-2 mt-1">{{ error|escape }}</li>
             {% endfor %}
-          </ol>
+          </ul>
         {% endif %}
       </div>
 
@@ -105,11 +109,11 @@
         {% render_field form.birth_date class="form-control" %}
 
         {% if form.birth_date.errors %}
-          <ol>
+          <ul>
             {% for error in form.birth_date.errors %}
-              <li class="alert-warning h7 p-2 mt-3">{{ error|escape }}</li>
+              <li class="alert-warning h7 p-2 mt-1">{{ error|escape }}</li>
             {% endfor %}
-          </ol>
+          </ul>
         {% endif %}
       </div>
 
@@ -118,11 +122,11 @@
         {% render_field form.document_type class="form-control" %}
 
         {% if form.document_type.errors %}
-          <ol>
+          <ul>
             {% for error in form.document_type.errors %}
-              <li class="alert-warning h7 p-2 mt-3">{{ error|escape }}</li>
+              <li class="alert-warning h7 p-2 mt-1">{{ error|escape }}</li>
             {% endfor %}
-          </ol>
+          </ul>
         {% endif %}
       </div>
 
@@ -131,11 +135,11 @@
         {% render_field form.document_number class="form-control" %}
 
         {% if form.document_number.errors %}
-          <ol>
+          <ul>
             {% for error in form.document_number.errors %}
-              <li class="alert-warning h7 p-2 mt-3">{{ error|escape }}</li>
+              <li class="alert-warning h7 p-2 mt-1">{{ error|escape }}</li>
             {% endfor %}
-          </ol>
+          </ul>
         {% endif %}
       </div>
 
@@ -144,11 +148,11 @@
         {% render_field form.company class="form-control" %}
 
         {% if form.company.errors %}
-          <ol>
+          <ul>
             {% for error in form.company.errors %}
-              <li class="alert-warning h7 p-2 mt-3">{{ error|escape }}</li>
+              <li class="alert-warning h7 p-2 mt-1">{{ error|escape }}</li>
             {% endfor %}
-          </ol>
+          </ul>
         {% endif %}
       </div>
 
@@ -157,11 +161,11 @@
         {% render_field form.job_title class="form-control" %}
 
         {% if form.job_title.errors %}
-          <ol>
+          <ul>
             {% for error in form.job_title.errors %}
-              <li class="alert-warning h7 p-2 mt-3">{{ error|escape }}</li>
+              <li class="alert-warning h7 p-2 mt-1">{{ error|escape }}</li>
             {% endfor %}
-          </ol>
+          </ul>
         {% endif %}
       </div>
 
@@ -170,11 +174,11 @@
         {% render_field form.institution_name class="form-control" %}
 
         {% if form.institution_name.errors %}
-          <ol>
+          <ul>
             {% for error in form.institution_name.errors %}
-              <li class="alert-warning h7 p-2 mt-3">{{ error|escape }}</li>
+              <li class="alert-warning h7 p-2 mt-1">{{ error|escape }}</li>
             {% endfor %}
-          </ol>
+          </ul>
         {% endif %}
       </div>
 
@@ -183,11 +187,11 @@
         {% render_field form.study_program class="form-control" %}
 
         {% if form.study_program.errors %}
-          <ol>
+          <ul>
             {% for error in form.study_program.errors %}
-              <li class="alert-warning h7 p-2 mt-3">{{ error|escape }}</li>
+              <li class="alert-warning h7 p-2 mt-1">{{ error|escape }}</li>
             {% endfor %}
-          </ol>
+          </ul>
         {% endif %}
       </div>
 
@@ -196,16 +200,16 @@
         {% render_field form.student_id class="form-control" %}
 
         {% if form.student_id.errors %}
-          <ol>
+          <ul>
             {% for error in form.student_id.errors %}
-              <li class="alert-warning h7 p-2 mt-3">{{ error|escape }}</li>
+              <li class="alert-warning h7 p-2 mt-1">{{ error|escape }}</li>
             {% endfor %}
-          </ol>
+          </ul>
         {% endif %}
       </div>
 
       <div class="form-group mt-4">
-        <input type="submit"  value="Register" class="btn btn-primary w-100" />
+        <input type="submit"  value="Enviar" class="btn btn-primary w-100" />
       </div>
     </form>
   </div>

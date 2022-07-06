@@ -31,11 +31,11 @@
             
           {% else %}
             <div class="alert alert-warning">
-              Please log in or register to be able to join this event.
+              Inicie sesión o regístrese para poder unirse a este evento.
             </div>
             <div>
-              <a href="{% url 'login' %}" class="">Log in</a> or
-              <a href="{% url 'registration' %}" class="">Sign up</a>
+              <a href="{% url 'login' %}" class="">Iniciar sesión</a> ó
+              <a href="{% url 'registration' %}" class="">Regístrarse</a>
             </div>
           {% endif %}
         </div>
@@ -44,5 +44,3 @@
   </div>
 
 {% endblock %}
-
-

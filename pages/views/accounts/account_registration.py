@@ -13,6 +13,8 @@ class AccountRegistrationView(FormView):
     success_url = reverse_lazy("login")
 
     def form_valid(self, form):
+        print("xxx")
+
         email = form.cleaned_data["email"]
         password = form.cleaned_data["password"]
 
@@ -39,3 +41,8 @@ class AccountRegistrationView(FormView):
         )
 
         return HttpResponseRedirect(self.get_success_url())
+
+    def form_invalid(self, form):
+        response = super().form_invalid(form)
+        print("xxxx")
+        return response
