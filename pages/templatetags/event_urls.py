@@ -9,7 +9,4 @@ def event_urls():
     event = Event.objects.filter(active=True).first()
     if event:
         urls = event.event_links.filter(active=True).order_by("order")
-    return {
-        "event": event,
-        "urls": urls
-    }
+    return {"event": event, "urls": urls}

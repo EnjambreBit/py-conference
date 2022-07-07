@@ -17,4 +17,4 @@ class EventTalkUpdateView(TalkOwnerRequiredMixin, UpdateView):
         return super().get_context_data(**kwargs)
 
     def get_success_url(self):
-        return reverse_lazy("talk_preview", kwargs={'pk': self.get_object().id })
+        return reverse_lazy("talk_preview", kwargs={"pk": self.get_object().id})

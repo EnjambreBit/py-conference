@@ -19,7 +19,7 @@ class EventTalkRegistrationView(LoginRequiredMixin, FormView):
 
     def get_form(self, form_class=None):
         form = super().get_form(form_class)
-        form.fields['event'].widget = forms.HiddenInput()
+        form.fields["event"].widget = forms.HiddenInput()
         return form
 
     def get_initial(self):
@@ -44,7 +44,9 @@ class EventTalkRegistrationView(LoginRequiredMixin, FormView):
         return HttpResponseRedirect(self.get_success_url())
 
     def get_success_url(self):
-        return reverse_lazy("event-talk-registration-succesfull", kwargs={'pk': self.model.id })
+        return reverse_lazy(
+            "event-talk-registration-succesfull", kwargs={"pk": self.model.id}
+        )
 
 
 class EventTalkRegistrationSuccesfull(DetailView):

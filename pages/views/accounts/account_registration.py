@@ -37,7 +37,7 @@ class AccountRegistrationView(FormView):
             job_title=form.cleaned_data["job_title"],
             institution_name=form.cleaned_data["institution_name"],
             study_program=form.cleaned_data["study_program"],
-            student_id=form.cleaned_data["student_id"]
+            student_id=form.cleaned_data["student_id"],
         )
 
         return HttpResponseRedirect(self.get_success_url())

@@ -9,10 +9,12 @@ class TalkPreviewView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        
+
         talk = self.get_object()
         now = timezone.now().date()
         if now <= talk.event.end_date:
-            context["can_edit"] = talk.speakers_per_talk.filter(speaker__profile=self.request.user.profile).count()
+            context["can_edit"] = talk.speakers_per_talk.filter(
+                speaker__profile=self.request.user.profile
+            ).count()
 
-        return context  
+        return context

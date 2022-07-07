@@ -7,22 +7,36 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0031_auto_20220531_2220'),
+        ("conferences", "0031_auto_20220531_2220"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='event',
-            name='registration_url',
+            model_name="event",
+            name="registration_url",
         ),
         migrations.AddField(
-            model_name='event',
-            name='location_content',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='conferences.staticpage'),
+            model_name="event",
+            name="location_content",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="conferences.staticpage",
+            ),
         ),
         migrations.AlterField(
-            model_name='profile',
-            name='document_type',
-            field=models.CharField(blank=True, choices=[('passport', 'Passport'), ('dni', 'Documento Nacional de Identidad'), ('cuit/cuil', 'CUIT/CUIL')], default=None, max_length=100, null=True),
+            model_name="profile",
+            name="document_type",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("passport", "Passport"),
+                    ("dni", "Documento Nacional de Identidad"),
+                    ("cuit/cuil", "CUIT/CUIL"),
+                ],
+                default=None,
+                max_length=100,
+                null=True,
+            ),
         ),
     ]

@@ -6,13 +6,27 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0038_profile_country'),
+        ("conferences", "0038_profile_country"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='talk',
-            name='talk_type',
-            field=models.CharField(blank=True, choices=[('talk', 'Talk'), ('workshop', 'Workshop'), ('keynote', 'Keynote'), ('lightning_talk', 'Lightning Talk'), ('sprints', 'Sprints'), ('open_space', 'Open Space'), ('panel', 'Panel')], default=None, max_length=30, null=True),
+            model_name="talk",
+            name="talk_type",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("talk", "Talk"),
+                    ("workshop", "Workshop"),
+                    ("keynote", "Keynote"),
+                    ("lightning_talk", "Lightning Talk"),
+                    ("sprints", "Sprints"),
+                    ("open_space", "Open Space"),
+                    ("panel", "Panel"),
+                ],
+                default=None,
+                max_length=30,
+                null=True,
+            ),
         ),
     ]

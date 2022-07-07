@@ -10,8 +10,13 @@ class EventSpeakersPageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         event = Event.objects.filter(active=True).first()
-         
-        speakers_ids = [sp.speaker.id for sp in SpeakerPerTalk.objects.filter(talk__event=event, talk__status="published")]
+
+        speakers_ids = [
+            sp.speaker.id
+            for sp in SpeakerPerTalk.objects.filter(
+                talk__event=event, talk__status="published"
+            )
+        ]
         speakers = Speaker.objects.filter(id__in=speakers_ids)
         context["event"] = event
         context["speakers"] = speakers

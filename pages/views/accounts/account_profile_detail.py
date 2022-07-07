@@ -26,7 +26,10 @@ class ProfileDetailView(LoginRequiredMixin, TemplateView):
             speaker_profile = Speaker.objects.filter(profile=profile).first()
 
             if speaker_profile:
-                tids = [spt.talk.id for spt in SpeakerPerTalk.objects.filter(speaker=speaker_profile)]
+                tids = [
+                    spt.talk.id
+                    for spt in SpeakerPerTalk.objects.filter(speaker=speaker_profile)
+                ]
                 talks = Talk.objects.filter(id__in=tids)
                 context["talks"] = talks
                 context["is_speaker"] = True

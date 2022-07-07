@@ -6,17 +6,21 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0036_auto_20220619_1703'),
+        ("conferences", "0036_auto_20220619_1703"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='eventlink',
-            options={'ordering': ['order'], 'verbose_name': 'EventLink', 'verbose_name_plural': 'Event links'},
+            name="eventlink",
+            options={
+                "ordering": ["order"],
+                "verbose_name": "EventLink",
+                "verbose_name_plural": "Event links",
+            },
         ),
         migrations.AddField(
-            model_name='eventlink',
-            name='order',
+            model_name="eventlink",
+            name="order",
             field=models.IntegerField(default=0),
         ),
     ]

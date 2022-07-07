@@ -54,7 +54,7 @@ admin.site.register(Grant, GrantAdmin)
 admin.site.register(StaticPage, StaticPageAdmin)
 admin.site.register(EventRegistration, EventRegistrationAdmin)
 admin.site.register(Address, AddressAdmin)
-admin.site.register( EventLink, EventLinkAdmin)
+admin.site.register(EventLink, EventLinkAdmin)
 
 # polymorphic
 admin.site.register(Resource, ResourceAdmin)

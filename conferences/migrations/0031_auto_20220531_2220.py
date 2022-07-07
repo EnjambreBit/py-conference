@@ -6,48 +6,48 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0030_address_name'),
+        ("conferences", "0030_address_name"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='profile',
-            name='birth_date',
+            model_name="profile",
+            name="birth_date",
             field=models.DateField(blank=True, default=None, null=True),
         ),
         migrations.AddField(
-            model_name='profile',
-            name='company',
+            model_name="profile",
+            name="company",
             field=models.CharField(blank=True, default=None, max_length=100, null=True),
         ),
         migrations.AddField(
-            model_name='profile',
-            name='document_number',
+            model_name="profile",
+            name="document_number",
             field=models.CharField(blank=True, default=None, max_length=100, null=True),
         ),
         migrations.AddField(
-            model_name='profile',
-            name='document_type',
+            model_name="profile",
+            name="document_type",
             field=models.CharField(blank=True, default=None, max_length=100, null=True),
         ),
         migrations.AddField(
-            model_name='profile',
-            name='institution_name',
+            model_name="profile",
+            name="institution_name",
             field=models.CharField(blank=True, default=None, max_length=100, null=True),
         ),
         migrations.AddField(
-            model_name='profile',
-            name='job_title',
+            model_name="profile",
+            name="job_title",
             field=models.CharField(blank=True, default=None, max_length=100, null=True),
         ),
         migrations.AddField(
-            model_name='profile',
-            name='student_id',
+            model_name="profile",
+            name="student_id",
             field=models.CharField(blank=True, default=None, max_length=50, null=True),
         ),
         migrations.AddField(
-            model_name='profile',
-            name='study_program',
+            model_name="profile",
+            name="study_program",
             field=models.CharField(blank=True, default=None, max_length=100, null=True),
         ),
     ]

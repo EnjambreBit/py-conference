@@ -10,6 +10,4 @@ class EventRegistrationAdmin(admin.ModelAdmin):
         "event",
         "created_at",
     )
-    list_filter = (
-        "event",
-    )
+    list_filter = ("event",)

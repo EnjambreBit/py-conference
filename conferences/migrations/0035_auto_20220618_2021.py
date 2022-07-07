@@ -6,17 +6,26 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0034_auto_20220611_2004'),
+        ("conferences", "0034_auto_20220611_2004"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='talk',
-            name='published',
+            model_name="talk",
+            name="published",
         ),
         migrations.AddField(
-            model_name='talk',
-            name='status',
-            field=models.CharField(choices=[('draft', 'draft'), ('in_review', 'in_review'), ('published', 'published'), ('rejected', 'rejected')], default='draft', max_length=20),
+            model_name="talk",
+            name="status",
+            field=models.CharField(
+                choices=[
+                    ("draft", "draft"),
+                    ("in_review", "in_review"),
+                    ("published", "published"),
+                    ("rejected", "rejected"),
+                ],
+                default="draft",
+                max_length=20,
+            ),
         ),
     ]

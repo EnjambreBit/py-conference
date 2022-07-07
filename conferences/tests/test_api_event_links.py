@@ -7,5 +7,5 @@ class APIEventLinkTestCase(APITestCase):
         pass
 
     def test_puede_listar(self):
-        response = self.client.get('/api/eventlinks')
-        self.assertEqual(len(response.data['result']), 0)
+        response = self.client.get("/api/eventlinks")
+        self.assertEqual(len(response.data["result"]), 0)

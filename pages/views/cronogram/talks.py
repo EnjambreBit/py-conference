@@ -20,5 +20,3 @@ class EventTalksPageView(TemplateView):
         context["talks"] = talks
         context["not_talks"] = talks.count() == 0
         return context
-
-

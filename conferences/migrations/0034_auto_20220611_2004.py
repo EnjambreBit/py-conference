@@ -7,38 +7,70 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0033_auto_20220607_0114'),
+        ("conferences", "0033_auto_20220607_0114"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='event',
-            name='code_of_conduct_page',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='events_code_of_conduct', to='conferences.staticpage'),
+            model_name="event",
+            name="code_of_conduct_page",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="events_code_of_conduct",
+                to="conferences.staticpage",
+            ),
         ),
         migrations.AddField(
-            model_name='event',
-            name='data_manipulation_page',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='events_data_manipulation', to='conferences.staticpage'),
+            model_name="event",
+            name="data_manipulation_page",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="events_data_manipulation",
+                to="conferences.staticpage",
+            ),
         ),
         migrations.AlterField(
-            model_name='event',
-            name='call_for_papers_page',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='events_cfp_page', to='conferences.staticpage'),
+            model_name="event",
+            name="call_for_papers_page",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="events_cfp_page",
+                to="conferences.staticpage",
+            ),
         ),
         migrations.AlterField(
-            model_name='event',
-            name='location_content',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='events_location', to='conferences.staticpage'),
+            model_name="event",
+            name="location_content",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="events_location",
+                to="conferences.staticpage",
+            ),
         ),
         migrations.AlterField(
-            model_name='talkroom',
-            name='room',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='talks_rooms', to='conferences.room'),
+            model_name="talkroom",
+            name="room",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="talks_rooms",
+                to="conferences.room",
+            ),
         ),
         migrations.AlterField(
-            model_name='talkroom',
-            name='talk',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='talks_rooms', to='conferences.talk'),
+            model_name="talkroom",
+            name="talk",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="talks_rooms",
+                to="conferences.talk",
+            ),
         ),
     ]

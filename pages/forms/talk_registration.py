@@ -2,7 +2,6 @@ from django import forms
 from conferences.models.talks import Talk
 
 
-
 class TalkRegistrationForm(forms.ModelForm):
     use_required_attribute = False
 
@@ -26,11 +25,11 @@ class TalkRegistrationForm(forms.ModelForm):
             "description",
         ]
         required = [
-            'name',
-            'talk_type',
-            'audience_level',
-            'language',
-            'language_slider',
+            "name",
+            "talk_type",
+            "audience_level",
+            "language",
+            "language_slider",
             "summary",
             "topics",
             "description",

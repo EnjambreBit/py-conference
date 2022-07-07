@@ -18,7 +18,6 @@ class Profile(models.Model):
         ("cuit/cuil", "CUIT/CUIL"),
     )
 
-
     user = models.OneToOneField(
         User, related_name="profile", null=True, blank=True, on_delete=models.CASCADE
     )
@@ -32,13 +31,21 @@ class Profile(models.Model):
     country = models.ForeignKey(
         "Country", on_delete=models.CASCADE, null=True, blank=True
     )
-    document_type = models.CharField(max_length=100, choices=DOCUMENTS_TYPE, default=None, blank=True, null=True)
-    document_number = models.CharField(max_length=100, default=None, blank=True, null=True)
+    document_type = models.CharField(
+        max_length=100, choices=DOCUMENTS_TYPE, default=None, blank=True, null=True
+    )
+    document_number = models.CharField(
+        max_length=100, default=None, blank=True, null=True
+    )
     birth_date = models.DateField(default=None, blank=True, null=True)
     company = models.CharField(max_length=100, default=None, blank=True, null=True)
     job_title = models.CharField(max_length=100, default=None, blank=True, null=True)
-    institution_name = models.CharField(max_length=100, default=None, blank=True, null=True)
-    study_program = models.CharField(max_length=100, default=None, blank=True, null=True)
+    institution_name = models.CharField(
+        max_length=100, default=None, blank=True, null=True
+    )
+    study_program = models.CharField(
+        max_length=100, default=None, blank=True, null=True
+    )
     student_id = models.CharField(max_length=50, default=None, blank=True, null=True)
 
     address = models.OneToOneField(

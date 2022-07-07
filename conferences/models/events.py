@@ -2,7 +2,6 @@ from django.db import models
 from django.utils import timezone
 
 
-
 class Event(models.Model):
     name = models.CharField(max_length=200, default=None, blank=True, null=True)
     description = models.TextField(default=None, null=True, blank=True)
@@ -28,10 +27,34 @@ class Event(models.Model):
         blank=True,
     )
 
-    call_for_papers_page = models.ForeignKey("StaticPage", related_name="events_cfp_page", on_delete=models.CASCADE, null=True, blank=True)
-    location_content = models.ForeignKey("StaticPage", related_name="events_location", on_delete=models.CASCADE, null=True, blank=True)
-    code_of_conduct_page = models.ForeignKey("StaticPage", related_name="events_code_of_conduct", on_delete=models.CASCADE, null=True, blank=True)
-    data_manipulation_page = models.ForeignKey("StaticPage", related_name="events_data_manipulation", on_delete=models.CASCADE, null=True, blank=True)
+    call_for_papers_page = models.ForeignKey(
+        "StaticPage",
+        related_name="events_cfp_page",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+    )
+    location_content = models.ForeignKey(
+        "StaticPage",
+        related_name="events_location",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+    )
+    code_of_conduct_page = models.ForeignKey(
+        "StaticPage",
+        related_name="events_code_of_conduct",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+    )
+    data_manipulation_page = models.ForeignKey(
+        "StaticPage",
+        related_name="events_data_manipulation",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+    )
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
