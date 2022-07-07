@@ -58,4 +58,5 @@ class TalkAdmin(admin.ModelAdmin):
     list_filter = (
         "event",
         "talk_type",
+        "status",
     )

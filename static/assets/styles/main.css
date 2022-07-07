@@ -52,7 +52,7 @@
 .minh-100vh { min-height: 100vh; }
 .minh-80vh { min-height: 80vh; }
 .minh-60vh { min-height: 60vh; }
-
+.minh-50vh { min-height: 60vh; }
 
 .flex { display: flex; }
 .inline-flex { display: inline-flex; }
@@ -152,6 +152,7 @@
   margin: 0; 
 }
 
-.form-group ul{
+.form-group ul {
   list-style: none;
 }
+
