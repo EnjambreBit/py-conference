@@ -1,3 +1,4 @@
+from urllib import request
 from django.views.generic import DetailView
 from conferences.models.talks import Talk
 from django.utils import timezone
@@ -15,6 +16,6 @@ class TalkPreviewView(DetailView):
         if now <= talk.event.end_date:
             context["can_edit"] = talk.speakers_per_talk.filter(
                 speaker__profile=self.request.user.profile
-            ).count()
+            ).count() > 0 or self.request.user.is_superuser
 
         return context
