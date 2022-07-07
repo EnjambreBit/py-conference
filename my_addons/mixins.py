@@ -14,7 +14,7 @@ class TalkOwnerRequiredMixin(AccessMixin):
             ).count()
             != 0
         )
-        
+
         if talk is not None and is_owner or request.user.is_superuser:
             return super().dispatch(request, *args, **kwargs)
 

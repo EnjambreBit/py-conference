@@ -26,6 +26,7 @@ from pages.views.events.event_talk_update import EventTalkUpdateView
 
 # Create your views here.
 urlpatterns = [
+    path("not-found/", NotImplementedView.as_view(), name="not_found"),
     path("accounts/profile/", ProfileDetailView.as_view(), name="profile"),
     path(
         "accounts/registration/", AccountRegistrationView.as_view(), name="registration"
@@ -64,14 +65,9 @@ urlpatterns = [
         name="event-talk-registration-succesfull",
     ),
     path("events/talks/", EventTalksPageView.as_view(), name="talks"),
+    path("event/talks/<int:pk>/", EventTalksPageView.as_view(), name="event_talks"),
     path("talks/preview/<int:pk>/", TalkPreviewView.as_view(), name="talk_preview"),
     path("talks/edit/<int:pk>/", EventTalkUpdateView.as_view(), name="talk_edit"),
-    path(
-        "talks/edit/<int:pk>/upload-resource/",
-        NotImplementedView.as_view(),
-        name="talk_upload_resource",
-    ),
-    path("talks/<int:pk>/", EventTalksPageView.as_view(), name="event_talks"),
     path("location", LocationPageView.as_view(), name="location"),
     path("speakers", EventSpeakersPageView.as_view(), name="speakers"),
     path("sponsors", SponsorListView.as_view(), name="sponsors"),
