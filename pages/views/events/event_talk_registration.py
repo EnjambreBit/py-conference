@@ -8,10 +8,10 @@ from conferences.models.profiles import Profile
 from conferences.models.talks import Talk
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-
-class EventTalkRegistrationView(FormView):
+class EventTalkRegistrationView(LoginRequiredMixin, FormView):
     template_name = "event/event-talk-registration.html"
     form_class = TalkRegistrationForm
     success_url = reverse_lazy("event-talk-registration-succesfull")

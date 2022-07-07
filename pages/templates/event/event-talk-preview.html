@@ -5,9 +5,9 @@
 
 {% if can_edit %}
 <div class="container text-right">
-  <a href="{% url 'talk_edit' talk.id %}" class="btn btn-primary">Edit</a>
-  <a href="{% url 'talk_upload_resource' talk.id %}" class="btn btn-primary">Upload Resource</a>
-  <a href="{% url 'profile' %}" class="btn btn-secondary">Back</a>
+  <a href="{% url 'talk_edit' talk.id %}" class="btn btn-primary">Modificar</a>
+  <a href="{% url 'talk_upload_resource' talk.id %}" class="btn btn-primary">Agregar Recurso</a>
+  <a href="{% url 'profile' %}" class="btn btn-secondary">Atras</a>
 </div>
 {% endif %}
 
@@ -21,20 +21,20 @@
     <div class="col-md-3">
       <div>
         <div class="mb-2">
-          <span class="fw7">Type:</span> {{ talk.talk_type }}
+          <span class="fw7">Tipo:</span> {{ talk.talk_type }}
         </div>
         <div class="mb-2">
-          <span class="fw7">Audience level:</span> {{ talk.audience_level }}
+          <span class="fw7">Nivel de Audiencia:</span> {{ talk.audience_level }}
         </div>
         <div class="mb-3">
-          <span class="fw7">Language: </span> {{ talk.language }}
+          <span class="fw7">Idioma: </span> {{ talk.language }}
         </div>
         <div class="mb-3">
-          <span class="fw7">Sliders: </span> {{ talk.language_slider }}
+          <span class="fw7">Diapositivas: </span> {{ talk.language_slider }}
         </div>
         
         <div class="mb-2 h6 border-bottom fw7">
-          Room/Time
+          Lugar/Horario
         </div>
         {% for talk_room in talk.talks_rooms.all %}
         <div class="mb-2 h6 fw4">
@@ -46,11 +46,17 @@
           </div>
         </div>
         {% endfor %}
+
+        <div class="mb-2 h6 fw4">
+          {% if not talk.talks_rooms.all.count %}
+          No se especifico lugar/horario.
+          {% endif %}
+        </div>
       </div>
 
       <div class="mt-2">
         <div class="mb-2 h6 border-bottom fw7">
-          Speakers
+          Speakers/Ponentes
         </div>
         <div class="h6 fw4">
           {% for speaker in talk.speakers_per_talk.all %}

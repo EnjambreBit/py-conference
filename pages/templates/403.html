@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body_content %}
+  {{ block.super }}
+
+  <div class="container minh-60vh mt-4">
+    <div class="h1">
+      403 Prohibido
+    </div>
+    <div class="alert alert-danger">
+      Lo sentimos, parece que no tienes permiso para acceder a esta vista.
+    </div>
+
+    <div class="mt-4">
+      Si crees que es un error puedes ponerte en contacto con nosotros.
+    </div>
+  </div>
+{% endblock %}
