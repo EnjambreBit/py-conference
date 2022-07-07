@@ -16,16 +16,16 @@
           {% if object.description %}
           {{ object.description|format_as_md }}
           {% else %}
-            No description available.
+          No hay descripción disponible para este evento.
           {% endif %}
         </div>
         <div>
           {% if user.is_authenticated %}
             {% if object.registration_enabled %}
-              <a href="{% url 'event_registration' object.id %}">Join Now</a>
+              <a href="{% url 'event_registration' object.id %}">Únete ahora</a>
             {% else %}
               <div class="alert alert-danger">
-                Registration is not enabled for this event.
+                El registro no está habilitado para este evento.
               </div>
             {% endif %}
             
