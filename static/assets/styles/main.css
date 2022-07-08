@@ -69,6 +69,10 @@
 
 .bg-red { background-color: #FF4136; }
 .bg-black { background-color: black !important; }
+.bg-beige { background-color: #F0D9A5; }
+.bg-beige-gradient {
+  background: linear-gradient(180deg, #F0D9A5 0%, rgba(240, 217, 165, 0) 100%);
+}
 
 /** Fonts sizes **/
 
@@ -95,6 +99,18 @@
 .text-left    { text-align: left; }
 .text-right   { text-align: right; }
 .em           { font-style: italic; }
+
+/* Links */
+a {
+  color: #9a3a4a;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+a:hover {
+  color: #9a3a4a;
+  border-bottom: 1px solid #9a3a4a;
+}
 
 /** Others **/
 
@@ -130,11 +146,18 @@
   font-family: 'Open Sans';
 }
 
+.roboto-font {
+  font-family: 'Roboto';
+}
+
+.encode-sans-font {
+  font-family: 'Encode Sans';
+}
+
 .ttu {
   text-transform: uppercase;
 }
 
-.navbar a.nav-link,
 .navbar .dropdown-item {
   font-size: 14px;
   font-weight: 400;
@@ -152,7 +175,102 @@
   margin: 0; 
 }
 
+/* Navbar */
+.scipy-navbar {
+  background-color: #ffbb47;
+}
+
+.scipy-navbar {
+  padding: 0;
+}
+
+.scipy-navbar li.nav-item {
+  padding: 8px;
+}
+
+.scipy-navbar li.nav-item:hover {
+  background-color: #9a3a4a;
+}
+
+.scipy-navbar a.nav-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #9a3a4a !important;
+}
+
+.scipy-navbar a.nav-link.bold {
+  font-weight: 700;
+}
+
+.scipy-navbar a.nav-link:hover {
+  color: #FFBB47 !important;
+}
+
+
+/* Footer */
+.scipy-footer {
+  background-color: #FFBB47;
+}
+
+.scipy-footer .footer-copy {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #9a3a4a;
+}
+
+.scipy-footer .footer-copy a {
+  font-weight: 700;
+  color: #9a3a4a;
+  text-decoration: none;
+}
+
+.scipy-footer .footer-social a {
+  color: #9a3a4a !important;
+
+}
+
+/* Home */
+.home-header {
+  background-color: #f0d9a5;
+}
+
+/* Forms */
+.form-group {
+  text-align: left;
+}
 .form-group ul {
   list-style: none;
 }
 
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.form-control {
+  color: #212529;
+  border: 1px solid #9a963c;
+}
+
+/* Buttoms */
+.btn-primary {
+  background-color: #FFBB47;
+  border: 0;
+  color: #9a3a4a;
+  font-family: "Encode Sans", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.btn-primary:hover {
+  background-color: #9a3a4a;
+  color: #FFBB47;
+}
