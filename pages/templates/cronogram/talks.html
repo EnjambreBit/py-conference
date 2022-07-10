@@ -2,7 +2,7 @@
 
 {% block body_content %}
 {{ block.super }}
-  <div class="container minh-80vh">
+  <div class="container min-vh-100">
     <div class="flex mb-3">
       <div class="flex1 pt-4 pl-3">
         <div class="border"></div>
@@ -86,6 +86,21 @@
     {% if not_talks %}
     <div class="my-3 alert alert-warning">
       Disculpe las molestias, aun no se ha publicado el cronograma de charlas.
+    </div>
+
+    <div class="container pa-3 w-100 text-center">
+      <div class="fw5">
+        Llamado a propuestas (call for proposal)
+      </div>
+      <div>
+        Desde el {{ event.call_for_talks_start | date:"d \d\e F" }}
+        al {{ event.call_for_talks_end | date:"d \d\e F \d\e Y" }} 
+        {% if event.call_for_talks_active %}
+        {% endif %}
+      </div>
+      <div>
+        <a href="{% url 'event-talk-registration' event.id %}"  class="btn btn-primary">Participa como Speaker</a>
+      </div>
     </div>
     {% endif %}
 

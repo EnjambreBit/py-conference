@@ -3,20 +3,16 @@
 
 {% block body_content %}
 {{ block.super }}
-<div class="container">
-  
 
-</div>
-
-  <div class="container p-3">
+  <div class="container p-3 min-vh-100">
     <div class="border-bottom">
-      <h3>User Profile</h3>
+      <h3>Mis Datos</h3>
     </div>
 
     <div class="row">
       <div class="col-md-9 p-3">
         <div class="row">
-          <div class="col-sm-6 col-md-2 fw5 mb-1">Name: </div>
+          <div class="col-sm-6 col-md-2 fw5 mb-1">Nombre: </div>
           <div class="col-sm-6 col-md-10">{{ profile.full_name }}</div>
         </div>
         <div class="row">
@@ -24,19 +20,19 @@
           <div class="col-sm-6 col-md-10">{{ profile.email }}</div>
         </div>
         <div class="row">
-          <div class="col-sm-6 col-md-2 fw5 mb-1">Phone: </div>
+          <div class="col-sm-6 col-md-2 fw5 mb-1">Telefono: </div>
           <div class="col-sm-6 col-md-10">{{ profile.phone }}</div>
         </div>
         <div class="row">
-          <div class="col-sm-6 col-md-2 fw5 mb-1">Gender: </div>
+          <div class="col-sm-6 col-md-2 fw5 mb-1">Genero: </div>
           <div class="col-sm-6 col-md-10">{{ profile.gender }}</div>
         </div>
         <div class="row">
-          <div class="col-sm-6 col-md-2 fw5 mb-1">Birthdate: </div>
+          <div class="col-sm-6 col-md-2 fw5 mb-1">Cumleaños: </div>
           <div class="col-sm-6 col-md-10">{{ profile.birth_date|default:"--/--/----" }}</div>
         </div>
         <div class="row">
-          <div class="col-sm-6 col-md-2 fw5 mb-1">Company: </div>
+          <div class="col-sm-6 col-md-2 fw5 mb-1">Empresa: </div>
           <div class="col-sm-6 col-md-10">{{ profile.company|default:"-----" }}</div>
         </div>
         <div class="row">
@@ -44,21 +40,21 @@
           <div class="col-sm-6 col-md-10">{{ profile.job_title|default:"-----" }}</div>
         </div>
         <div class="row">
-          <div class="col-sm-6 col-md-2 fw5 mb-1">Document: </div>
+          <div class="col-sm-6 col-md-2 fw5 mb-1">Documento: </div>
           <div class="col-sm-6 col-md-10">{{ profile.document_type|default:"" }} {{ profile.document_number|default:"N/A" }}</div>
         </div>
       </div>
       <div class="col-md-3 py-3 h6 fw4">
         <div class="fw5 my-2">
-          OPTIONS
+          MENU
         </div>
         <ul class="no-bullet">
-          <li><a href="{% url 'profile_edit' %}" class="no-underline">Edit Profile</a></li>
-          <li><a href="{% url 'profile_edit' %}" class="no-underline">Edit Address Information</a></li>
+          <li><a href="{% url 'profile_edit' %}" class="no-underline">Modificar Perfil</a></li>
+          <li><a href="{% url 'profile_edit' %}" class="no-underline">Modifica tu direccion</a></li>
           {% if is_speaker %}
-            <li><a href="{% url 'profile_edit' %}" class="no-underline">Edit Speaker Profile</a></li>
+            <li><a href="{% url 'profile_edit' %}" class="no-underline">Modificar tu perfil como Speaker</a></li>
           {% endif %}
-          <li><a href="{% url 'change_password' %}" class="no-underline">Change Password</a></li>
+          <li><a href="{% url 'change_password' %}" class="no-underline">Cambiar contraseña</a></li>
           <li><a href="{% url 'logout' %}" class="no-underline">Logout</a></li>
         </ul>
       </div>
@@ -144,11 +140,11 @@
       </table>
     </div>
 
-    <div class="container p-3">
+    <!-- <div class="container p-3">
       <div class="border-bottom">
         <h3>Grants</h3>
       </div>
-    </div>
+    </div> -->
   </div>
 
 {% endblock %}

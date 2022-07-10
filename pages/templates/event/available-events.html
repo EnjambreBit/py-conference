@@ -3,10 +3,10 @@
 
 {% block body_content %}
 {{ block.super }}
-  <div class="container py-5 px-4 my-5 min-vh-100">
+  <div class="container px-4 min-vh-100">
     {% for object in object_list %}
       <div class="mb-4">  
-        <div class="h3">
+        <div class="h1">
           {{ object.name }}
         </div>
         <div class="border-bottom mb-3 f7">
@@ -22,7 +22,7 @@
         <div>
           {% if user.is_authenticated %}
             {% if object.registration_enabled %}
-              <a href="{% url 'event_registration' object.id %}">Únete ahora</a>
+              <a class="btn btn-primary" href="{% url 'event_registration' object.id %}">Únete ahora</a>
             {% else %}
               <div class="alert alert-danger">
                 El registro no está habilitado para este evento.
@@ -34,8 +34,8 @@
               Inicie sesión o regístrese para poder unirse a este evento.
             </div>
             <div>
-              <a href="{% url 'login' %}" class="">Iniciar sesión</a> ó
-              <a href="{% url 'registration' %}" class="">Regístrarse</a>
+              <a class="btn btn-primary" href="{% url 'login' %}" class="">Iniciar sesión</a> ó
+              <a class="btn btn-primary" href="{% url 'registration' %}" class="">Regístrarse</a>
             </div>
           {% endif %}
         </div>

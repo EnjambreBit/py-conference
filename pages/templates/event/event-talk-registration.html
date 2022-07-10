@@ -19,7 +19,8 @@
 
   {% if event.call_for_papers_page %}
   <div class="mb-3">
-    Adjuntamos una <a href="{% url 'static_page' event.call_for_papers_page.slug %}">guía de presentación de propuestas.</a>
+    <span class="bold">¿No tenes ídea de como enviar una propuesta?</span> <br>
+    te adjuntamos una <a href="{% url 'static_page' event.call_for_papers_page.slug %}">guía de presentación de propuestas.</a>
   </div>
   {% endif %}
 

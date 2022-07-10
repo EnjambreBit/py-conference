@@ -274,3 +274,7 @@ a:hover {
   background-color: #9a3a4a;
   color: #FFBB47;
 }
+
+.header-margin {
+  height: 5rem;
+}
