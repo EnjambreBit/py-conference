@@ -190,6 +190,7 @@ a:hover {
 
 .scipy-navbar li.nav-item:hover {
   background-color: #9a3a4a;
+  color: #FFBB47 !important;
 }
 
 .scipy-navbar a.nav-link {
@@ -208,9 +209,30 @@ a:hover {
 .scipy-navbar a.nav-link.bold {
   font-weight: 700;
 }
-
+.scipy-navbar li.nav-item:hover a.nav-link,
 .scipy-navbar a.nav-link:hover {
   color: #FFBB47 !important;
+}
+
+.scipy-navbar ul.dropdown-menu.show {
+  margin: 0;
+  border-radius: 0;
+  border: 0;
+  background-color: #9a3a4a;
+  border-top: 1px solid #FFBB47;
+}
+
+.scipy-navbar ul.dropdown-menu a.dropdown-item {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #f0d9a5 !important;
+  font-weight: 400;
+}
+
+
+.scipy-navbar ul.dropdown-menu a.dropdown-item:hover {
+  background-color: #FFBB47;
+  color: #9a3a4a !important;
 }
 
 
