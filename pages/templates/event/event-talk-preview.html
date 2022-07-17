@@ -37,10 +37,6 @@
             <td>
               Link
             </td>
-            <td class="text-end">
-              <a href="">Modificar</a>
-              <a href="">Borrar</a>
-            </td>
           {% endif %}
 
           {% if resource.type == "ResourceFile" %}
@@ -49,10 +45,6 @@
             </td>
             <td>
               Archivo
-            </td>
-            <td class="text-end">
-              <a href="">Modificar</a>
-              <a href="">Borrar</a>
             </td>
           {% endif %}
 
@@ -63,11 +55,11 @@
             <td>
               Foto
             </td>
-            <td class="text-end">
-              <a href="{% url 'talk_resource_update' resource.id %}">Modificar</a>
-              <a href="">Borrar</a>
-            </td>
           {% endif %}
+          <td class="text-end">
+            <a href="{% url 'talk_resource_update' resource.id %}">Modificar</a>
+            <a href="{% url 'talk_resource_delete' resource.id %}">Borrar</a>
+          </td>
         </tr>
         {% endfor %}
 
