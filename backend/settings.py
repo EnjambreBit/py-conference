@@ -24,6 +24,7 @@ env = environ.Env(
     EMAIL_HOST_USER=(str, ""),
     EMAIL_HOST_PASSWORD=(str, ""),
     EMAIL_USE_TLS=(bool, False),
+    EMAIL_USE_SSL=(bool, False),
     MEDIA_ROOT=(str, "media_files"),
     STATIC_ROOT=(str, "staticfiles"),
 )
@@ -53,7 +54,8 @@ EMAIL_PORT = os.environ.get("EMAIL_PORT")
 EMAIL_HOST = os.environ.get("EMAIL_HOST")
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
-EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS", "")
+EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS", False) in ["on", "true"]
+EMAIL_USE_SSL = os.environ.get("EMAIL_USE_SSL", False) in ["on", "true"]
 
 
 INSTALLED_APPS = [
@@ -153,5 +155,5 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 MEDIA_ROOT = os.environ.get("MEDIA_ROOT", "media")
 MEDIA_URL = "/media/"
 
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
