@@ -11,7 +11,7 @@
 </div>
 {% endif %}
 
-<div class="container">
+<div class="container min-vh-100">
   {% talk_preview talk=talk %}
 
   <div class="h3">
@@ -56,7 +56,7 @@
             </td>
           {% endif %}
 
-          {% if resource.type == "ResourceImage" %}
+          {% if resource.type == "ResourceImage" and resource.photo %}
             <td>
               <a href="{{ resource.photo.url }}" target="_blank">{{ resource.title }}</a>
             </td>
@@ -64,7 +64,7 @@
               Foto
             </td>
             <td class="text-end">
-              <a href="">Modificar</a>
+              <a href="{% url 'talk_resource_update' resource.id %}">Modificar</a>
               <a href="">Borrar</a>
             </td>
           {% endif %}
@@ -80,13 +80,8 @@
     </table>
 
     {% if can_edit %}
-    <div>
-      Agregar:
-    </div> 
     <div class="my-3 text-center">
-      <a href="{% url 'not_found' %}" class="btn btn-primary">Link</a>
-      <a href="{% url 'not_found' %}" class="btn btn-primary">Foto</a>
-      <a href="{% url 'not_found' %}" class="btn btn-primary">Archivo</a>
+      <a href="{% url 'talk_resource_type' talk.id %}" class="btn btn-primary">Agregar recurso</a>
     </div>
     {% endif %}
   </div>

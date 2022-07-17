@@ -25,11 +25,27 @@ class ResourceAdmin(PolymorphicParentModelAdmin):
 
 class ResourceFileAdmin(PolymorphicChildModelAdmin):
     base_model = ResourceFile
-
+    list_display = (
+        "id",
+        "talk",
+        "title",
+        "file",
+    )
 
 class ResourceImageAdmin(PolymorphicChildModelAdmin):
     base_model = ResourceImage
-
+    list_display = (
+        "id",
+        "talk",
+        "title",
+        "photo",
+    )
 
 class ResourceLinkAdmin(PolymorphicChildModelAdmin):
     base_model = ResourceLink
+    list_display = (
+        "id",
+        "talk",
+        "title",
+        "url",
+    )

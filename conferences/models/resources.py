@@ -6,7 +6,7 @@ from sorl.thumbnail import ImageField
 
 class Resource(PolymorphicModel):
     talk = models.ForeignKey("Talk", related_name="resources", on_delete=models.CASCADE)
-    title = models.CharField(max_length=100, null=True, blank=True)
+    title = models.CharField(max_length=100, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -24,12 +24,12 @@ class Resource(PolymorphicModel):
 
 
 class ResourceFile(Resource):
-    file = models.FileField(upload_to="resources/", default=None, blank=True, null=True)
+    file = models.FileField(upload_to="resources/", default=None, null=True)
 
 
 class ResourceImage(Resource):
-    photo = ImageField(upload_to="resources/", default=None, blank=True, null=True)
+    photo = ImageField(upload_to="resources/", default=None, null=True)
 
 
 class ResourceLink(Resource):
-    url = models.CharField(max_length=200, default=None, blank=True, null=True)
+    url = models.CharField(max_length=200, default=None, null=True)
