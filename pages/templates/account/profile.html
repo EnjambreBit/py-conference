@@ -46,7 +46,7 @@
       </div>
       <div class="col-md-3 py-3 h6 fw4">
         <div class="fw5 my-2">
-          MENU
+          OPCIÓNES
         </div>
         <ul class="no-bullet">
           <li><a href="{% url 'profile_edit' %}" class="no-underline">Modificar Perfil</a></li>
@@ -55,26 +55,23 @@
             <li><a href="{% url 'profile_edit' %}" class="no-underline">Modificar tu perfil como Speaker</a></li>
           {% endif %}
           <li><a href="{% url 'change_password' %}" class="no-underline">Cambiar contraseña</a></li>
-          <li><a href="{% url 'logout' %}" class="no-underline">Logout</a></li>
+          <li><a href="{% url 'logout' %}" class="no-underline">Cerrar Sesión</a></li>
         </ul>
       </div>
     </div>
 
-  </div>
-
-  <div class="container p-3">
     <div class="border-bottom">
-      <h3>Events</h3>
+      <h3>Eventos en los que participaste</h3>
     </div>
     <div class="">
       <table class="table w-100">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Start</th>
-            <th>End</th>
-            <th>Active</th>
-            <th>Cronogram</th>
+            <th>Evento</th>
+            <th>Inicio</th>
+            <th>Fin</th>
+            <th>Activo</th>
+            <th>Cronograma</th>
             <th></th>
           </tr>
         </thead>
@@ -86,35 +83,33 @@
               <td> {{ registration.event.end_date }} </td>
               <td> {{ registration.event.active }} </td>
               <td> 
-                <a href="{% url 'event_talks' registration.event.id %}">Talks</a> 
+                <a href="{% url 'event_talks' registration.event.id %}">Charlas</a> 
               </td>
             </tr>
           {% endfor %}
 
           {% if not registrations|length %}
               <tr>
-                <td colspan="5"> Don't have availables events. </td>
+                <td colspan="5"> No estas registrado en ningun evento. </td>
               </tr>
 
           {% endif %}
         </tbody>
       </table>
     </div>
-  </div>
 
-  <div class="container p-3">
     <div class="border-bottom">
-      <h3>Talks</h3>
+      <h3>Propuestas de Charlas</h3>
     </div>
 
     <div class="">
       <table class="table w-100">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Event</th>
-            <th>Type</th>
-            <th>Status</th>
+            <th>Nombre</th>
+            <th>Evento</th>
+            <th>Tipo</th>
+            <th>Estado</th>
             <th></th>
           </tr>
         </thead>
@@ -126,14 +121,14 @@
               <td> {{ talk.talk_type }} </td>
               <td> {{ talk.status }} </td>
               <td>
-                <a href="{% url 'talk_preview' talk.id %}">Preview</a>
+                <a href="{% url 'talk_preview' talk.id %}">Detalle</a>
               </td>
             </tr>
           {% endfor %}
 
           {% if not talks|length %}
             <tr>
-              <td colspan="5"> Don't have availables talks. </td>
+              <td colspan="5"> No tienes charlas propuestas. </td>
             </tr>
           {% endif %}
         </tbody>
