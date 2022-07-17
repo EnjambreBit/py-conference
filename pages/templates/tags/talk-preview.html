@@ -1,0 +1,71 @@
+<div class="row mt-3">
+  <div class="col-md-12 h3 border-bottom py-3">
+    {{ talk.name }}
+  </div>
+</div>
+<div class="row mb-4">
+  <div class="col-md-3">
+    <div>
+      <div class="mb-2">
+        <span class="fw7">Tipo:</span> {{ talk.talk_type }}
+      </div>
+      <div class="mb-2">
+        <span class="fw7">Nivel de Audiencia:</span> {{ talk.audience_level }}
+      </div>
+      <div class="mb-3">
+        <span class="fw7">Idioma: </span> {{ talk.language }}
+      </div>
+      <div class="mb-3">
+        <span class="fw7">Diapositivas: </span> {{ talk.language_slider }}
+      </div>
+
+      <div class="mb-2 h6 border-bottom fw7">
+          Lugar/Horario
+        </div>
+        {% for talk_room in talk.talks_rooms.all %}
+        <div class="mb-2 h6 fw4">
+          <div>
+            {{ talk_room.room.name }} 
+          </div>
+          <div>
+            {{ talk_room.date_as_str }}, {{ talk_room.start_as_str }}
+          </div>
+        </div>
+        {% endfor %}
+
+        <div class="mb-2 h6 fw4">
+          {% if not talk.talks_rooms.all.count %}
+          No se especifico lugar/horario.
+          {% endif %}
+        </div>
+      </div>
+
+    <div class="mt-2">
+      <div class="mb-2 h6 border-bottom fw7">
+        Speakers/Ponentes
+      </div>
+      <div class="h6">
+        {% for speaker in talk.speakers_per_talk.all %}
+          <div>
+            {{ speaker.speaker.profile.full_name }}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="em fw6">
+      {{ talk.summary }}
+    </div>
+    <div class="mt-3 mb-4">
+      {{ talk.description | format_as_md }}
+    </div>
+
+    <div class="mb-2 h6 fw7">
+      Topics
+    </div>
+    <div class="mb-2 h6">
+      {{ talk.topics }}
+    </div>
+  </div>
+</div>
