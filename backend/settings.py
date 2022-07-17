@@ -50,6 +50,7 @@ if env("ENABLE_SENTRY"):
 
 # Email Settings
 
+DEFAULT_FROM_EMAIL="no-reply@pythoncientifico.ar"
 EMAIL_PORT = os.environ.get("EMAIL_PORT")
 EMAIL_HOST = os.environ.get("EMAIL_HOST")
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "")
