@@ -21,12 +21,13 @@
     {% endfor %}
 
     {% if not_talks %}
-    <div class="my-3 alert alert-warning">
+
+    <div class="my-4 alert alert-warning">
       Disculpe las molestias, aun no se ha publicado el cronograma de charlas.
     </div>
 
     <div class="container pa-3 w-100 text-center">
-      <div class="fw5">
+      <div class="fw5 h3">
         Llamado a propuestas (call for proposal)
       </div>
       <div>
@@ -35,7 +36,7 @@
         {% if event.call_for_talks_active %}
         {% endif %}
       </div>
-      <div>
+      <div class="my-3">
         <a href="{% url 'event-talk-registration' event.id %}"  class="btn btn-primary">Participa como Speaker</a>
       </div>
     </div>
