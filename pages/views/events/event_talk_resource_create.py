@@ -18,9 +18,8 @@ class TalkResourceCreateView(FormView):
     def form_valid(self, form):
         resource_type = form.cleaned_data["resource_type"]
         return HttpResponseRedirect(
-            reverse_lazy("talk_resource_create", kwargs={
-                "pk": self.kwargs.get("pk"), 
-                "type":resource_type 
-            }))
-
-
+            reverse_lazy(
+                "talk_resource_create",
+                kwargs={"pk": self.kwargs.get("pk"), "type": resource_type},
+            )
+        )

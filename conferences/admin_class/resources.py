@@ -32,6 +32,7 @@ class ResourceFileAdmin(PolymorphicChildModelAdmin):
         "file",
     )
 
+
 class ResourceImageAdmin(PolymorphicChildModelAdmin):
     base_model = ResourceImage
     list_display = (
@@ -40,6 +41,7 @@ class ResourceImageAdmin(PolymorphicChildModelAdmin):
         "title",
         "photo",
     )
+
 
 class ResourceLinkAdmin(PolymorphicChildModelAdmin):
     base_model = ResourceLink

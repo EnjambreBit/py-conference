@@ -19,7 +19,7 @@ class EventTalkResourceUpdateView(UpdateView):
         forms_class = {
             "ResourceLink": ResourceLinkForm,
             "ResourceFile": ResourceFileForm,
-            "ResourceImage": ResourceImageForm
+            "ResourceImage": ResourceImageForm,
         }
         return forms_class.get(resource.type, ResourceLinkForm)
 
@@ -38,4 +38,4 @@ class EventTalkResourceUpdateView(UpdateView):
         return context_data
 
     def get_success_url(self):
-        return reverse_lazy("talk_preview", kwargs={ "pk": self.model.talk.id })
+        return reverse_lazy("talk_preview", kwargs={"pk": self.model.talk.id})

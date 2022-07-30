@@ -50,7 +50,7 @@ if env("ENABLE_SENTRY"):
 
 # Email Settings
 
-DEFAULT_FROM_EMAIL="no-reply@pythoncientifico.ar"
+DEFAULT_FROM_EMAIL = "no-reply@pythoncientifico.ar"
 EMAIL_PORT = os.environ.get("EMAIL_PORT")
 EMAIL_HOST = os.environ.get("EMAIL_HOST")
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "")
@@ -157,4 +157,3 @@ MEDIA_ROOT = os.environ.get("MEDIA_ROOT", "media")
 MEDIA_URL = "/media/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-

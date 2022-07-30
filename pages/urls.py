@@ -23,10 +23,11 @@ from pages.views.playground import PlaygroundView
 from pages.views.events.event_talk_preview import TalkPreviewView
 from pages.views.events.event_talk_update import EventTalkUpdateView
 from pages.views.events.event_talk_resource_create import TalkResourceCreateView
-from pages.views.events.event_talk_resource_create_by_type import TalkResourceCreateByTypeView
+from pages.views.events.event_talk_resource_create_by_type import (
+    TalkResourceCreateByTypeView,
+)
 from pages.views.events.event_talk_resource_update import EventTalkResourceUpdateView
 from pages.views.events.event_talk_resource_delete import EventTalkResourceDeleteView
-
 
 
 # Create your views here.
@@ -71,14 +72,28 @@ urlpatterns = [
     ),
     path("events/talks/", EventTalksPageView.as_view(), name="talks"),
     path("event/talks/<int:pk>/", EventTalksPageView.as_view(), name="event_talks"),
-    
     path("talks/preview/<int:pk>/", TalkPreviewView.as_view(), name="talk_preview"),
     path("talks/edit/<int:pk>/", EventTalkUpdateView.as_view(), name="talk_edit"),
-    path("talks/add-resource/<int:pk>/", TalkResourceCreateView.as_view(), name="talk_resource_type"),
-    path("talks/add-resource/<int:pk>/<str:type>/", TalkResourceCreateByTypeView.as_view(), name="talk_resource_create"),
-    path("talks/update-resource/<int:pk>/", EventTalkResourceUpdateView.as_view(), name="talk_resource_update"),
-    path("talks/delete-resource/<int:pk>/", EventTalkResourceDeleteView.as_view(), name="talk_resource_delete"),
-
+    path(
+        "talks/add-resource/<int:pk>/",
+        TalkResourceCreateView.as_view(),
+        name="talk_resource_type",
+    ),
+    path(
+        "talks/add-resource/<int:pk>/<str:type>/",
+        TalkResourceCreateByTypeView.as_view(),
+        name="talk_resource_create",
+    ),
+    path(
+        "talks/update-resource/<int:pk>/",
+        EventTalkResourceUpdateView.as_view(),
+        name="talk_resource_update",
+    ),
+    path(
+        "talks/delete-resource/<int:pk>/",
+        EventTalkResourceDeleteView.as_view(),
+        name="talk_resource_delete",
+    ),
     path("location", LocationPageView.as_view(), name="location"),
     path("speakers", EventSpeakersPageView.as_view(), name="speakers"),
     path("sponsors", SponsorListView.as_view(), name="sponsors"),

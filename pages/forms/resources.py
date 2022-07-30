@@ -13,6 +13,7 @@ class ResourceCreateForm(forms.Form):
         label="Tipo", choices=types, widget=forms.RadioSelect
     )
 
+
 class ResourceLinkForm(forms.ModelForm):
     class Meta:
         model = ResourceLink

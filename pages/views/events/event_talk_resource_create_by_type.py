@@ -16,11 +16,9 @@ class TalkResourceCreateByTypeView(CreateView):
         forms = {
             "link": ResourceLinkForm,
             "file": ResourceFileForm,
-            "image": ResourceImageForm
+            "image": ResourceImageForm,
         }
         return forms[self.kwargs.get("type", ResourceLinkForm)]
-
-        
 
     def get_form(self, form_class=None):
         form = super().get_form(form_class)
@@ -34,12 +32,8 @@ class TalkResourceCreateByTypeView(CreateView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        types = {
-            "link": "Link",
-            "file": "Archivo",
-            "image": "Imagen"
-        }
-        
+        types = {"link": "Link", "file": "Archivo", "image": "Imagen"}
+
         context_data["resource_type"] = types.get(self.kwargs["type"], "Link")
         context_data["talk"] = Talk.objects.get(id=self.kwargs["pk"])
         return context_data
@@ -49,4 +43,4 @@ class TalkResourceCreateByTypeView(CreateView):
         return HttpResponseRedirect(self.get_success_url())
 
     def get_success_url(self):
-        return reverse_lazy("talk_preview", kwargs={ "pk": self.model.talk.id })
+        return reverse_lazy("talk_preview", kwargs={"pk": self.model.talk.id})
