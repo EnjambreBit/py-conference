@@ -9,3 +9,7 @@ class SpeakerForm(forms.ModelForm):
             "photo",
             "biography"
         ]
+        labels = {
+            "photo": "Foto de perfil",
+            "biography": "Resumen",
+        }

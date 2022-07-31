@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block body_content %}
+{{ block.super }}
+
+<div class="container min-vh-100">
+  <div class="mw6 mx-auto mb-3">
+    <div class="text-center">
+      <h4>Modificar perfil</h4>
+    </div>
+
+    <div class="">
+      <form method="post" >
+        {% csrf_token %}
+        <div class="px-3 py-3">
+        {{ form|crispy }}
+        </div>
+        <div class="form-group mt-4">
+          <input type="submit"  value="Guardar" class="btn btn-primary w-100" />
+        </div>
+        <div class="mt-3">
+          <a href="{% url 'profile' %}" class="btn btn-secondary w-100">Atras</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

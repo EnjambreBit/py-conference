@@ -28,7 +28,8 @@ from pages.views.events.event_talk_resource_create_by_type import (
 )
 from pages.views.events.event_talk_resource_update import EventTalkResourceUpdateView
 from pages.views.events.event_talk_resource_delete import EventTalkResourceDeleteView
-
+from pages.views.accounts.account_speaker_profile_edit import SpeakeProfileUpdateView
+from pages.views.accounts.account_profile_edit import ProfileUpdateView
 
 # Create your views here.
 urlpatterns = [
@@ -37,7 +38,8 @@ urlpatterns = [
     path(
         "accounts/registration/", AccountRegistrationView.as_view(), name="registration"
     ),
-    path("accounts/profile/edit/", NotImplementedView.as_view(), name="profile_edit"),
+    path("accounts/profile/edit/", ProfileUpdateView.as_view(), name="profile_edit"),
+    path("accounts/speaker/edit/", SpeakeProfileUpdateView.as_view(), name="speaker_profile_edit"),
     path(
         "accounts/change-password/",
         PasswordChangeView.as_view(template_name="account/change-password.html"),

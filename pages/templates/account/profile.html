@@ -50,9 +50,9 @@
         </div>
         <ul class="no-bullet">
           <li><a href="{% url 'profile_edit' %}" class="no-underline">Modificar Perfil</a></li>
-          <li><a href="{% url 'profile_edit' %}" class="no-underline">Modifica tu direccion</a></li>
+          <!-- <li><a href="{% url 'profile_edit' %}" class="no-underline">Modifica tu direccion</a></li> -->
           {% if is_speaker %}
-            <li><a href="{% url 'profile_edit' %}" class="no-underline">Modificar tu perfil como Speaker</a></li>
+            <li><a href="{% url 'speaker_profile_edit' %}" class="no-underline">Modificar tu perfil como Speaker</a></li>
           {% endif %}
           <li><a href="{% url 'change_password' %}" class="no-underline">Cambiar contraseña</a></li>
           <li><a href="{% url 'logout' %}" class="no-underline">Cerrar Sesión</a></li>
