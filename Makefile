@@ -31,6 +31,9 @@ iniciar:
 ejecutar:
 	@pipenv run python manage.py runserver
 
+ejecutar_alt:
+	@pipenv run python manage.py runserver 8001
+
 crear_migraciones:
 	@pipenv run python manage.py makemigrations
 

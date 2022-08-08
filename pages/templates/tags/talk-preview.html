@@ -67,5 +67,35 @@
     <div class="mb-2 h6">
       {{ talk.topics }}
     </div>
+
+    {% if have_resources %}
+    <div class="pt-3">
+      <div class="f4 fw7">
+        Recursos
+      </div>
+      {% for resource in resources %}
+        <div class="border-bottom py-2">
+        {% if resource.type == "ResourceLink" %}
+          <a href="{{ resource.url }}" target="_blank">
+            <i class="material-icons md-18">link</i> {{ resource.title }}
+          </a>
+        {% endif %}
+
+        {% if resource.type == "ResourceFile" and resource.file %}
+          <a href="{{ resource.file.url }}" target="_blank">
+            <i class="material-icons md-18">description</i> {{ resource.title }}
+          </a>
+        {% endif %}
+
+        {% if resource.type == "ResourceImage" and resource.photo %}
+          <a href="{{ resource.photo.url }}" target="_blank">
+            <i class="material-icons md-18">image</i> {{ resource.title }}
+          </a>
+        {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
   </div>
 </div>
