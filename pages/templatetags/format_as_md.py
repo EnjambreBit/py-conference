@@ -5,4 +5,6 @@ import markdown
 
 @register.filter
 def format_as_md(text):
-    return mark_safe(markdown.markdown(text))
+    if isinstance(text, str):
+        return mark_safe(markdown.markdown(text))
+    return ""

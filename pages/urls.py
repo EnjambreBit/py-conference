@@ -14,7 +14,7 @@ from pages.views.events.event_registration_list import EventRegistrationListView
 from pages.views.events.event_registration import EventRegistrationView
 from pages.views.sponsors import SponsorListView
 from pages.views.cronogram.speakers import EventSpeakersPageView
-from pages.views.cronogram.talks import EventTalksPageView
+from pages.views.cronogram.talks import EventTalksPageView, EventKeynotePageView, EventSprintPageView, EventWorkshopPageView
 from pages.views.events.event_talk_registration import (
     EventTalkRegistrationView,
     EventTalkRegistrationSuccesfull,
@@ -73,6 +73,9 @@ urlpatterns = [
         name="event-talk-registration-succesfull",
     ),
     path("events/talks/", EventTalksPageView.as_view(), name="talks"),
+    path("events/sprints/", EventSprintPageView.as_view(), name="sprints"),
+    path("events/workshops/", EventWorkshopPageView.as_view(), name="workshops"),
+    path("events/keynotes/", EventKeynotePageView.as_view(), name="keynotes"),
     path("event/talks/<int:pk>/", EventTalksPageView.as_view(), name="event_talks"),
     path("talks/preview/<int:pk>/", TalkPreviewView.as_view(), name="talk_preview"),
     path("talks/edit/<int:pk>/", EventTalkUpdateView.as_view(), name="talk_edit"),

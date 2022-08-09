@@ -13,10 +13,39 @@ class EventTalksPageView(TemplateView):
         else:
             event = Event.objects.filter(active=True).first()
 
-        talks = Talk.objects.filter(event=event, status="published")
+        talks = self.get_queryset(event)
 
         context = super().get_context_data(**kwargs)
         context["event"] = event
         context["talks"] = talks
         context["not_talks"] = talks.count() == 0
         return context
+
+    def get_queryset(self, event):
+        queryset = Talk.objects.filter(event=event, status="published")
+        queryset = queryset.exclude(talk_type__in=["sprints", "workshop", "keynote"])
+        return queryset
+
+
+class EventSprintPageView(EventTalksPageView):
+    template_name = "cronogram/sprints.html"
+    
+    def get_queryset(self, event):
+        queryset = Talk.objects.filter(event=event, talk_type="sprints", status="published")
+        return queryset
+
+
+class EventWorkshopPageView(EventTalksPageView):
+    template_name = "cronogram/workshops.html"
+
+    def get_queryset(self, event):
+        queryset = Talk.objects.filter(event=event, talk_type="workshop", status="published")
+        return queryset
+
+
+class EventKeynotePageView(EventTalksPageView):
+    template_name = "cronogram/keynotes.html"
+
+    def get_queryset(self, event):
+        queryset = Talk.objects.filter(event=event, talk_type="keynote", status="published")
+        return queryset

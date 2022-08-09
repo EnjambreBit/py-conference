@@ -9,36 +9,37 @@
       background-color: #f0d9a5;
     }
   </style>
-
-  <div class="container-fluid home-header pb-4">
-    <img class="d-block mx-auto w-100 mw6 mb-4" src="{% static 'assets/images/scipy-la-2022_logo.png' %}" alt="">
-  </div>
-  <div class="container py-5 px-4 mb-5 text-center">
-    
-    <h1 class="display-5 fw-bold">{{ event.name }}</h1>
-    
-    <div class="mt-3 pa-3 h4 w-100 text-center">
-        Desde el {{ event.start_date | date:"d" }}
-        al {{ event.end_date | date:"d \d\e F \d\e Y" }}
+  
+  <div class="min-vh-100">
+    <div class="container-fluid home-header pb-4">
+      <img class="d-block mx-auto w-100 mw6 mb-4" src="{% static 'assets/images/scipy-la-2022_logo.png' %}" alt="">
     </div>
-
-    <div class="container pa-3 w-100 text-center">
-      <div class="fw5">
-        Llamado a propuestas (call for proposal)
+    <div class="container py-5 px-4 mb-5 text-center">
+      
+      <h1 class="display-5 fw-bold">{{ event.name }}</h1>
+      
+      <div class="mt-3 pa-3 h4 w-100 text-center">
+          Desde el {{ event.start_date | date:"d" }}
+          al {{ event.end_date | date:"d \d\e F \d\e Y" }}
       </div>
-      <div>
-        Desde el {{ event.call_for_talks_start | date:"d \d\e F" }}
-        al {{ event.call_for_talks_end | date:"d \d\e F \d\e Y" }} 
-        {% if event.call_for_talks_active %}
-          <a href="{% url 'event-talk-registration' event.id %}" class="underline">Participa como Speaker</a>
-        {% endif %}
+
+      <div class="container pa-3 w-100 text-center">
+        <div class="fw5">
+          Llamado a propuestas (call for proposal)
+        </div>
+        <div>
+          Desde el {{ event.call_for_talks_start | date:"d \d\e F" }}
+          al {{ event.call_for_talks_end | date:"d \d\e F \d\e Y" }} 
+          {% if event.call_for_talks_active %}
+            <a href="{% url 'event-talk-registration' event.id %}" class="underline">Participa como Speaker</a>
+          {% endif %}
+        </div>
+      </div>
+
+      
+      <div class="col-lg-6 mx-auto text-start">
+        <p class="lead mb-4"> {{ event.description|format_as_md }} </p>
       </div>
     </div>
-
-    
-    <div class="col-lg-6 mx-auto text-start">
-      <p class="lead mb-4"> {{ event.description|format_as_md }} </p>
-    </div>
   </div>
-
 {% endblock %}
