@@ -4,9 +4,9 @@ from django.db import models
 class Talk(models.Model):
     TALKS_TYPE = (
         ("talk", "Talk"),
-        ("workshop", "Workshop"),
+        ("workshop", "Workshop/Taller"),
         # ("tutorial", "Tutorial"),
-        ("keynote", "Keynote"),
+        ("keynote", "Keynote/Charla magistral"),
         ("lightning_talk", "Lightning Talk"),
         ("sprints", "Sprints"),
         ("open_space", "Open Space"),
@@ -84,3 +84,12 @@ class Talk(models.Model):
     @property
     def published(self):
         return self.status == "published"
+
+    def weight(self):
+        weights = {
+            "keynote": 50,
+            "sprints": 30,
+            "workshop": 20,
+            "talk": 10,
+        }
+        return weights.get(self.talk_type, 0)

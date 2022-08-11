@@ -30,6 +30,7 @@ from pages.views.events.event_talk_resource_update import EventTalkResourceUpdat
 from pages.views.events.event_talk_resource_delete import EventTalkResourceDeleteView
 from pages.views.accounts.account_speaker_profile_edit import SpeakeProfileUpdateView
 from pages.views.accounts.account_profile_edit import ProfileUpdateView
+from pages.views.cronogram.speaker_profile import SpeakerProfileView
 
 # Create your views here.
 urlpatterns = [
@@ -101,6 +102,7 @@ urlpatterns = [
     ),
     path("location", LocationPageView.as_view(), name="location"),
     path("speakers", EventSpeakersPageView.as_view(), name="speakers"),
+    path("speakers/<int:pk>/", SpeakerProfileView.as_view(), name="speaker_profile"),
     path("sponsors", SponsorListView.as_view(), name="sponsors"),
     path("pages/<slug:slug>/", render_static_page, name="static_page"),
     path("playground/", PlaygroundView.as_view(), name="playground"),

@@ -47,7 +47,7 @@
       <div class="h6">
         {% for speaker in talk.speakers_per_talk.all %}
           <div>
-            {{ speaker.speaker.profile.full_name }}
+            <a href="{% url 'speaker_profile' speaker.speaker.id %}">{{ speaker.speaker.profile.full_name }}</a>
           </div>
         {% endfor %}
       </div>

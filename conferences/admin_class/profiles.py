@@ -19,7 +19,7 @@ class ProfileAdmin(admin.ModelAdmin):
         "created_at"
     )
     search_fields = (
-        "fist_name",
+        "first_name",
         "last_name",
         "user__email",
     )

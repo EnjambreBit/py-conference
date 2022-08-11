@@ -18,8 +18,12 @@ class EventSpeakersPageView(TemplateView):
             )
         ]
         speakers = Speaker.objects.filter(id__in=speakers_ids)
+        speakers = [(s, s.weight(event)) for s in speakers]
+        speakers.sort(key=lambda tup: tup[1], reverse=True) 
+        speakers = [s[0] for s in speakers]
+
         context["event"] = event
         context["speakers"] = speakers
-        context["not_speakers"] = speakers.count() == 0
+        context["not_speakers"] = len(speakers) == 0
 
         return context

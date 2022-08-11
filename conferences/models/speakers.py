@@ -22,3 +22,10 @@ class Speaker(models.Model):
 
     def __str__(self):
         return self.profile.full_name
+
+    def weight(self, event):
+        weight = 0
+        for spt in self.speakers_per_talk.filter(talk__event=event):
+            if spt.talk.weight() > weight:
+                weight = spt.talk.weight()
+        return weight

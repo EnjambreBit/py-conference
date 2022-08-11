@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block body_content %}
+{{ block.super }}
+
+<div class="container min-vh-100">
+  <div class="row mt-4 mb-4 pb-4 mw7 mx-auto">
+    <div class="text-center">
+      {% if speaker.photo %}
+      <img src="{{ speaker.photo.url }}" alt="" class="profile-photo-thumb">
+      {% else %}
+      <img src="/static/assets/images/perfil-hombre-default.jpg" alt="" class="profile-photo-thumb">
+      {% endif %}
+    </div>
+    <div class="">
+      <div class="h4 text-center mt-3">
+        {{ speaker.profile.full_name }}
+      </div>
+      <div class="h7 mb-3 em text-center">
+        {% if speaker.profile.job_title %}
+          {{ speaker.profile.job_title }}
+        {% endif %}
+      </div>
+      <div>
+        {{ speaker.biography|format_as_md }}
+      </div>
+    </div>
+
+    <div>
+      <div class="h4">
+        Charlas
+      </div>
+      <div class="">
+        <table class="table w-100">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Evento</th>
+              <th>Tipo</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for talk in talks %}
+              <tr>
+                <td> <a href="">{{ talk.name }}</a></td>
+                <td> {{ talk.event.name }} </td>
+                <td> {{ talk.talk_type }} </td>
+              </tr>
+            {% endfor %}
+  
+            {% if not talks|length %}
+              <tr>
+                <td colspan="5"> No tienes charlas propuestas. </td>
+              </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
