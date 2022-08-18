@@ -6,10 +6,20 @@
 {% block body_content %}
   {{ block.super }}
   
-  <div class="container mw6 mx-auto px-4 pb-4">
-    <div class="h2 mb-3">
-      Registrarse
+  <div class="container px-4">
+    <div class="flex mb-4">
+      <div class="flex1 pt-4 pl-3">
+        <div class="h1-border"></div>
+      </div>
+      <div class="px-3">
+        <h1 class="border-0">Registrarse</h1>
+      </div>
+      <div class="flex1 pt-4 pl-3">
+        <div class="h1-border"></div>
+      </div>
     </div>
+  </div>  
+  <div class="container mw6 mx-auto px-4 pb-4">
     
     <form method="post" action="{% url 'registration' %}">
       {% csrf_token %}
