@@ -16,7 +16,18 @@
     </div>
     <div class="container py-5 px-4 mb-5 text-center">
       
-      <h1 class="display-5 fw-bold">{{ event.name }}</h1>
+      
+      <div class="flex mb-4">
+        <div class="flex1 pt-4 pl-3">
+          <div class="h1-border"></div>
+        </div>
+        <div class="px-3">
+          <h1 class="border-0">{{ event.name }}</h1>
+        </div>
+        <div class="flex1 pt-4 pl-3">
+          <div class="h1-border"></div>
+        </div>
+      </div>
       
       <div class="mt-3 pa-3 h4 w-100 text-center">
           Desde el {{ event.start_date | date:"d" }}

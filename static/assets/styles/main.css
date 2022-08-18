@@ -60,6 +60,10 @@
   flex: 1;
 }
 
+.border-0 {
+  border: 0 !important;
+}
+
 /** Colors **/
 
 .white { color: white; }
@@ -89,6 +93,31 @@
 .fw7    { font-weight: 700; }
 .fw8    { font-weight: 800; }
 .fw9    { font-weight: 900; }
+
+/* Headings */
+
+h1 {
+  color: #9a3a4a;
+}
+
+h2 {
+  color: #444;
+}
+
+h1 {
+  font-weight: 700;
+  border-bottom: 3px solid #ffbb47;
+  padding-bottom: 5px;
+}
+
+.h1-border {
+  height: 2px;
+  background-color: #ffbb47;
+}
+
+h1:not(.border-0) {
+  display: none;
+}
 
 
 /** Text decorations **/

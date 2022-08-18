@@ -6,8 +6,16 @@
   <div class="container px-4 min-vh-100">
     {% for object in object_list %}
       <div class="mb-4">  
-        <div class="h1">
-          {{ object.name }}
+        <div class="flex mb-4">
+          <div class="flex1 pt-4 pl-3">
+            <div class="h1-border"></div>
+          </div>
+          <div class="px-3">
+            <h1 class="border-0">{{ object.name }}</h1>
+          </div>
+          <div class="flex1 pt-4 pl-3">
+            <div class="h1-border"></div>
+          </div>
         </div>
         <div class="border-bottom mb-3 f7">
           {{ object.start_date }} / {{ object.end_date }}

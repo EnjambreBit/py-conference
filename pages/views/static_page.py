@@ -10,7 +10,15 @@ def render_static_page(request, slug=None):
     except StaticPage.DoesNotExist:
         return HttpResponse("Page not found", status=404)
 
+    print(page.content)
+
+    content = page.content
+    title = content.partition('\n')[0]
+    title = title.replace("#", "")
+    title = title.replace("**", "")
+
     context = {
+        "title": title,
         "rendered_content": page.rendered_content(),
     }
     return HttpResponse(template.render(context, request))
