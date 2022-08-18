@@ -37,12 +37,15 @@ from conferences.admin_class.event_registrations import (
 from conferences.admin_class.addresses import Address, AddressAdmin
 from conferences.admin_class.event_links import EventLink, EventLinkAdmin
 
+from conferences.admin_class.talk_registration import  TalkRegistration, TalkRegistrationAdmin
+
 # Register your models here.
 admin.site.register(Country, CountryAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Room, RoomAdmin)
 admin.site.register(Talk, TalkAdmin)
 admin.site.register(TalkRoom, TalkRoomAdmin)
+admin.site.register(TalkRegistration, TalkRegistrationAdmin)
 admin.site.register(Profile, ProfileAdmin)
 admin.site.register(Speaker, SpeakerAdmin)
 admin.site.register(SocialMedia, SocialMediaAdmin)

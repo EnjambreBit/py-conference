@@ -19,3 +19,10 @@ media_files/
 media_locale_files/
 media_archivos_locales/
 *.sh
+
+# PDM
+__pypackages__
+.pdm.toml
+pdm.lock
+pyproject.toml
+backend/

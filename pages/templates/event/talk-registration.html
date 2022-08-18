@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block body_content %}
+{{ block.super }}
+  <div class="container px-4 min-vh-100">
+      <div class="row">
+        <div class="col-md-9 ">
+            <h3>Inscripción a  Workshop/Taller/Sprints</h3>
+      </div>
+      <div class="col-md-3 "">
+        <a href="{% url 'profile' %}">volver a perfil</a>
+      </div>
+    </div>
+
+    <div class="">
+      <table class="table w-100">
+        <thead>
+          <tr>
+            <th>Evento</th>
+            <th>Taller</th>
+            <th>Tipo</th>
+            <th>Audiencia</th>
+            <th>Duración</th>
+            <th>Idioma</th>
+
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for talk in talleres %}
+             {% if talk.id not  in  inscripciones %}
+              <tr>
+            {% else %}
+                <tr bgcolor=#EAFAF1>
+            {% endif %}
+              <td> {{ talk.event.name }} </td>
+              <td> {{ talk }} </td>
+              <td> {{ talk.talk_type}} </td>
+              <td> {{ talk.audience_level }} </td>
+              <td> {{ talk.duration }} </td>
+              <td> {{ talk.language }} </td>
+              <td>
+                {% if talk.id not  in  inscripciones %}
+                  <a href="{% url 'talk-registration-add' talk.id %}">Inscribir</a>
+                {% else %}
+                    <a href="{% url 'talk-registration-del' talk.id %}">Anular</a>
+               {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+
+          {% if not talleres|length %}
+            <tr>
+              <td colspan="5"> No hay Workshop/Taller/Sprints habilitados todavía. </td>
+            </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+{% endblock %}

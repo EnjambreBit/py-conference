@@ -22,6 +22,7 @@ class ProfileDetailView(LoginRequiredMixin, TemplateView):
 
         if profile is not None:
             context["registrations"] = profile.registrations.all()
+            context["talk_registrations"] = profile.talks_registrations_profile.all()
 
             speaker_profile = Speaker.objects.filter(profile=profile).first()
 
