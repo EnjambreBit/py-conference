@@ -1,10 +1,11 @@
-from django.views.generic.base import TemplateView
-from django.contrib.auth.mixins import LoginRequiredMixin
-
+from conferences.models.events import Event
 from conferences.models.profiles import Profile
 from conferences.models.speakers import Speaker
 from conferences.models.speakers_per_talk import SpeakerPerTalk
 from conferences.models.talks import Talk
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.utils import timezone
+from django.views.generic.base import TemplateView
 
 
 class ProfileDetailView(LoginRequiredMixin, TemplateView):
@@ -19,6 +20,11 @@ class ProfileDetailView(LoginRequiredMixin, TemplateView):
             pass
 
         context["profile"] = profile
+
+        #evento actual activo
+        now = timezone.now()
+        event: Event = Event.objects.filter(active=True, call_for_talks_start__gte=now, call_for_talks_end__lte=now).first()
+        context["event"] = event
 
         if profile is not None:
             context["registrations"] = profile.registrations.all()

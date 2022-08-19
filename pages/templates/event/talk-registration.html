@@ -5,16 +5,16 @@
 {% block body_content %}
 {{ block.super }}
   <div class="container px-4 min-vh-100">
-      <div class="row">
-        <div class="col-md-9 ">
-            <h3>Inscripción a  Workshop/Taller/Sprints</h3>
+    <div class="row">
+      <div class="col-md-9">
+        <h3>Inscripción a  Workshop/Taller/Sprints</h3>
       </div>
-      <div class="col-md-3 "">
-        <a href="{% url 'profile' %}">volver a perfil</a>
+      <div class="col-md-3 text-end">
+        <a class="btn btn-secondary" href="{% url 'profile' %}">volver a perfil</a>
       </div>
     </div>
 
-    <div class="">
+    <div class="row">
       <table class="table w-100">
         <thead>
           <tr>
