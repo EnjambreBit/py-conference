@@ -31,6 +31,8 @@ from pages.views.events.event_talk_resource_delete import EventTalkResourceDelet
 from pages.views.accounts.account_speaker_profile_edit import SpeakeProfileUpdateView
 from pages.views.accounts.account_profile_edit import ProfileUpdateView
 from pages.views.cronogram.speaker_profile import SpeakerProfileView
+from pages.views.events.talk_registration import  TalkRegistration, TalkRegistrationAdd, TalkRegistrationDel
+
 
 # Create your views here.
 urlpatterns = [
@@ -106,5 +108,10 @@ urlpatterns = [
     path("sponsors", SponsorListView.as_view(), name="sponsors"),
     path("pages/<slug:slug>/", render_static_page, name="static_page"),
     path("playground/", PlaygroundView.as_view(), name="playground"),
+    path("talks/talk-registration/", TalkRegistration.as_view(), name="talk-registration"),
+    path("talks/talk-registration/add/<int:pk>/", TalkRegistrationAdd, name="talk-registration-add"),
+    path("talks/talk-registration/del/<int:pk>/", TalkRegistrationDel, name="talk-registration-del"),
+
     path("", HomePageView.as_view(), name="home"),
 ]
+
