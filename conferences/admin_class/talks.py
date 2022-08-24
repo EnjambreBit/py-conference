@@ -8,6 +8,11 @@ from conferences.models.resources import (
     ResourceImage,
     ResourceLink,
 )
+from import_export.admin import ExportMixin
+from import_export import resources
+from import_export.fields import Field
+from import_export.formats import base_formats
+from django.utils.html import mark_safe
 
 
 class TalkRoomMediaInline(admin.TabularInline):
@@ -35,8 +40,41 @@ class ResourceLinkInline(admin.TabularInline):
     extra = 0
 
 
-class TalkAdmin(admin.ModelAdmin):
+class TalkResource(resources.ModelResource):
+    name = Field(attribute="name", column_name="Nombre de la charla")
+    talk_type = Field(attribute="talk_type", column_name="Tipo")
+    status = Field(attribute="status", column_name="Estado")
+    speakers = Field(column_name="Ponentes")
+    summary = Field(attribute="summary", column_name="Resumen")
+
+    class Meta:
+        model = Talk
+        fields = (
+            "id",
+            "name",
+            "talk_type",
+            "status",
+            "speakers",
+            "summary",
+        )
+        export_order = (
+            "id",
+            "name",
+            "talk_type",
+            "status",
+            "speakers",
+            "summary",
+        )
+
+    def dehydrate_speakers(self, obj):
+        speakers =[spp.speaker.profile.full_name for spp in obj.speakers_per_talk.all()]
+        return ", ".join(speakers)
+
+
+
+class TalkAdmin(ExportMixin, admin.ModelAdmin):
     model = Talk
+    resource_class = TalkResource
     list_display = (
         "id",
         "event",
@@ -60,3 +98,10 @@ class TalkAdmin(admin.ModelAdmin):
         "talk_type",
         "status",
     )
+
+    def get_export_formats(self):
+        formats = (
+            base_formats.CSV,
+        )
+        return [f for f in formats if f().can_export()]
+

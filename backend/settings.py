@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     "widget_tweaks",
     "crispy_forms",
     "crispy_bootstrap5",
+    'import_export',
     "conferences",
     "pages",
 ]

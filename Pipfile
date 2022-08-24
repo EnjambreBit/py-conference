@@ -26,6 +26,7 @@ django-widget-tweaks = "*"
 whitenoise = "*"
 django-crispy-forms = "*"
 crispy-bootstrap5 = "*"
+django-import-export = "*"
 
 [dev-packages]
 

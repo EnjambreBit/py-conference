@@ -30,7 +30,7 @@
         </thead>
         <tbody>
           {% for talk in talleres %}
-             {% if talk.id not  in  inscripciones %}
+            {% if talk.id not  in  inscripciones %}
               <tr>
             {% else %}
                 <tr bgcolor=#EAFAF1>
@@ -46,7 +46,7 @@
                   <a href="{% url 'talk-registration-add' talk.id %}">Inscribir</a>
                 {% else %}
                     <a href="{% url 'talk-registration-del' talk.id %}">Anular</a>
-               {% endif %}
+                {% endif %}
               </td>
             </tr>
           {% endfor %}
