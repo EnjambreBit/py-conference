@@ -13,15 +13,4 @@ class TalkDetailView(DetailView):
 
         talk = self.get_object()
         context["resources"] = talk.resources.all()
-
-        now = timezone.now().date()
-        if now <= talk.event.end_date:
-            context["can_edit"] = (
-                talk.speakers_per_talk.filter(
-                    speaker__profile=self.request.user.profile
-                ).count()
-                > 0
-                or self.request.user.is_superuser
-            )
-
         return context
