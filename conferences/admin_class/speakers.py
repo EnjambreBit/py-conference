@@ -8,6 +8,8 @@ class SpeakerAdmin(admin.ModelAdmin):
     list_display = (
         "id",
         "profile",
+        "type",
+        "photo",
     )
     search_fields = (
         "profile__first_name",

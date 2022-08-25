@@ -52,5 +52,60 @@
         <p class="lead mb-4"> {{ event.description|format_as_md }} </p>
       </div>
     </div>
+
+    {% comment %} Perfiles {% endcomment %}
+
+    <div class="container pb-4">
+      <h2 class="text-center">Keynotes / Charla Magistral</h2>
+      <div class="d-flex flex-wrap justify-content-center">
+      {% for speaker in keynotes %}
+        <div class="text-center p-4">
+          <a href="{% url 'speaker_profile' speaker.id %}">
+          <img src="{{ speaker.photo.url }}" alt="" class="profile-photo-thumb">
+          <div class="h4 mt-3 red-wine">
+            {{ speaker.profile.full_name }}
+          </div>
+          <div class="em">
+            {% if speaker.profile.job_title %}
+              {{ speaker.profile.job_title }}
+            {% endif %}
+          </div>
+          <div class="black">
+            {% if speaker.profile.country %}
+              {{ speaker.profile.country }} 
+            {% endif %}
+          </div>
+          </a>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+
+    <div class="container pb-4">
+      <h2 class="text-center">Ponentes</h2>
+      <div class="d-flex flex-wrap justify-content-center">
+      {% for speaker in speakers %}
+        <div class="text-center p-4">
+          <a href="{% url 'speaker_profile' speaker.id %}">
+          <img src="{{ speaker.photo.url }}" alt="" class="profile-photo-thumb">
+          <div class="h4 mt-3 red-wine">
+            {{ speaker.profile.full_name }}
+          </div>
+          <div class="em">
+            {% if speaker.profile.job_title %}
+              {{ speaker.profile.job_title }}
+            {% endif %}
+          </div>
+          <div class="black">
+            {% if speaker.profile.country %}
+              {{ speaker.profile.country }} 
+            {% endif %}
+          </div>
+          </a>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+
   </div>
 {% endblock %}

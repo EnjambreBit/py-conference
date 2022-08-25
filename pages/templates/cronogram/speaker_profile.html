@@ -42,7 +42,7 @@
           <tbody>
             {% for talk in talks %}
               <tr>
-                <td> <a href="">{{ talk.name }}</a></td>
+                <td> <a href="{% url 'talk_detail' talk.id %}">{{ talk.name }}</a></td>
                 <td> {{ talk.event.name }} </td>
                 <td> {{ talk.talk_type }} </td>
               </tr>

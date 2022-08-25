@@ -36,6 +36,9 @@ class ProfileAdmin(ExportMixin, admin.ModelAdmin):
         "last_name",
         "user__email",
     )
+    autocomplete_fields = (
+        "country",
+    )
     inlines = [
         SocialMediaInline,
     ]

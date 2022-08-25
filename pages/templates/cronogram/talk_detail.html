@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load event_talk_tags %}
+
+{% block body_content %}
+{{ block.super }}
+  <div class="container min-vh-100">
+    {% talk_preview talk=talk %}
+
+  </div>
+{% endblock %}

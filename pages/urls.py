@@ -32,7 +32,7 @@ from pages.views.accounts.account_speaker_profile_edit import SpeakeProfileUpdat
 from pages.views.accounts.account_profile_edit import ProfileUpdateView
 from pages.views.cronogram.speaker_profile import SpeakerProfileView
 from pages.views.events.talk_registration import  TalkRegistration, TalkRegistrationAdd, TalkRegistrationDel
-
+from pages.views.cronogram.talk_detail import TalkDetailView
 
 # Create your views here.
 urlpatterns = [
@@ -80,6 +80,7 @@ urlpatterns = [
     path("events/workshops/", EventWorkshopPageView.as_view(), name="workshops"),
     path("events/keynotes/", EventKeynotePageView.as_view(), name="keynotes"),
     path("event/talks/<int:pk>/", EventTalksPageView.as_view(), name="event_talks"),
+    path("talks/detail/<int:pk>/", TalkDetailView.as_view(), name="talk_detail"),
     path("talks/preview/<int:pk>/", TalkPreviewView.as_view(), name="talk_preview"),
     path("talks/edit/<int:pk>/", EventTalkUpdateView.as_view(), name="talk_edit"),
     path(
