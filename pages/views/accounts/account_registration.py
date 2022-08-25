@@ -6,6 +6,8 @@ from conferences.models.profiles import Profile
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 
+from conferences.models.event_registrations import EventRegistration
+from conferences.models.events import Event
 
 class AccountRegistrationView(FormView):
     template_name = "account/account-registration.html"
@@ -37,6 +39,13 @@ class AccountRegistrationView(FormView):
             study_program=form.cleaned_data["study_program"],
             student_id=form.cleaned_data["student_id"],
         )
+
+        active_event = Event.objects.filter(active=True).first()
+        if active_event:
+            EventRegistration.objects.create(
+                event=active_event,
+                profile=profile
+            )
 
         return HttpResponseRedirect(self.get_success_url())
 
