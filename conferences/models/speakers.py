@@ -25,8 +25,12 @@ class Speaker(models.Model):
     def __str__(self):
         return self.profile.full_name
 
-    def weight(self, event):
+    def weight(self, event=None):
         weight = 0
+        if event is None:
+            Event = django_apps.get_model("conferences.Event")
+            event = Event.objects.filter(active=True).first()
+
         for spt in self.speakers_per_talk.filter(talk__event=event, talk__status="published"):
             if spt.talk.weight() > weight:
                 weight = spt.talk.weight()

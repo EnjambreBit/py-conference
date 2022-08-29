@@ -93,3 +93,7 @@ class Talk(models.Model):
             "talk": 10,
         }
         return weights.get(self.talk_type, 0)
+    
+    def speakers(self):
+        speakers =[spp.speaker.profile.full_name for spp in self.speakers_per_talk.all()]
+        return ", ".join(speakers)

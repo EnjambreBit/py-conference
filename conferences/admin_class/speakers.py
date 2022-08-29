@@ -9,9 +9,11 @@ class SpeakerAdmin(admin.ModelAdmin):
         "id",
         "profile",
         "type",
+        "weight",
         "photo",
     )
     search_fields = (
         "profile__first_name",
         "profile__last_name",
     )
+
