@@ -33,6 +33,8 @@ from pages.views.accounts.account_profile_edit import ProfileUpdateView
 from pages.views.cronogram.speaker_profile import SpeakerProfileView
 from pages.views.events.talk_registration import  TalkRegistration, TalkRegistrationAdd, TalkRegistrationDel
 from pages.views.cronogram.talk_detail import TalkDetailView
+from pages.views.twitter_news import TwitterNewsView
+
 
 # Create your views here.
 urlpatterns = [
@@ -104,6 +106,7 @@ urlpatterns = [
         name="talk_resource_delete",
     ),
     path("location", LocationPageView.as_view(), name="location"),
+    path("noticias", TwitterNewsView.as_view(), name="twitter_news"),
     path("speakers", EventSpeakersPageView.as_view(), name="speakers"),
     path("speakers/<int:pk>/", SpeakerProfileView.as_view(), name="speaker_profile"),
     path("sponsors", SponsorListView.as_view(), name="sponsors"),

@@ -16,7 +16,6 @@
     </div>
     <div class="container py-5 px-4 mb-5 text-center">
       
-      
       <div class="flex mb-4">
         <div class="flex1 pt-4 pl-3">
           <div class="h1-border"></div>
@@ -53,7 +52,7 @@
       </div>
     </div>
 
-    {% comment %} Perfiles {% endcomment %}
+    {% comment %} Speakers {% endcomment %}
 
     <div class="container pb-4">
       <h2 class="text-center">Keynotes / Charla Magistral</h2>
@@ -82,30 +81,56 @@
     </div>
 
     <div class="container pb-4">
-      <h2 class="text-center">Ponentes</h2>
-      <div class="d-flex flex-wrap justify-content-center">
+      <h2 class="text-center pb-4">Ponentes</h2>
+
+      <div class="row">
       {% for speaker in speakers %}
-        <div class="text-center p-4">
-          <a href="{% url 'speaker_profile' speaker.id %}">
-          <img src="{{ speaker.photo.url }}" alt="" class="profile-photo-thumb">
-          <div class="h4 mt-3 red-wine">
-            {{ speaker.profile.full_name }}
+        <div class="col-md-4 col-lg-3">
+          <div class="text-center">
+            <a href="{% url 'speaker_profile' speaker.id %}">
+            <img src="{{ speaker.photo.url }}" alt="" class="profile-photo-thumb">
+            <div class="h4 mt-3 red-wine">
+              {{ speaker.profile.full_name }}
+            </div>
+            <div class="em">
+              {% if speaker.profile.job_title %}
+                {{ speaker.profile.job_title }}
+              {% endif %}
+            </div>
+            <div class="black">
+              {% if speaker.profile.country %}
+                {{ speaker.profile.country }} 
+              {% endif %}
+            </div>
+            </a>
           </div>
-          <div class="em">
-            {% if speaker.profile.job_title %}
-              {{ speaker.profile.job_title }}
-            {% endif %}
-          </div>
-          <div class="black">
-            {% if speaker.profile.country %}
-              {{ speaker.profile.country }} 
-            {% endif %}
-          </div>
-          </a>
         </div>
       {% endfor %}
       </div>
     </div>
 
+    {% comment %} Sponsors {% endcomment %}
+
+    <div class="container pb-4">
+      <h2 class="text-center pb-4">Sponsors</h2>
+      {% for sponsor_level in sponsors_level  %}
+      <div class=" mb-4">
+        <h3>
+          {{ sponsor_level.detail.name }}
+        </h3>
+        <div class="row">
+          {% for sponsor in sponsor_level.sponsors  %}
+            <div class="col-md-3 p-3">
+              <a href="{{ sponsor.url }}">
+                <img src="{{ sponsor.logo.url  }}" alt="{{ sponsor.name }}" class="w-40">
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 {% endblock %}
+
+

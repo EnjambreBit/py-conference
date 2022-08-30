@@ -2,6 +2,8 @@ from conferences.models.events import Event
 from conferences.models.speakers import Speaker
 from django.views.generic import TemplateView
 from conferences.models.speakers_per_talk import SpeakerPerTalk
+from conferences.models.sponsor_levels import SponsorLevel
+from conferences.models.sponsors import Sponsor
 
 class HomePageView(TemplateView):
     template_name = "home.html"
@@ -29,4 +31,19 @@ class HomePageView(TemplateView):
         speakers = [s[0] for s in speakers]
         context["speakers"] = speakers
 
+        context["sponsors_level"] = self.get_sponsors_groups_by_level()
+        context["not_sponsors"] = Sponsor.objects.filter(published=True).count() == 0
+
         return context
+
+    def get_sponsors_groups_by_level(self):
+        sponsors_groups_by_level = []
+        for sponsor_level in SponsorLevel.objects.all().order_by("-priority"):
+            queryset = Sponsor.objects.filter(
+                sponsor_level=sponsor_level, published=True
+            )
+            if queryset.count() > 0:
+                sponsors_groups_by_level.append(
+                    {"detail": sponsor_level, "sponsors": queryset}
+                )
+        return sponsors_groups_by_level
