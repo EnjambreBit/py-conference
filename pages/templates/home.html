@@ -14,8 +14,7 @@
     <div class="container-fluid home-header pb-4">
       <img class="d-block mx-auto w-100 mw6 mb-4" src="{% static 'assets/images/scipy-la-2022_logo.png' %}" alt="">
     </div>
-    <div class="container py-5 px-4 mb-5 text-center">
-      
+    <div class="container py-5 px-4 mb-3 text-center">
       <div class="flex mb-4">
         <div class="flex1 pt-4 pl-3">
           <div class="h1-border"></div>
@@ -51,6 +50,87 @@
         <p class="lead mb-4"> {{ event.description|format_as_md }} </p>
       </div>
     </div>
+
+    
+    <script>
+      function handleTickInit(tick) {
+    
+            // Uncomment to set labels to different language ( in this case Dutch )
+            var locale = {
+                YEAR_PLURAL: 'Años',
+                YEAR_SINGULAR: 'Año',
+                MONTH_PLURAL: 'Meses',
+                MONTH_SINGULAR: 'Mes',
+                WEEK_PLURAL: 'Semanas',
+                WEEK_SINGULAR: 'Semana',
+                DAY_PLURAL: 'Días',
+                DAY_SINGULAR: 'Sía',
+                HOUR_PLURAL: 'Horas',
+                HOUR_SINGULAR: 'Hora',
+                MINUTE_PLURAL: 'Minutos',
+                MINUTE_SINGULAR: 'Minuto',
+                SECOND_PLURAL: 'Segundos',
+                SECOND_SINGULAR: 'Segundo',
+                MILLISECOND_PLURAL: 'Milisegundos',
+                MILLISECOND_SINGULAR: 'Milisegundo'
+            };
+            for (var key in locale) {
+                if (!locale.hasOwnProperty(key)) { continue; }
+                tick.setConstant(key, locale[key]);
+            }
+    
+        var nextYear = (new Date()).getFullYear() + 1;
+        Tick.count.down('2022-09-26').onupdate = function(value) {
+          tick.value = value;
+        };
+      }
+    </script>
+
+    <style>
+      .tick {
+          padding-bottom: 0;
+          font-size: 0.5rem;
+          font-family: "Helvetica Neue", Roboto, sans-serif;
+      }
+      
+      .tick-label {
+          font-size: 1.5rem;
+          text-align: center;
+      }
+
+      .tick-group {
+          margin: 0 0.5rem;
+          text-align:center;
+      }
+    </style>
+
+    <div class="container py-3 mb-5 home-header">
+      <div class="text-center p-3">
+        <h2>Tiempo hasta que comience el evento.</h2>
+      </div>
+      <div class="tick mw7 mx-auto"
+        data-did-init="handleTickInit">
+        <div 
+          data-repeat="true"
+          data-layout="horizontal center fit"
+          data-transform="preset(d, h, m, s) -> delay">
+          <div class="tick-group">
+            <div 
+              data-key="value"
+              data-repeat="true"
+              data-transform="pad(00) -> split -> delay">
+                <span data-view="flip"></span>
+              </div>
+              <span
+                data-key="label"
+                data-view="text"
+                class="tick-label">
+              </span>
+            </div>
+        </div>
+      </div>
+    </div>
+
 
     {% comment %} Speakers {% endcomment %}
 
