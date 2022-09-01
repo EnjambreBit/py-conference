@@ -140,20 +140,24 @@
       {% for speaker in keynotes %}
         <div class="text-center p-4">
           <a href="{% url 'speaker_profile' speaker.id %}">
-          <img src="{{ speaker.photo.url }}" alt="" class="profile-photo-thumb">
-          <div class="h4 mt-3 red-wine">
-            {{ speaker.profile.full_name }}
-          </div>
-          <div class="em">
-            {% if speaker.profile.job_title %}
-              {{ speaker.profile.job_title }}
+            {% if speaker.photo %}
+            <img src="{{ speaker.photo.url }}" alt="Foto de {{ speaker.profile.full_name }}" class="profile-photo-thumb">
+            {% else %}
+            <img src="/static/assets/images/perfil-hombre-default.jpg" alt="foto de {{ speaker.profile.full_name }}" class="profile-photo-thumb">
             {% endif %}
-          </div>
-          <div class="black">
-            {% if speaker.profile.country %}
-              {{ speaker.profile.country }} 
-            {% endif %}
-          </div>
+            <div class="h4 mt-3 red-wine">
+              {{ speaker.profile.full_name }}
+            </div>
+            <div class="em">
+              {% if speaker.profile.job_title %}
+                {{ speaker.profile.job_title }}
+              {% endif %}
+            </div>
+            <div class="black">
+              {% if speaker.profile.country %}
+                {{ speaker.profile.country }} 
+              {% endif %}
+            </div>
           </a>
         </div>
       {% endfor %}
@@ -168,20 +172,24 @@
         <div class="col-md-4 col-lg-3 pb-3">
           <div class="text-center">
             <a href="{% url 'speaker_profile' speaker.id %}">
-            <img src="{{ speaker.photo.url }}" alt="" class="profile-photo-thumb">
-            <div class="h4 mt-3 red-wine">
-              {{ speaker.profile.full_name }}
-            </div>
-            <div class="em">
-              {% if speaker.profile.job_title %}
-                {{ speaker.profile.job_title }}
+              {% if speaker.photo %}
+              <img src="{{ speaker.photo.url }}" alt="Foto de {{ speaker.profile.full_name }}" class="profile-photo-thumb">
+              {% else %}
+              <img src="/static/assets/images/perfil-hombre-default.jpg" alt="foto de {{ speaker.profile.full_name }}" class="profile-photo-thumb">
               {% endif %}
-            </div>
-            <div class="black">
-              {% if speaker.profile.country %}
-                {{ speaker.profile.country }} 
-              {% endif %}
-            </div>
+              <div class="h4 mt-3 red-wine">
+                {{ speaker.profile.full_name }}
+              </div>
+              <div class="em">
+                {% if speaker.profile.job_title %}
+                  {{ speaker.profile.job_title }}
+                {% endif %}
+              </div>
+              <div class="black">
+                {% if speaker.profile.country %}
+                  {{ speaker.profile.country }} 
+                {% endif %}
+              </div>
             </a>
           </div>
         </div>
