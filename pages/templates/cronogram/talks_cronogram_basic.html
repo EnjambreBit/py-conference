@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load event_talk_tags %}
+
+{% block body_content %}
+{{ block.super }}
+  <div class="container min-vh-100">
+    <div class="flex mb-3">
+      <div class="flex1 pt-4 pl-3">
+        <div class="h1-border"></div>
+      </div>
+      <div class="px-3">
+        <h1 class="border-0">{{ event.name }}</h1>
+      </div>
+      <div class="flex1 pt-4 pl-3">
+        <div class="h1-border"></div>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="text-center">Cronograma de Charlas</h2>
+    </div>
+
+    {% if not no_talks %}
+    <table class="w-100 table cronogram-table">
+      <thead>
+        <tr>
+          <th>Titulo</th>
+          <th>Tipo</th>
+          <th>Idioma</th>
+          <th>Speakers</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for talk in talks %}
+        <tr>
+          <td>
+            <a href="{% url 'talk_detail' talk.id %}">{{ talk.name }}</a>
+          </td>
+          <td>{{ talk.get_talk_type_display }}</td>
+          <td>{{ talk.get_language_display }}</td>
+          <td>{{ talk.speakers }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+
+    
+
+    {% if not_talks %}
+      <div class="my-4 alert alert-warning">
+        Disculpe las molestias, aun no se ha publicado el cronograma de charlas.
+      </div>
+    {% endif %}
+
+  </div>
+{% endblock %}

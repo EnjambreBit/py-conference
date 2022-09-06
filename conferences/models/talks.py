@@ -3,7 +3,7 @@ from django.db import models
 
 class Talk(models.Model):
     TALKS_TYPE = (
-        ("talk", "Talk"),
+        ("talk", "Charla"),
         ("workshop", "Workshop/Taller"),
         # ("tutorial", "Tutorial"),
         ("keynote", "Keynote/Charla magistral"),
@@ -22,10 +22,10 @@ class Talk(models.Model):
     )
 
     LANGUAGES = (
-        ("english", "English"),
-        ("spanish", "Spanish"),
-        ("portuguese", "Portuguese"),
-        ("english/spanish", "English/Spanish"),
+        ("english", "Inglés"),
+        ("spanish", "Español"),
+        ("portuguese", "Portugues"),
+        ("english/spanish", "Inglés/Español"),
     )
 
     AUDIENCE_LEVEL = (

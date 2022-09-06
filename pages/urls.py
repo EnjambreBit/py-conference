@@ -34,6 +34,7 @@ from pages.views.cronogram.speaker_profile import SpeakerProfileView
 from pages.views.events.talk_registration import  TalkRegistration, TalkRegistrationAdd, TalkRegistrationDel
 from pages.views.cronogram.talk_detail import TalkDetailView
 from pages.views.twitter_news import TwitterNewsView
+from pages.views.cronogram.talks_cronogram_basic import EventTalksCronogramBasicPageView
 
 
 # Create your views here.
@@ -115,7 +116,7 @@ urlpatterns = [
     path("talks/talk-registration/", TalkRegistration.as_view(), name="talk-registration"),
     path("talks/talk-registration/add/<int:pk>/", TalkRegistrationAdd, name="talk-registration-add"),
     path("talks/talk-registration/del/<int:pk>/", TalkRegistrationDel, name="talk-registration-del"),
-
+    path("crongram/", EventTalksCronogramBasicPageView.as_view(), name="talks-cronogram"),
     path("", HomePageView.as_view(), name="home"),
 ]
 

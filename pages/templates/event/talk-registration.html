@@ -37,10 +37,10 @@
             {% endif %}
               <td> {{ talk.event.name }} </td>
               <td> {{ talk }} </td>
-              <td> {{ talk.talk_type}} </td>
+              <td> {{ talk.get_talk_type_display }} </td>
               <td> {{ talk.audience_level }} </td>
               <td> {{ talk.duration }} </td>
-              <td> {{ talk.language }} </td>
+              <td> {{ talk.get_language_display }} </td>
               <td>
                 {% if talk.id not  in  inscripciones %}
                   <a href="{% url 'talk-registration-add' talk.id %}">Inscribir</a>
