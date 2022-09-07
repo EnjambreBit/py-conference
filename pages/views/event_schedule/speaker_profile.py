@@ -5,7 +5,7 @@ from conferences.models.talks import Talk
 
 class SpeakerProfileView(DetailView):
     model = Speaker
-    template_name = "cronogram/speaker_profile.html"
+    template_name = "event-schedule/speaker_profile.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
