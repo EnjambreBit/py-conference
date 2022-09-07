@@ -13,8 +13,8 @@ from pages.views.not_implemented import NotImplementedView
 from pages.views.events.event_registration_list import EventRegistrationListView
 from pages.views.events.event_registration import EventRegistrationView
 from pages.views.sponsors import SponsorListView
-from pages.views.cronogram.speakers import EventSpeakersPageView
-from pages.views.cronogram.talks import EventTalksPageView, EventKeynotePageView, EventSprintPageView, EventWorkshopPageView
+from pages.views.event_schedule.speakers import EventSpeakersPageView
+from pages.views.event_schedule.talks import EventTalksPageView, EventKeynotePageView, EventSprintPageView, EventWorkshopPageView
 from pages.views.events.event_talk_registration import (
     EventTalkRegistrationView,
     EventTalkRegistrationSuccesfull,
@@ -30,11 +30,11 @@ from pages.views.events.event_talk_resource_update import EventTalkResourceUpdat
 from pages.views.events.event_talk_resource_delete import EventTalkResourceDeleteView
 from pages.views.accounts.account_speaker_profile_edit import SpeakeProfileUpdateView
 from pages.views.accounts.account_profile_edit import ProfileUpdateView
-from pages.views.cronogram.speaker_profile import SpeakerProfileView
+from pages.views.event_schedule.speaker_profile import SpeakerProfileView
 from pages.views.events.talk_registration import  TalkRegistration, TalkRegistrationAdd, TalkRegistrationDel
-from pages.views.cronogram.talk_detail import TalkDetailView
+from pages.views.event_schedule.talk_detail import TalkDetailView
 from pages.views.twitter_news import TwitterNewsView
-from pages.views.cronogram.talks_cronogram_basic import EventTalksCronogramBasicPageView
+from pages.views.event_schedule.talks_schedule_basic import EventTalksScheduleBasicPageView
 
 
 # Create your views here.
@@ -115,7 +115,7 @@ urlpatterns = [
     path("talks/talk-registration/", TalkRegistration.as_view(), name="talk-registration"),
     path("talks/talk-registration/add/<int:pk>/", TalkRegistrationAdd, name="talk-registration-add"),
     path("talks/talk-registration/delete/<int:pk>/", TalkRegistrationDel, name="talk-registration-del"),
-    path("cronogram/", EventTalksCronogramBasicPageView.as_view(), name="talks-cronogram"),
+    path("event-schedule/", EventTalksScheduleBasicPageView.as_view(), name="talks-schedule"),
     path("", HomePageView.as_view(), name="home"),
     path("not-found/", NotImplementedView.as_view(), name="not_found"),
 ]

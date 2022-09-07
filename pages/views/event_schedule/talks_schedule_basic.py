@@ -3,8 +3,8 @@ from conferences.models.events import Event
 from conferences.models.talks import Talk
 
 
-class EventTalksCronogramBasicPageView(TemplateView):
-    template_name = "cronogram/talks_cronogram_basic.html"
+class EventTalksScheduleBasicPageView(TemplateView):
+    template_name = "event-schedule/talks_schedule_basic.html"
 
     def get_context_data(self, **kwargs):
         event_id = kwargs.get("pk", False)

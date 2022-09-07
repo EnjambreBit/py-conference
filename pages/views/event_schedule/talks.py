@@ -4,7 +4,7 @@ from conferences.models.talks import Talk
 
 
 class EventTalksPageView(TemplateView):
-    template_name = "cronogram/talks.html"
+    template_name = "event-schedule/talks.html"
 
     def get_context_data(self, **kwargs):
         event_id = kwargs.get("pk", False)
@@ -28,7 +28,7 @@ class EventTalksPageView(TemplateView):
 
 
 class EventSprintPageView(EventTalksPageView):
-    template_name = "cronogram/sprints.html"
+    template_name = "event-schedule/sprints.html"
     
     def get_queryset(self, event):
         queryset = Talk.objects.filter(event=event, talk_type="sprints", status="published")
@@ -36,7 +36,7 @@ class EventSprintPageView(EventTalksPageView):
 
 
 class EventWorkshopPageView(EventTalksPageView):
-    template_name = "cronogram/workshops.html"
+    template_name = "event-schedule/workshops.html"
 
     def get_queryset(self, event):
         queryset = Talk.objects.filter(event=event, talk_type="workshop", status="published")
@@ -44,7 +44,7 @@ class EventWorkshopPageView(EventTalksPageView):
 
 
 class EventKeynotePageView(EventTalksPageView):
-    template_name = "cronogram/keynotes.html"
+    template_name = "event-schedule/keynotes.html"
 
     def get_queryset(self, event):
         queryset = Talk.objects.filter(event=event, talk_type="keynote", status="published")
