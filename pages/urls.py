@@ -39,7 +39,6 @@ from pages.views.cronogram.talks_cronogram_basic import EventTalksCronogramBasic
 
 # Create your views here.
 urlpatterns = [
-    path("not-found/", NotImplementedView.as_view(), name="not_found"),
     path("accounts/profile/", ProfileDetailView.as_view(), name="profile"),
     path(
         "accounts/registration/", AccountRegistrationView.as_view(), name="registration"
@@ -115,8 +114,9 @@ urlpatterns = [
     path("playground/", PlaygroundView.as_view(), name="playground"),
     path("talks/talk-registration/", TalkRegistration.as_view(), name="talk-registration"),
     path("talks/talk-registration/add/<int:pk>/", TalkRegistrationAdd, name="talk-registration-add"),
-    path("talks/talk-registration/del/<int:pk>/", TalkRegistrationDel, name="talk-registration-del"),
-    path("crongram/", EventTalksCronogramBasicPageView.as_view(), name="talks-cronogram"),
+    path("talks/talk-registration/delete/<int:pk>/", TalkRegistrationDel, name="talk-registration-del"),
+    path("cronogram/", EventTalksCronogramBasicPageView.as_view(), name="talks-cronogram"),
     path("", HomePageView.as_view(), name="home"),
+    path("not-found/", NotImplementedView.as_view(), name="not_found"),
 ]
 
