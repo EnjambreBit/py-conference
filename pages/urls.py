@@ -14,7 +14,12 @@ from pages.views.events.event_registration_list import EventRegistrationListView
 from pages.views.events.event_registration import EventRegistrationView
 from pages.views.sponsors import SponsorListView
 from pages.views.event_schedule.speakers import EventSpeakersPageView
-from pages.views.event_schedule.talks import EventTalksPageView, EventKeynotePageView, EventSprintPageView, EventWorkshopPageView
+from pages.views.event_schedule.talks import (
+    EventTalksPageView,
+    EventKeynotePageView,
+    EventSprintPageView,
+    EventWorkshopPageView,
+)
 from pages.views.events.event_talk_registration import (
     EventTalkRegistrationView,
     EventTalkRegistrationSuccesfull,
@@ -31,10 +36,16 @@ from pages.views.events.event_talk_resource_delete import EventTalkResourceDelet
 from pages.views.accounts.account_speaker_profile_edit import SpeakeProfileUpdateView
 from pages.views.accounts.account_profile_edit import ProfileUpdateView
 from pages.views.event_schedule.speaker_profile import SpeakerProfileView
-from pages.views.events.talk_registration import  TalkRegistration, TalkRegistrationAdd, TalkRegistrationDel
+from pages.views.events.talk_registration import (
+    TalkRegistration,
+    TalkRegistrationAdd,
+    TalkRegistrationDel,
+)
 from pages.views.event_schedule.talk_detail import TalkDetailView
 from pages.views.twitter_news import TwitterNewsView
-from pages.views.event_schedule.talks_schedule_basic import EventTalksScheduleBasicPageView
+from pages.views.event_schedule.talks_schedule_basic import (
+    EventTalksScheduleBasicPageView,
+)
 
 
 # Create your views here.
@@ -44,7 +55,11 @@ urlpatterns = [
         "accounts/registration/", AccountRegistrationView.as_view(), name="registration"
     ),
     path("accounts/profile/edit/", ProfileUpdateView.as_view(), name="profile_edit"),
-    path("accounts/speaker/edit/", SpeakeProfileUpdateView.as_view(), name="speaker_profile_edit"),
+    path(
+        "accounts/speaker/edit/",
+        SpeakeProfileUpdateView.as_view(),
+        name="speaker_profile_edit",
+    ),
     path(
         "accounts/change-password/",
         PasswordChangeView.as_view(template_name="account/change-password.html"),
@@ -112,11 +127,27 @@ urlpatterns = [
     path("sponsors", SponsorListView.as_view(), name="sponsors"),
     path("pages/<slug:slug>/", render_static_page, name="static_page"),
     path("playground/", PlaygroundView.as_view(), name="playground"),
-    path("talks/talk-registration/", TalkRegistration.as_view(), name="talk-registration"),
-    path("talks/talk-registration/add/<int:pk>/", TalkRegistrationAdd, name="talk-registration-add"),
-    path("talks/talk-registration/delete/<int:pk>/", TalkRegistrationDel, name="talk-registration-del"),
-    path("event-schedule/", EventTalksScheduleBasicPageView.as_view(), name="talks-schedule"),
+    path(
+        "talks/talk-registration/", TalkRegistration.as_view(), name="talk-registration"
+    ),
+    path(
+        "talks/talk-registration/add/<int:pk>/",
+        TalkRegistrationAdd,
+        name="talk-registration-add",
+    ),
+    path(
+        "talks/talk-registration/delete/<int:pk>/",
+        TalkRegistrationDel,
+        name="talk-registration-del",
+    ),
+    path(
+        "event-schedule/",
+        EventTalksScheduleBasicPageView.as_view(),
+        name="talks-schedule",
+    ),
+    path(
+        "cronogram/", EventTalksScheduleBasicPageView.as_view(), name="talks-schedule"
+    ),
     path("", HomePageView.as_view(), name="home"),
     path("not-found/", NotImplementedView.as_view(), name="not_found"),
 ]
-
