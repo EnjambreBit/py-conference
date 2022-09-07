@@ -16,4 +16,4 @@ class TalkRegistration(models.Model):
         verbose_name_plural = "Talk Registrations"
 
     def __str__(self):
-        return f"{self.talk}  - {self.profile.full_name}"
+        return f"{self.talk} - {self.profile.full_name}"

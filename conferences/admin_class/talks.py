@@ -66,11 +66,6 @@ class TalkResource(resources.ModelResource):
             "summary",
         )
 
-    # def dehydrate_speakers(self, obj):
-    #     speakers =[spp.speaker.profile.full_name for spp in obj.speakers_per_talk.all()]
-    #     return ", ".join(speakers)
-
-
 
 class TalkAdmin(ExportMixin, admin.ModelAdmin):
     model = Talk
