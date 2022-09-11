@@ -20,6 +20,7 @@ class ProfileDetailView(LoginRequiredMixin, TemplateView):
             pass
 
         context["profile"] = profile
+        context["qr_text"] = f"SyPy 2022\n{profile.full_name}\n{profile.email}"
 
         #evento actual activo
         now = timezone.now()
