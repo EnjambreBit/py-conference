@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load qr_code %}
 
 {% block body_content %}
 {{ block.super }}
@@ -10,7 +9,7 @@
         <div class="h1-border"></div>
       </div>
       <div class="px-3">
-        <h1 class="border-0">Mis Datos</h1>
+        <h2 class="border-0"><a href="{% url 'talks-agenda'%}">Agenda</a></h2>
       </div>
       <div class="flex1 pt-4 pl-3">
         <div class="h1-border"></div>
@@ -18,60 +17,37 @@
     </div>
   </div>
 
-  <div class="container p-3 min-vh-100">
+  <div class="container px-4 min-vh-100">
     <div class="row">
-      <div class="col-md-9 p-3">
-        <div class="row">
-          <div class="col-sm-6 col-md-2 fw5 mb-1">Nombre: </div>
-          <div class="col-sm-6 col-md-10">{{ profile.full_name }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6 col-md-2 fw5 mb-1">Email: </div>
-          <div class="col-sm-6 col-md-10">{{ profile.email }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6 col-md-2 fw5 mb-1">Telefono: </div>
-          <div class="col-sm-6 col-md-10">{{ profile.phone }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6 col-md-2 fw5 mb-1">Genero: </div>
-          <div class="col-sm-6 col-md-10">{{ profile.gender }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6 col-md-2 fw5 mb-1">Cumleaños: </div>
-          <div class="col-sm-6 col-md-10">{{ profile.birth_date|default:"--/--/----" }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6 col-md-2 fw5 mb-1">Empresa: </div>
-          <div class="col-sm-6 col-md-10">{{ profile.company|default:"-----" }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6 col-md-2 fw5 mb-1">Job Title: </div>
-          <div class="col-sm-6 col-md-10">{{ profile.job_title|default:"-----" }}</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6 col-md-2 fw5 mb-1">Documento: </div>
-          <div class="col-sm-6 col-md-10">{{ profile.document_type|default:"" }} {{ profile.document_number|default:"N/A" }}</div>
-        </div>
+      <div class="col-md-4">
+					<div class="today">
+				    <div class="today-piece  top  day"> Lunes</div>
+				    <div class="today-piece  middle  month">Septiembre</div>
+				    <div class="today-piece  middle  date">
+              <a href="{% url 'talks-agenda-day' 26 %}">26</a>
+            </div>
+				    <div class="today-piece  bottom  year">2022</div>
+					</div>
       </div>
-      <div class="col-md-3 py-3 h6 fw4">
-        <div class="fw5 my-2">
-          OPCIÓNES
-        </div>
-        <ul class="no-bullet">
-          <li><a href="{% url 'profile_edit' %}" class="no-underline">Modificar Perfil</a></li>
-          <!-- <li><a href="{% url 'profile_edit' %}" class="no-underline">Modifica tu direccion</a></li> -->
-          {% if is_speaker %}
-            <li><a href="{% url 'speaker_profile_edit' %}" class="no-underline">Modificar tu perfil como Speaker</a></li>
-          {% endif %}
-          <li><a href="{% url 'change_password' %}" class="no-underline">Cambiar contraseña</a></li>
-          <li><a href="{% url 'logout' %}" class="no-underline">Cerrar Sesión</a></li>
-          <li><a href="{% url 'entrada' %}" class="no-underline">Descargar Entrada</a></li>
-        </ul>
-        <hr>
-          {% qr_from_text qr_text  size="T" image_format="png" error_correction="T" %}
+      <div class="col-md-4">
+					<div class="today">
+				    <div class="today-piece  top  day"> Martes</div>
+				    <div class="today-piece  middle  month">Septiembre</div>
+				    <div class="today-piece  middle  date"><a href="{% url 'talks-agenda-day' 27 %}">27</a></div>
+				    <div class="today-piece  bottom  year">2022</div>
+					</div>
+       </div>
+
+      <div class="col-md-4">
+					<div class="today">
+				    <div class="today-piece  top  day"> Miercoles</div>
+				    <div class="today-piece  middle  month">Septiembre</div>
+				    <div class="today-piece  middle  date"><a href="{% url 'talks-agenda-day' 28 %}">28</a></div>
+				    <div class="today-piece  bottom  year">2022</div>
+					</div>
       </div>
     </div>
+  </div>
 
     <div class="border-bottom">
       <h3>Eventos en los que participaste</h3>
@@ -201,9 +177,52 @@
       <a class="btn btn-primary" href="{% url 'talk-registration' %}">Inscripción</a>
     </div>
   </div>
-    
+    <style>
+.today {
+  width: 100%;
+  -webkit-box-shadow: 0px 15px 30px -16px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 15px 30px -16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 15px 30px -16px rgba(0, 0, 0, 0.3); 
+}
 
-    
-  
+.today-piece {
+  border-radius: 0.25rem;
+  padding: 1.6rem;
+  {% comment %} font-size: 1.25em; {% endcomment %}
+  text-align: center;
+  background: white; }
 
+.top {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0; }
+
+.middle {
+  border-radius: 0; }
+
+.bottom {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0; }
+
+.day,
+.year {
+  font-size: 0.65em;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: white;
+  background: #ffbb47; }
+
+.month {
+  padding-top: 1.75rem;
+  padding-bottom: 0;
+  font-size: 1.5em;
+  font-weight: 200; }
+
+.date {
+  padding-top: 0;
+  padding-bottom: 1.75rem;
+  font-size: 3em;
+  font-weight: 100;
+  color: #000; }      
+    </style>
 {% endblock %}

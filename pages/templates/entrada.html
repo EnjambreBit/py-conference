@@ -1,0 +1,11 @@
+{% load qr_code %}
+
+<h1> SyPy 2022 </h1>
+<hr>
+<h2>Nro de Asistente:</h2> {{entrada.pk}} 
+<h2>Nombre: </h2> {{ entrada.full_name }} 
+<h2>Email: </h2> {{ entrada.email }}  <br>
+<hr>
+{% qr_from_text qr_text  size="T" image_format="png" error_correction="T" %}
+
+

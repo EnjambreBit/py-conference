@@ -1,3 +1,5 @@
+{% load qr_code %}
+
 <div class="row mt-3">
   <div class="col-md-12 h3 border-bottom py-3">
     {{ talk.name }}
@@ -44,12 +46,19 @@
       <div class="mb-2 h6 border-bottom fw7">
         Speakers/Ponentes
       </div>
-      <div class="h6">
+      <div class="h6  border-bottom">
         {% for speaker in talk.speakers_per_talk.all %}
           <div>
             <a href="{% url 'speaker_profile' speaker.speaker.id %}">{{ speaker.speaker.profile.full_name }}</a>
           </div>
         {% endfor %}
+      </div>
+      {% comment %} QR {% endcomment %}
+      <div class="h6 mb-2" >
+        <div class=" border-bottom fw7">
+          <h5>Agendar</h5>
+          {% qr_for_event event=event size='T' %}
+      </div>    
       </div>
     </div>
   </div>

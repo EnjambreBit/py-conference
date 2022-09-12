@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     'import_export',
+    'qr_code',
     "conferences",
     "pages",
 ]
@@ -111,7 +112,9 @@ TEMPLATES = [
 WSGI_APPLICATION = "backend.wsgi.application"
 
 DATABASES = {}
-DATABASES["default"] = dj_database_url.parse(env("DATABASE_URL"), conn_max_age=600)
+#DATABASES["default"] = dj_database_url.parse(env("DATABASE_URL"), conn_max_age=600)
+DATABASES["default"] = dj_database_url.parse("postgres://fernando:fernando@localhost/sypy2022", conn_max_age=600)
+
 
 if ENVIRONMENT == "DEVELOPMENT":
     AUTH_PASSWORD_VALIDATORS = []

@@ -47,6 +47,9 @@ from pages.views.event_schedule.talks_schedule_basic import (
     EventTalksScheduleBasicPageView,
 )
 
+from pages.views.agenda.agenda import  AgendaPageView
+from pages.views.agenda.agenda_day import  AgendaDayPageView
+from conferences.views.entrada import EntradaView
 
 # Create your views here.
 urlpatterns = [
@@ -147,6 +150,17 @@ urlpatterns = [
     ),
     path(
         "cronogram/", EventTalksScheduleBasicPageView.as_view(), name="talks-schedule"
+    ),
+    # Agenda
+    path(
+        "agenda/", AgendaPageView.as_view(), name="talks-agenda"
+    ),
+    path(
+        "agenda_day/<int:day>/", AgendaDayPageView.as_view(), name="talks-agenda-day"
+    ),
+
+    path(
+        "entrada/", EntradaView, name="entrada"
     ),
     path("", HomePageView.as_view(), name="home"),
     path("not-found/", NotImplementedView.as_view(), name="not_found"),
