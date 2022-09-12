@@ -165,7 +165,7 @@ urlpatterns = [
         "entrada/", EntradaView, name="entrada"
     ),
     path("colaboradores", CollaboratorsView.as_view(), name="collaborators"),
-    path("colaboradores/<int:pk>/", CollaboratorDetailView.as_view(), name="collaborator_detail"),
+    path("colaboradores/<int:pk>/", CollaboratorDetailView.as_view(), name="collaborator_profile"),
     path("", HomePageView.as_view(), name="home"),
     path("not-found/", NotImplementedView.as_view(), name="not_found"),
 ]

@@ -20,10 +20,9 @@
 <div class="container p-4 min-vh-100">
   <div class="row">
     {% for profile in profiles %}
-    {% if profile.speaker %}
       <div class="col-md-4 col-lg-3 pb-3">
         <div class="text-center">
-          <a href="{% url 'speaker_profile' profile.speaker.id %}">
+          <a href="{% url 'collaborator_profile' profile.id %}">
             {% if profile.speaker.photo %}
             <img src="{{ profile.speaker.photo.url }}" alt="Foto de {{ profile.full_name }}" class="profile-photo-thumb">
             {% else %}
@@ -45,28 +44,6 @@
           </a>
         </div>
       </div>
-      {% else %}
-      <div class="col-md-4 col-lg-3 pb-3">
-        <div class="text-center">
-          <a href="">
-            <img src="/static/assets/images/perfil-hombre-default.jpg" alt="foto de {{ profile.full_name }}" class="profile-photo-thumb">
-            <div class="h4 mt-3 red-wine">
-              {{ profile.full_name }}
-            </div>
-            <div class="em">
-              {% if profile.job_title %}
-                {{ profile.job_title }}
-              {% endif %}
-            </div>
-            <div class="black">
-              {% if profile.country %}
-                {{ profile.country }} 
-              {% endif %}
-            </div>
-          </a>
-        </div>
-      </div>
-      {% endif %}
     {% endfor %}
     </div>
 </div>
