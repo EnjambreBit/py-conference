@@ -4,5 +4,6 @@
   {% else %}
   <li><a class="dropdown-item" href="{% url 'static_page' link.static_page.slug %}">{{ link.name }}</a></li>
   {% endif %}
-  
 {% endfor %}
+
+<li><a class="dropdown-item" href="{% url 'collaborators' %}">Colaboradores</a></li>

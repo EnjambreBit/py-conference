@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body_content %}
+{{ block.super }}
+
+<div class="container min-vh-100">
+  <div class="row mt-4 mb-4 pb-4 mw7 mx-auto">
+    <div class="text-center">
+      {% if object.speaker.photo %}
+      <img src="{{ speaker.photo.url }}" alt="" class="profile-photo-thumb">
+      {% else %}
+      <img src="/static/assets/images/perfil-hombre-default.jpg" alt="" class="profile-photo-thumb">
+      {% endif %}
+    </div>
+    <div class="">
+      <div class="h4 text-center mt-3">
+        {{ object.full_name }}
+      </div>
+      <div class="h7 mb-3 em text-center">
+        {% if object.job_title %}
+          {{ speaker.profile.job_title }}
+        {% endif %}
+      </div>
+      <div>
+        {{ object.speaker.biography|format_as_md }}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

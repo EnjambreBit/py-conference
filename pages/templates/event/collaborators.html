@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block body_content %}
+{{ block.super }}
+
+<div class="container px-4">
+  <div class="flex mb-4">
+    <div class="flex1 pt-4 pl-3">
+      <div class="h1-border"></div>
+    </div>
+    <div class="px-3">
+      <h1 class="border-0">Colaboradores</h1>
+    </div>
+    <div class="flex1 pt-4 pl-3">
+      <div class="h1-border"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container p-4 min-vh-100">
+  <div class="row">
+    {% for profile in profiles %}
+    {% if profile.speaker %}
+      <div class="col-md-4 col-lg-3 pb-3">
+        <div class="text-center">
+          <a href="{% url 'speaker_profile' profile.speaker.id %}">
+            {% if profile.speaker.photo %}
+            <img src="{{ profile.speaker.photo.url }}" alt="Foto de {{ profile.full_name }}" class="profile-photo-thumb">
+            {% else %}
+            <img src="/static/assets/images/perfil-hombre-default.jpg" alt="foto de {{ profile.full_name }}" class="profile-photo-thumb">
+            {% endif %}
+            <div class="h4 mt-3 red-wine">
+              {{ profile.full_name }}
+            </div>
+            <div class="em">
+              {% if profile.job_title %}
+                {{ profile.job_title }}
+              {% endif %}
+            </div>
+            <div class="black">
+              {% if profile.country %}
+                {{ profile.country }} 
+              {% endif %}
+            </div>
+          </a>
+        </div>
+      </div>
+      {% else %}
+      <div class="col-md-4 col-lg-3 pb-3">
+        <div class="text-center">
+          <a href="">
+            <img src="/static/assets/images/perfil-hombre-default.jpg" alt="foto de {{ profile.full_name }}" class="profile-photo-thumb">
+            <div class="h4 mt-3 red-wine">
+              {{ profile.full_name }}
+            </div>
+            <div class="em">
+              {% if profile.job_title %}
+                {{ profile.job_title }}
+              {% endif %}
+            </div>
+            <div class="black">
+              {% if profile.country %}
+                {{ profile.country }} 
+              {% endif %}
+            </div>
+          </a>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

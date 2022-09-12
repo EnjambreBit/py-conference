@@ -33,6 +33,12 @@ class ProfileDetailView(LoginRequiredMixin, TemplateView):
 
             speaker_profile = Speaker.objects.filter(profile=profile).first()
 
+            if speaker_profile is None and self.request.user.groups.filter(name="Colaboradores"):
+                speaker_profile = Speaker.objects.create(
+                    profile=profile,
+                    biography=""
+                )
+
             if speaker_profile:
                 tids = [
                     spt.talk.id
