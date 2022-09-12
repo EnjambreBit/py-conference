@@ -24,9 +24,12 @@
         <!-- <li class="nav-item">
           <a class="nav-link" href="{% url 'twitter_news' %}">Noticias</a>
         </li> -->
+        {% if not user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'registration' %}">Registrate</a>
+          <a class="nav-link active bold" href="{% url 'registration' %}">Registrate</a>
         </li>
+        {% endif %}
+      
         <li class="nav-item">
           <a class="nav-link" href="{% url 'location' %}">Ubicación</a>
         </li>

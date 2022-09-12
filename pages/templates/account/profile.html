@@ -65,11 +65,15 @@
             <li><a href="{% url 'speaker_profile_edit' %}" class="no-underline">Modificar tu perfil como Speaker</a></li>
           {% endif %}
           <li><a href="{% url 'change_password' %}" class="no-underline">Cambiar contraseña</a></li>
-          <li><a href="{% url 'logout' %}" class="no-underline">Cerrar Sesión</a></li>
           <li><a href="{% url 'entrada' %}" class="no-underline">Descargar Entrada</a></li>
+          <li>&nbsp;</li>
+          <li><a href="{% url 'logout' %}" class="no-underline">Cerrar Sesión</a></li>
+          
         </ul>
         <hr>
+        <div class="text-center">
           {% qr_from_text qr_text  size="T" image_format="png" error_correction="T" %}
+        </div>
       </div>
     </div>
 
