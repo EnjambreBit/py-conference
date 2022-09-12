@@ -27,6 +27,8 @@ whitenoise = "*"
 django-crispy-forms = "*"
 crispy-bootstrap5 = "*"
 django-import-export = "*"
+weasyprint = "==52.5"
+django-qr-code = "*"
 
 [dev-packages]
 

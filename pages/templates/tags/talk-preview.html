@@ -54,12 +54,14 @@
         {% endfor %}
       </div>
       {% comment %} QR {% endcomment %}
-      <div class="h6 mb-2" >
-        <div class=" border-bottom fw7">
-          <h5>Agendar</h5>
-          {% qr_for_event event=event size='T' %}
-      </div>    
-      </div>
+      {% if event %}
+        <div class="h6 mb-2" >
+          <div class=" border-bottom fw7">
+            <h5>Agendar</h5>
+            {% qr_for_event event=event size='T' %}
+          </div>
+        </div>
+      {% endif %}
     </div>
   </div>
   <div class="col-md-9">

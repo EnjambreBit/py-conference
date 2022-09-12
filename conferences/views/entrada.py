@@ -1,17 +1,19 @@
-#Import para el PDF
+from conferences.models.profiles import Profile
+from conferences.models.events import Event
 from django.http import HttpResponse
 from django.template.loader import render_to_string
-from weasyprint import  HTML
+from weasyprint import HTML
 
-# Models
-from conferences.models.profiles import Profile
 
 def EntradaView(request, *args, **kwargs):
-        entrada:Profile = Profile.objects.get(user= request.user)
+        profile:Profile = Profile.objects.get(user= request.user)
+        event = Event.objects.filter(active=True).first()
+
         templete_file = "entrada.html"
         context = {
-            "entrada": entrada,
-            "qr_text":  f"SyPy 2022\n{entrada.full_name}\n{entrada.email}"
+            "profile": profile,
+            "event": event,
+            "qr_text":  f"SyPy 2022\n{profile.full_name}\n{profile.email}"
             }
         template_string = render_to_string(templete_file, context)
         html = HTML(string=template_string, base_url=request.build_absolute_uri())

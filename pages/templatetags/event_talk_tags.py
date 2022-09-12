@@ -1,7 +1,6 @@
 from django import template
 from qr_code.qrcode.utils import MeCard, VCard, EpcData, VEvent, EventClass, EventTransparency, EventStatus, WifiConfig, Coordinates, QRCodeOptions
 import datetime
-from datetime import date
 from conferences.models.talk_rooms import TalkRoom
 
 register = template.Library()
@@ -10,12 +9,17 @@ register = template.Library()
 
 @register.inclusion_tag("tags/talk-preview.html")
 def talk_preview(talk, hidden_resources=False):
-    room = TalkRoom.objects.get(talk=talk)
-    event = VEvent(
+    event = None
+
+    room = TalkRoom.objects.filter(talk=talk).first()
+    if room is not None:
+        talk_start = datetime.datetime.combine(room.date, room.start)
+        talk_end = datetime.datetime.combine(room.date, room.end)
+        event = VEvent(
             uid=talk.pk,
             summary=talk.name,
-            start=datetime.datetime.combine(room.date,room.start),
-            end=datetime.datetime.combine(room.date,room.end),
+            start=talk_start,
+            end=talk_end,
             location="Universidad de salta, Salta, Argentina",
             geo=(-24.726925, -65.408811),
             categories=["SyPy"],
