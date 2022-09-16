@@ -50,7 +50,7 @@ from pages.views.event_schedule.talks_schedule_basic import (
 from pages.views.agenda.agenda import  AgendaPageView
 from pages.views.agenda.agenda_day import  AgendaDayPageView
 from conferences.views.entrada import EntradaView
-from pages.views.events.collaborators import CollaboratorsView, CollaboratorDetailView
+from pages.views.events.collaborators import CollaboratorsView, AcademicCommitteeView, ProceedingsView, CollaboratorDetailView
 
 
 # Create your views here.
@@ -160,11 +160,12 @@ urlpatterns = [
     path(
         "agenda_day/<int:day>/", AgendaDayPageView.as_view(), name="talks-agenda-day"
     ),
-
     path(
         "entrada/", EntradaView, name="entrada"
     ),
     path("colaboradores", CollaboratorsView.as_view(), name="collaborators"),
+    path("actas", ProceedingsView.as_view(), name="proceedings"),
+    path("comite-academico", AcademicCommitteeView.as_view(), name="academic-committee"),
     path("colaboradores/<int:pk>/", CollaboratorDetailView.as_view(), name="collaborator_profile"),
     path("", HomePageView.as_view(), name="home"),
     path("not-found/", NotImplementedView.as_view(), name="not_found"),

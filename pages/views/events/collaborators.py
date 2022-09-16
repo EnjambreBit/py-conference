@@ -1,10 +1,10 @@
-from django.contrib.auth.models import User
-from django.views.generic import TemplateView
-from django.views.generic import DetailView
-from conferences.models.speakers import Speaker
 from conferences.models.profiles import Profile
-from django.urls import reverse_lazy
+from conferences.models.speakers import Speaker
+from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
+from django.views.generic import DetailView, TemplateView
+
 
 class CollaboratorsView(TemplateView):
     template_name = "event/collaborators.html"
@@ -14,8 +14,28 @@ class CollaboratorsView(TemplateView):
         queryset = User.objects.filter(groups__name='Colaboradores') \
             .order_by("profile__first_name")
         context["profiles"] = [user.profile for user in queryset]
+        context["title"] = "Colaboradores"
         return context
 
+
+class AcademicCommitteeView(CollaboratorsView):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        queryset = User.objects.filter(groups__name='Comité académico') \
+            .order_by("profile__first_name")
+        context["profiles"] = [user.profile for user in queryset]
+        context["title"] = "Comité académico"
+        return context
+
+
+class ProceedingsView(CollaboratorsView):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        queryset = User.objects.filter(groups__name='Actas') \
+            .order_by("profile__first_name")
+        context["profiles"] = [user.profile for user in queryset]
+        context["title"] = "Actas"
+        return context
 
 
 class CollaboratorDetailView(DetailView):
