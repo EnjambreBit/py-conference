@@ -1,12 +1,126 @@
-{% load qr_code %}
+{% load qr_code %}  
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Entrada</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Entrada SyPy 2022 - Salta">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <style>
+        @page {
+                size: "A4 portrait";
+                /* can also use 'landscape' for orientation */
+                margin-top: 1cm;
+                margin-bottom: 1cm;
+                margin-left: 1cm;
+                margin-right: 1cm;
+                background: white;
+                z-index:1;
+                font-family: "Ubuntu";
+                }
+        hr {
+                color: #FF4136;
+                background: #FF4136;
+                position: relative;
+                top: 20px;
+                border: none;
+                height: 7px;
+                margin-bottom: 55px;
+                }
+                body{
+                    background: white;
+                }
+                main {
+        
+                    position: relative;
+                    top: 6cm;
+                    width: 100% !important;
+                    height: 100%;
+                    background: white;
+                    color: black;
+                    font-size: 100%;
+                    font-family: 'Ubuntu', sans-serif;
+                    line-height: 1.65;
+                    -webkit-font-smoothing: antialiased;
+                    -webkit-text-size-adjust: none;
+                    z-index:2;
+                }
+                header, footer {
+                    position: fixed;
+                    left: 0;
+                    right: 0;
+                    z-index:3;
+                }
+                footer {
+                    /* subtract @page margin */
+                    bottom: 0cm;
+                    height: 0cm;
+                    background: white;
+                    height: 0.5cm;
+                    color:black;
+                    font-size: 8px;
+                    font-family: "Ubuntu";
+                    vertical-align: middle;
+                }
+                header{
+                    top: 1cm;
+                    height: 1cm;
+                    background: white;
+                    height: 3.5cm;
+                    margin:0;
+                    padding:0;
+                }
+                header img {
+                    padding: 0px 0px 0px 0px;
+                    margin: 0px 0px 0px 0px;
+                    height: 3.5cm;
+             }
+    </style>
+
+      
+</head>
+
+<body>
+    <header class="align-items-start ">
+                    <div class="row ">
+                            <div class="col-6">
+                                <img  src="{% static 'assets/images/scipy-la-2022_logo.png' %}"alt="logo"/>
+                            </div>
+                            <br><hr>
+                    </div>
+    </header>
+    <main class="container">
+            <h1> {{ event.name }} </h1><br>
+            <h2><span style="color:#9a3a4a"><strong>Nro de Asistente:</strong> </span>{{profile.pk}}  </h2>
+            <h2><span style="color:#9a3a4a"><strong>Nombre:</strong>  </span>{{ profile.full_name }}</h2>
+            <h2><span style="color:#9a3a4a"><strong>Email:</strong>  </span>{{ profile.email }}  </h2>
+            <br><hr><br>
+            {% qr_from_text qr_text  size="T" image_format="png" error_correction="T" %}
+    </main>
+
+      <footer>
+        <div class="row">
+            <div class="col text-start">Av. Bolivia 5150 - CP: A4400 - Salta, Salta, Argentina</div>
+            <div class="col text-center"></div>
+            <div class="col text-end">https://pythoncientifico.ar/</div>
+        </div>
+    </footer>
+</body>
+</html>​
 
 
-<h1> {{ event.name }} </h1>
-<hr>
-<h2>Nro de Asistente:</h2> {{profile.pk}} 
-<h2>Nombre: </h2> {{ profile.full_name }}
-<h2>Email: </h2> {{ profile.email }}  <br>
-<hr>
-{% qr_from_text qr_text  size="T" image_format="png" error_correction="T" %}
+
+
+
+
+
+
+
 
 
