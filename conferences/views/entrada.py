@@ -13,13 +13,13 @@ def EntradaView(request, *args, **kwargs):
         context = {
             "profile": profile,
             "event": event,
-            "qr_text":  f"SyPy 2022\n{profile.full_name}\n{profile.email}"
+            "qr_text":  f"Python Científico Latino América 2022 - Salta UNSa Argentina\n\n{profile.full_name}\n{profile.email}"
             }
         template_string = render_to_string(templete_file, context)
         html = HTML(string=template_string, base_url=request.build_absolute_uri())
         pdf_file = html.render()
         pdf = pdf_file.write_pdf()
         response = HttpResponse(pdf, content_type='application/pdf')
-        response['Content-Disposition'] = f"attachment; filename=entrada_sypy2022.pdf"
+        response['Content-Disposition'] = f"attachment; filename=PYCIENTIFICO-LA-2022-SALTA<.pdf"
         
         return response
