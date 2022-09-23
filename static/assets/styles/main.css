@@ -372,3 +372,61 @@ a:hover {
   height: 5rem;
 }
 
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+
+@media (min-width: 700px) {
+  .sponsor-oro {
+    width: 60% !important;
+    height: 60%;
+  }
+
+  .sponsor-institucional {
+    width: 30% !important;
+    max-height: 30%;
+  }
+
+  .sponsor-plata {
+    width: 25% !important;
+    max-height: 25%;
+  }
+
+  .sponsor-bronce {
+    width: 25% !important;
+    max-height: 25%;
+  }
+
+  .sponsor-socios, .sponsor-comunidades {
+    width: 20% !important;
+    max-height: 20%;
+  }
+}
+/* fin media query */
+
+/* sizes mobile */
+.sponsor-oro {
+  width: 100%;
+}
+
+.sponsor-institucional {
+  width: 60%;
+}
+
+.sponsor-plata {
+  width: 50%;
+}
+
+.sponsor-bronce {
+  width: 50%;
+}
+
+.sponsor-socios, .sponsor-comunidades {
+  width: 33%;
+}
