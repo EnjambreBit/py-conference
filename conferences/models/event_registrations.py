@@ -13,7 +13,6 @@ class EventRegistration(models.Model):
     profile = models.ForeignKey(
         "Profile", related_name="registrations", on_delete=models.CASCADE
     )
-
     is_speaker = models.BooleanField(default=False)
     is_organizer = models.BooleanField(default=False)
     asked_for_a_grant = models.BooleanField(default=False)

@@ -4,6 +4,7 @@ from import_export.admin import ExportMixin
 from import_export import resources
 from import_export.fields import Field
 from import_export.formats import base_formats
+from conferences.filters.dropdown_filter import RelatedDropdownFilter
 
 
 class TalkRegistrationResource(resources.ModelResource):
@@ -51,7 +52,7 @@ class TalkRegistrationAdmin(ExportMixin, admin.ModelAdmin):
         "profile"
     )
     list_filter = (
-        "talk",
+        ("talk", RelatedDropdownFilter),
     )
 
     def get_first_name(self, obj):

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from conferences.models.talk_rooms import TalkRoom
+from conferences.filters.dropdown_filter import RelatedDropdownFilter
 
 
 class TalkRoomAdmin(admin.ModelAdmin):
@@ -11,4 +12,12 @@ class TalkRoomAdmin(admin.ModelAdmin):
         "date",
         "start",
         "end",
+    )
+    autocomplete_fields = (
+        "talk",
+        "room",
+    )
+    list_filter = (
+        ("talk", RelatedDropdownFilter),
+        ("room", RelatedDropdownFilter),
     )

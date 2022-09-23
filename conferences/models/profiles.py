@@ -47,7 +47,6 @@ class Profile(models.Model):
         max_length=100, default=None, blank=True, null=True
     )
     student_id = models.CharField(max_length=50, default=None, blank=True, null=True)
-
     address = models.OneToOneField(
         "Address",
         on_delete=models.CASCADE,

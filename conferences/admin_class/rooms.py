@@ -10,3 +10,6 @@ class RoomAdmin(admin.ModelAdmin):
         "internal_name",
         "capacity",
     )
+    search_fields = (
+        "name",
+    )

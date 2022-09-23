@@ -18,7 +18,6 @@ class Event(models.Model):
     registration_end = models.DateField(default=None, null=True, blank=True)
     registration_enabled = models.BooleanField(default=False)
     active = models.BooleanField(default=False)
-
     address = models.ForeignKey(
         "Address",
         on_delete=models.CASCADE,
