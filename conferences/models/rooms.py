@@ -24,3 +24,9 @@ class Room(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_lat_lng(self):
+        if self.lat and self.long:
+            return (self.lat, self.long)
+        else:
+            return (-24.7280425, -65.4115085)

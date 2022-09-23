@@ -12,7 +12,6 @@ class TalkRoomResource(resources.ModelResource):
     pass
 
 
-
 class TalkRoomAdmin(admin.ModelAdmin):
     model = TalkRoom
     list_display = (
