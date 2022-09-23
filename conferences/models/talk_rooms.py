@@ -16,6 +16,7 @@ class TalkRoom(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
+        ordering = ["date", "start"]
         db_table = "talk_rooms"
         verbose_name = "Talk room"
         verbose_name_plural = "Talk rooms"
