@@ -8,10 +8,11 @@ class TalkRoomAdmin(admin.ModelAdmin):
     list_display = (
         "id",
         "talk",
+        "talk_type",
         "room",
-        "date",
-        "start",
-        "end",
+        "date_as_str",
+        "start_as_str",
+        "end_as_str",
     )
     autocomplete_fields = (
         "talk",

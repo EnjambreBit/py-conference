@@ -38,3 +38,6 @@ class TalkRoom(models.Model):
         if self.end:
             return self.end.strftime("%H:%M")
         return "--:--"
+
+    def talk_type(self):
+        return self.talk.get_talk_type_display()
