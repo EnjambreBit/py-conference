@@ -9,6 +9,8 @@ class RoomAdmin(admin.ModelAdmin):
         "name",
         "internal_name",
         "capacity",
+        "lat",
+        "long",
     )
     search_fields = (
         "name",

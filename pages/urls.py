@@ -51,6 +51,7 @@ from pages.views.agenda.agenda import  AgendaPageView
 from pages.views.agenda.agenda_day import  AgendaDayPageView
 from conferences.views.entrada import EntradaView
 from pages.views.events.collaborators import CollaboratorsView, AcademicCommitteeView, ProceedingsView, CollaboratorDetailView
+from pages.views.event_schedule.download_ics_event import download_talk_ics_file
 
 
 # Create your views here.
@@ -125,6 +126,7 @@ urlpatterns = [
         EventTalkResourceDeleteView.as_view(),
         name="talk_resource_delete",
     ),
+    path("talks/download-event-calendar/<int:pk>/", download_talk_ics_file, name="download-ics-event"),
     path("location", LocationPageView.as_view(), name="location"),
     path("noticias", TwitterNewsView.as_view(), name="twitter_news"),
     path("speakers", EventSpeakersPageView.as_view(), name="speakers"),

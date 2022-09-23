@@ -9,13 +9,13 @@
   <div class="col-md-3">
     <div>
       <div class="mb-2">
-        <span class="fw7">Tipo:</span> {{ talk.talk_type }}
+        <span class="fw7">Tipo:</span> {{ talk.get_talk_type_display }}
       </div>
       <div class="mb-2">
         <span class="fw7">Nivel de Audiencia:</span> {{ talk.audience_level }}
       </div>
       <div class="mb-3">
-        <span class="fw7">Idioma: </span> {{ talk.language }}
+        <span class="fw7">Idioma: </span> {{ talk.get_language_display }}
       </div>
       <div class="mb-3">
         <span class="fw7">Diapositivas: </span> {{ talk.language_slider }}
@@ -46,7 +46,7 @@
       <div class="mb-2 h6 border-bottom fw7">
         Speakers/Ponentes
       </div>
-      <div class="h6  border-bottom">
+      <div class="h6 pa3 border-bottom">
         {% for speaker in talk.speakers_per_talk.all %}
           <div>
             <a href="{% url 'speaker_profile' speaker.speaker.id %}">{{ speaker.speaker.profile.full_name }}</a>
@@ -59,6 +59,9 @@
           <div class=" border-bottom fw7">
             <h5>Agendar</h5>
             {% qr_for_event event=event size='T' %}
+            <div class="p-3">
+              <a href="{% url 'download-ics-event' talk.id %}" class="fw5">Añadir a mi calendario</a>
+            </div>
           </div>
         </div>
       {% endif %}
@@ -108,5 +111,8 @@
     </div>
     {% endif %}
 
+    {% comment %} 
+    {{ event.make_qr_code_data }}
+    {% endcomment %}
   </div>
 </div>

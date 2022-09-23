@@ -1,18 +1,15 @@
-from django import template
-from qr_code.qrcode.utils import MeCard, VCard, EpcData, VEvent, EventClass, EventTransparency, EventStatus, WifiConfig, Coordinates, QRCodeOptions
 import datetime
 from conferences.models.talk_rooms import TalkRoom
+from conferences.models.talks import Talk
+from django.http import HttpResponse
+from qr_code.qrcode.utils import EventClass, EventStatus, EventTransparency, VEvent
 
-register = template.Library()
 
 
-
-@register.inclusion_tag("tags/talk-preview.html")
-def talk_preview(talk, hidden_resources=False):
-    event = None
-
-    room = TalkRoom.objects.filter(talk=talk).first()
+def download_talk_ics_file(request, pk):
+    room = TalkRoom.objects.filter(talk__id=pk).first()
     if room is not None:
+        talk = room.talk
         talk_start = datetime.datetime.combine(room.date, room.start)
         talk_end = datetime.datetime.combine(room.date, room.end)
         event = VEvent(
@@ -30,16 +27,10 @@ def talk_preview(talk, hidden_resources=False):
             #url="https://bar.com",
             description=talk.summary[:200],
         )
-    
-    context = {
-        "talk": talk, 
-        "have_resources": False,
-        "event" : event
-    }
-    if not hidden_resources:
-        context["resources"] = talk.resources.all()
-        context["have_resources"] = talk.resources.all().count() > 0
 
-    return context
+        response = HttpResponse(event.make_qr_code_data(), content_type="text/calendar")
+        response['Content-Disposition'] = f'attachment; filename=charla.ics' 
+        return response
 
-
+    else:
+        HttpResponse("Page not found", status=404)
