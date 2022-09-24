@@ -1,5 +1,6 @@
 from conferences.filters.dropdown_filter import RelatedDropdownFilter
 from conferences.models.talk_rooms import TalkRoom
+from conferences.models.talks import Talk
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ExportMixin
@@ -32,3 +33,8 @@ class TalkRoomAdmin(admin.ModelAdmin):
         ("room", RelatedDropdownFilter),
         ("date", DateRangeFilter),
     )
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "talk":
+            kwargs["queryset"] = Talk.objects.filter(status="published")
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)

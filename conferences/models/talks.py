@@ -73,7 +73,9 @@ class Talk(models.Model):
         verbose_name_plural = "talks"
 
     def __str__(self):
-        return f"({self.status}) - {self.name}"
+        if self.status != "published":
+            return f"({self.status}) - {self.name}"
+        return f"{self.name}"
 
     def is_keynote(self):
         return self.talk_type == "keynote"

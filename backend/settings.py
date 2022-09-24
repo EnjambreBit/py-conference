@@ -160,3 +160,4 @@ MEDIA_ROOT = os.environ.get("MEDIA_ROOT", "media")
 MEDIA_URL = "/media/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+DATA_UPLOAD_MAX_MEMORY_SIZE = 52428800
