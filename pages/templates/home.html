@@ -78,7 +78,7 @@
                 WEEK_PLURAL: 'Semanas',
                 WEEK_SINGULAR: 'Semana',
                 DAY_PLURAL: 'Días',
-                DAY_SINGULAR: 'Sía',
+                DAY_SINGULAR: 'Día',
                 HOUR_PLURAL: 'Horas',
                 HOUR_SINGULAR: 'Hora',
                 MINUTE_PLURAL: 'Minutos',
@@ -94,7 +94,7 @@
             }
     
         var nextYear = (new Date()).getFullYear() + 1;
-        Tick.count.down('2022-09-26').onupdate = function(value) {
+        Tick.count.down('2022-09-26T09:00:00').onupdate = function(value) {
           tick.value = value;
         };
       }
