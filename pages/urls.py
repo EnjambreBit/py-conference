@@ -1,9 +1,7 @@
 from operator import index
-from django.urls import path
+from django.urls import path, register_converter
 from django.conf.urls import include, url
-
 from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
-
 from pages.views.home import HomePageView
 from pages.views.static_page import render_static_page
 from pages.views.location import LocationPageView
@@ -46,13 +44,15 @@ from pages.views.twitter_news import TwitterNewsView
 from pages.views.event_schedule.talks_schedule_basic import (
     EventTalksScheduleBasicPageView,
 )
-
 from pages.views.agenda.agenda import  AgendaPageView
 from pages.views.agenda.agenda_day import  AgendaDayPageView
 from conferences.views.entrada import EntradaView
 from pages.views.events.collaborators import CollaboratorsView, AcademicCommitteeView, ProceedingsView, CollaboratorDetailView
 from pages.views.event_schedule.download_ics_event import download_talk_ics_file
+from pages.views.event_schedule.talk_schedule import TalkScheduleView
+from my_addons.utils import DateConverter
 
+register_converter(DateConverter, 'yyyy')
 
 # Create your views here.
 urlpatterns = [
@@ -153,8 +153,10 @@ urlpatterns = [
         name="talks-schedule",
     ),
     path(
-        "cronogram/", EventTalksScheduleBasicPageView.as_view(), name="talks-schedule"
+        "schedule/", EventTalksScheduleBasicPageView.as_view(), name="talks-schedule"
     ),
+    path("talks/schedule/", TalkScheduleView.as_view(), name="event-talk-schedule"),
+    path("talks/schedule/<yyyy:date>/", TalkScheduleView.as_view(), name="event-talk-schedule"),
     # Agenda
     path(
         "agenda/", AgendaPageView.as_view(), name="talks-agenda"

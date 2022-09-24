@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load event_talk_tags %}
+
+{% block body_content %}
+{{ block.super }}
+  <div class="container min-vh-100">
+    
+    <ul class="days-list">
+    {% for day in days %}
+      <li class="{% if day == active_date %} active {% endif %}">
+        <a href="{% url 'event-talk-schedule' day|date:'Y-m-d' %}">
+          {{ day|date:"d \d\e F" }}
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+
+    <div class="border-top border-wine  pb-4">
+      <h4 class="m-3">
+        {{ active_date|date:"d \d\e F \d\e Y" }}
+      </h4>
+
+      {% for row in talks %}
+        <div class="flex">
+          <div class="w-3rem vertical-line py-3">
+            <div class="dot"></div>
+          </div>
+          <div class="flex1 fw7 p-3">
+            {{ row.start }}
+          </div>
+        </div>
+        {% for talk in row.talks_room %}
+        <div class="flex">
+          <div class="w-3rem vertical-line">
+            <div class=""></div>
+          </div>
+          <div class="flex1">
+            <div class="card p-3 my-2">
+              <div class="f6">
+                <a href="{{ talk.gmap_link }}" target="_blank" class="black-60">
+                  <i class="fa-solid fa-location-dot"></i> {{ talk.room }}
+                </a>
+              </div>
+              <div>
+                <a href="{% url 'talk_detail' talk.id %}" class="fw5">
+                  {% if talk.type %}
+                    {{ talk.type }}  <i class="fa-solid fa-caret-right"></i> &nbsp;
+                  {% endif %}
+                   {{ talk.name }}
+                </a>
+              </div>
+              {% if talk.speakers %}
+              <div class="f6">
+                <span class="fw7">Ponentes:</span> {{ talk.speakers }}
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <style>
+    .days-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    .days-list li {
+      float: left;
+    }
+    
+    .days-list li a {
+      display: block;
+      padding: 0.5rem;
+    }
+
+    .days-list li.active {
+      background-color: #ffbb47;
+      font-weight: 700;
+    }
+
+    .border-wine {
+      border-color: #9a3a4a !important;
+    }
+
+    .black-60 {
+      color: rgba(0,0,0,0.6);
+    }
+
+    .vertical-line {
+      background-image: linear-gradient(#ffbb47, #ffbb47);
+      background-size: 2px 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    .w-3rem {
+      width: 3rem;
+    }
+
+    .dot {
+      background-color: #9a3a4a;
+      margin: auto;
+      height: 1rem;
+      width: 1rem;
+      border-radius: 50%;
+    }
+
+    </style>
+
+{% endblock %}
+
+
