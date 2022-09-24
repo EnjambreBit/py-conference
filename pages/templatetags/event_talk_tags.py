@@ -10,9 +10,8 @@ register = template.Library()
 @register.inclusion_tag("tags/talk-preview.html")
 def talk_preview(talk, hidden_resources=False):
     event = None
-
     room = TalkRoom.objects.filter(talk=talk).first()
-    if room is not None:
+    if room is not None and room.start is not None and room.end is not None:
         talk_start = datetime.datetime.combine(room.date, room.start)
         talk_end = datetime.datetime.combine(room.date, room.end)
         event = VEvent(
