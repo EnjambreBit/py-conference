@@ -73,7 +73,7 @@ class Talk(models.Model):
         verbose_name_plural = "talks"
 
     def __str__(self):
-        return f"{self.name}"
+        return f"({self.status}) - {self.name}"
 
     def is_keynote(self):
         return self.talk_type == "keynote"
