@@ -1,4 +1,3 @@
-from ast import Import
 from datetime import date
 from conferences.models.events import Event
 from django.views.generic import TemplateView, FormView
@@ -15,22 +14,27 @@ class AgendaDayPageView(FormView):
     template_name = "agenda/agenda_day.html"
     form_class = AgendaDayForm
 
+    def get(self, request, day, *args, **kwargs):
+        event = Event.objects.filter(active=True).first()
+        queryset = TalkRoom.objects.filter(talk__event=event)
 
-    def get(self, request, day=0,*args, **kwargs):
-        talks = None
-        fecha = None
-        room = request.GET.get('room',0)
-        if day != 0:
-            fecha = date(2022, 9, day)
-        if fecha and room != 0:
-            talks = TalkRoom.objects.filter(talk__event__pk=3, date=fecha, room__pk=room).order_by('start')
-            
+        room_id = request.GET.get('room', False)
+
+        if room_id:
+            queryset = queryset.filter(room__id=room_id)
+
+        if day:
+            date_ = date(2022, 9, day)
+            queryset = queryset.filter(date=date_)
+            queryset = queryset.order_by('start')
+
         else:
-            talks = None
-        rooms = Room.objects.all()
+            queryset = []
+
         context_data = self.get_context_data()
-        context_data["talks"] = talks
-        context_data["rooms"] = rooms
+        context_data["talks"] = queryset
+        context_data["rooms"] = Room.objects.all()
+        context_data["room_id"] = room_id
 
         return self.render_to_response(context_data)
 
@@ -44,7 +48,7 @@ class AgendaDayPageView(FormView):
 
     def form_valid(self, form):
         self.room = form.cleaned_data['room']
-        url = reverse(
+        url = reverse_lazy(
                 "talks-agenda-day",
                 kwargs={
                     "day": self.kwargs.get('day'),

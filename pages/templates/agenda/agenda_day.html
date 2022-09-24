@@ -3,22 +3,22 @@
 
 {% block body_content %}
 {{ block.super }}
-  <div class="container px-4">
-    <div class="flex mb-4">
-      <div class="flex1 pt-4 pl-3">
-        <div class="h1-border"></div>
-      </div>
-      <div class="px-3">
-        <h2 class="border-0"><a href="{% url 'talks-agenda'%}">Agenda</a></h2>
-      </div>
-      <div class="flex1 pt-4 pl-3">
-        <div class="h1-border"></div>
-      </div>
+
+<div class="container px-4 px-4 min-vh-100">
+  <div class="flex mb-4">
+    <div class="flex1 pt-4 pl-3">
+      <div class="h1-border"></div>
+    </div>
+    <div class="px-3">
+      <h2 class="border-0"><a href="{% url 'talks-agenda'%}">Agenda</a></h2>
+    </div>
+    <div class="flex1 pt-4 pl-3">
+      <div class="h1-border"></div>
     </div>
   </div>
 
-  <div class="container px-4 min-vh-100" style="margin-bottom:10px">
-    <form action=""{% url 'talks-agenda-day' view.kwargs.day  %}" method="post" novalidate>
+  <div class="" style="margin-bottom:10px">
+    <form action="{% url 'talks-agenda-day' view.kwargs.day  %}" method="post" novalidate>
       {% csrf_token %}
         <div class="row">
               <div class="today">
@@ -43,46 +43,44 @@
     </form>
   </div>
 
-    <div class="container px-4" >
-      {% if talks %}
-        {% with talks.all|first as sala %}
-          <h3>Eventos del dia en la sala: {{sala.room}} </h3>
-        {% endwith %}
-      {% endif %} 
-      <div class="pb-3">
-        <table class="table w-100">
-          <thead>
+  <div class="container px-4" >
+    {% if talks %}
+      {% with talks.all|first as sala %}
+        <h3>Eventos del dia en la sala: {{sala.room}} </h3>
+      {% endwith %}
+    {% endif %} 
+    <div class="pb-3">
+      <table class="table w-100">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Desde</th>
+            <th>Hasta</th>
+            <th>Evento</th>
+            <th>Speaker</th>
+            <th>Tipo</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for talk_room in talks %}
             <tr>
-              <th>Fecha</th>
-              <th>Desde</th>
-              <th>Hasta</th>
-              <th>Evento</th>
-              <th>Speaker</th>
-              <th>Tipo</th>
+              <td> {{ talk_room.date_as_str }} </td>
+              <td> {{ talk_room.start_as_str }} </td>
+              <td> {{ talk_room.end_as_str }} </td>
+              <td> 
+                  <a href="{% url 'talk_detail' talk_room.talk.id %}">{{talk_room.talk}}</a> 
+              </td>
+              <td> 
+                {{ talk_room.talk.speakers }}
+              </td>
+              <td> {{ talk_room.talk.get_talk_type_display }} </td>
             </tr>
-          </thead>
-          <tbody>
-            {% for room in talks %}
-              <tr>
-                <td> {{ room.date_as_str }} </td>
-                <td> {{ room.start }} </td>
-                <td> {{ room.end }} </td>
-                <td> 
-                   <a href="{% url 'talk_detail' room.talk.id %}">{{room.talk}}</a> 
-                </td>
-                <td> 
-                  {% with room.talk.speakers_per_talk.all|first as speaker %}
-                    {{ speaker.speaker  }}
-                  {% endwith %} 
-                </td>
-                <td> {{ room.talk.talk_type }} </td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-     </div>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
 
 
   <style>
