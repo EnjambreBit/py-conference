@@ -83,6 +83,9 @@ class Talk(models.Model):
     def is_workshop(self):
         return self.talk_type == "workshop"
 
+    def registration_required(self):
+        return self.talk_type in ["workshop", "sprints"]
+
     @property
     def published(self):
         return self.status == "published"

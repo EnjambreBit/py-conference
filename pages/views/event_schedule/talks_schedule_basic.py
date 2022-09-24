@@ -17,10 +17,17 @@ class EventTalksScheduleBasicPageView(TemplateView):
         talks.sort(key=lambda tup: tup[1], reverse=True) 
         talks = [t[0] for t in talks]
 
+        #el usuario logueado puede tomar asistencia
+        take_attendance = False
+        groups = self.request.user.groups.values_list('name', flat=True)
+        if "Colaboradores" in groups:
+            take_attendance = True
+
         context = super().get_context_data(**kwargs)
         context["event"] = event
         context["talks"] = talks
         context["not_talks"] = len(talks) == 0
+        context["take_attendance"] = take_attendance
         return context
 
     def get_queryset(self, event):

@@ -28,6 +28,7 @@
           <th>Tipo</th>
           <th>Idioma</th>
           <th>Speakers</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -39,6 +40,13 @@
           <td>{{ talk.get_talk_type_display }}</td>
           <td>{{ talk.get_language_display }}</td>
           <td>{{ talk.speakers }}</td>
+          <td>
+            {% if talk.registration_required and take_attendance %}
+              <a href="{% url 'workshop-attendance' talk.id %}" class="btn btn-primary">
+                Asistencia
+              </a>
+            {% endif %}
+          </td>
         </tr>
         {% endfor %}
       </tbody>
