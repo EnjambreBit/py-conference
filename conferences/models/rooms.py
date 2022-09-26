@@ -26,6 +26,6 @@ class Room(models.Model):
 
     def get_lat_lng(self):
         if self.lat and self.long:
-            return (self.lat, self.long)
+            return (float(self.lat), float(self.long))
         else:
             return (-24.7280425, -65.4115085)
