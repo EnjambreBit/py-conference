@@ -1,44 +1,35 @@
 from django.contrib import admin
 
-from conferences.admin_class.events import Event, EventAdmin
-from conferences.admin_class.countries import Country, CountryAdmin
-from conferences.admin_class.rooms import Room, RoomAdmin
-from conferences.admin_class.talks import Talk, TalkAdmin
-from conferences.admin_class.talk_rooms import TalkRoom, TalkRoomAdmin
-from conferences.admin_class.profiles import Profile, ProfileAdmin
-from conferences.admin_class.speakers import Speaker, SpeakerAdmin
-from conferences.admin_class.social_media import SocialMedia, SocialMediaAdmin
-from conferences.admin_class.speakers_per_talk import (
-    SpeakerPerTalk,
-    SpeakerPerTalkAdmin,
-)
-from conferences.admin_class.contact_information import (
-    ContactInformation,
-    ContactInformationAdmin,
-)
-from conferences.admin_class.sponsor_levels import SponsorLevel, SponsorLevelAdmin
-from conferences.admin_class.sponsors import Sponsor, SponsorAdmin
-from conferences.admin_class.grants import Grant, GrantAdmin
-from conferences.admin_class.static_pages import StaticPage, StaticPageAdmin
-from conferences.admin_class.resources import (
-    Resource,
-    ResourceAdmin,
-    ResourceFile,
-    ResourceFileAdmin,
-    ResourceImage,
-    ResourceImageAdmin,
-    ResourceLink,
-    ResourceLinkAdmin,
-)
-from conferences.admin_class.event_registrations import (
-    EventRegistration,
-    EventRegistrationAdmin,
-)
 from conferences.admin_class.addresses import Address, AddressAdmin
+from conferences.admin_class.attendance_talk import (AttendanceTalk,
+                                                     AttendanceTalkAdmin)
+from conferences.admin_class.contact_information import (
+    ContactInformation, ContactInformationAdmin)
+from conferences.admin_class.countries import Country, CountryAdmin
 from conferences.admin_class.event_links import EventLink, EventLinkAdmin
-
-from conferences.admin_class.talk_registration import  TalkRegistration, TalkRegistrationAdmin
-from conferences.admin_class.attendance_talk import AttendanceTalk, AttendanceTalkAdmin
+from conferences.admin_class.event_registrations import (
+    EventRegistration, EventRegistrationAdmin)
+from conferences.admin_class.events import Event, EventAdmin
+from conferences.admin_class.grants import Grant, GrantAdmin
+from conferences.admin_class.profiles import Profile, ProfileAdmin
+from conferences.admin_class.resources import (Resource, ResourceAdmin,
+                                               ResourceFile, ResourceFileAdmin,
+                                               ResourceImage,
+                                               ResourceImageAdmin,
+                                               ResourceLink, ResourceLinkAdmin)
+from conferences.admin_class.rooms import Room, RoomAdmin
+from conferences.admin_class.social_media import SocialMedia, SocialMediaAdmin
+from conferences.admin_class.speakers import Speaker, SpeakerAdmin
+from conferences.admin_class.speakers_per_talk import (SpeakerPerTalk,
+                                                       SpeakerPerTalkAdmin)
+from conferences.admin_class.sponsor_levels import (SponsorLevel,
+                                                    SponsorLevelAdmin)
+from conferences.admin_class.sponsors import Sponsor, SponsorAdmin
+from conferences.admin_class.static_pages import StaticPage, StaticPageAdmin
+from conferences.admin_class.talk_registration import (TalkRegistration,
+                                                       TalkRegistrationAdmin)
+from conferences.admin_class.talk_rooms import TalkRoom, TalkRoomAdmin
+from conferences.admin_class.talks import Talk, TalkAdmin
 
 # Register your models here.
 admin.site.register(Country, CountryAdmin)

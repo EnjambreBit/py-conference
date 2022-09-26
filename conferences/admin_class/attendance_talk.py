@@ -16,7 +16,6 @@ class AttendanceTalkResource(resources.ModelResource):
     talk = Field(column_name="Workshop/Sprint")
     created_at = Field(attribute="created_at", column_name="Fecha Registro")
 
-
     class Meta:
         model = AttendanceTalk
         fields = (
@@ -25,11 +24,11 @@ class AttendanceTalkResource(resources.ModelResource):
             "created_at"
         )
 
-    def deshidrate_full_name(self, obj):
+    def dehydrate_full_name(self, obj):
         return obj.profile.full_name
 
-    def deshidrate_talk(self, obj):
-        return obj.talk.name
+    def dehydrate_talk(self, obj):
+        return obj.talk_room.talk.name
 
 class AttendanceTalkAdmin(ExportMixin, admin.ModelAdmin):
     model = AttendanceTalk
