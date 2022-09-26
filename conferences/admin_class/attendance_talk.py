@@ -11,6 +11,7 @@ class AttendanceTalkAdmin(admin.ModelAdmin):
         'id',
         'profile',
         'talk_room',
+        "created_at",
     )
     search_fields = (
         "profile",

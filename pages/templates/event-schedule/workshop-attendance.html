@@ -6,7 +6,7 @@
   <div class="container pa-4 min-vh-100">
     <div>
       <h3>
-        {{ talk_room.talk.name }} - Asistencia {{ talk_room.id }}
+        {{ talk_room.talk.name }} - Asistencia
       </h3>
       <div>
         <h4>
@@ -20,16 +20,14 @@
         <thead>
           <tr>
             <th>Nombre y Apellido</th>
-            <th>Email</th>
             <th>DNI/Pasaporte</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           {% for attendant in attendees %}
-          <tr>
+          <tr class="resaltar">
             <td>{{ attendant.profile.full_name }}</td>
-            <td>{{ attendant.profile.email }}</td>
             <td>
               {% if attendant.profile.document_number %}
                 {{ attendant.profile.get_document_type_display }} - {{ attendant.profile.document_number }}
@@ -37,13 +35,30 @@
                 -
               {% endif %}
             </td>
-            <td>{{ attendant.profile.id }}</td>
+            <td>
+              {% if attendant.profile.id in confirmed_assistance %}
+                <a href="{% url 'workshop-attendance-update' talk_room.id attendant.profile.id %}" class="btn btn-primary">
+                  Presente
+                </a>
+              {% else %}
+                <a href="{% url 'workshop-attendance-update' talk_room.id attendant.profile.id %}" class="btn btn-secondary">
+                  Ausente
+                </a>
+              {% endif %}
+            </td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
     </div>
   </div>
+
+  <style>
+    .resaltar:hover {
+      background-color: rgba(240, 217, 165, 0.5);
+    }
+
+  </style>
 {% endblock %}
 
 

@@ -81,7 +81,9 @@ class TalkAdmin(ExportMixin, admin.ModelAdmin):
         "duration",
         "status",
     )
-    search_fields = ("name",)
+    search_fields = (
+        "name",
+    )
     inlines = [
         SpeakerPerTalkInline,
         TalkRoomMediaInline,

@@ -13,5 +13,4 @@ class EventTalkResourceDeleteView(DeleteView):
         return context_data
 
     def get_success_url(self):
-        print("xxx", self.get_object().talk)
         return reverse_lazy("talk_preview", kwargs={"pk": self.get_object().talk.id})
