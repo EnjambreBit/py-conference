@@ -23,7 +23,11 @@
       {% for row in talks %}
         <div class="flex">
           <div class="w-3rem vertical-line py-3">
-            <div class="dot"></div>
+            {% if row.off %}
+            <div class="dot-off"></div>
+            {% else %}
+              <div class="dot"></div>    
+            {% endif %}
           </div>
           <div class="flex1 fw7 p-3">
             {{ row.start }}
@@ -34,7 +38,7 @@
           <div class="w-3rem vertical-line">
             <div class=""></div>
           </div>
-          <div class="flex1">
+          <div class="flex1 {% if row.off %} transparente {% endif %}">
             <div class="card p-3 my-2">
               <div class="f6">
                 <a href="{{ talk.gmap_link }}" target="_blank" class="black-60">
@@ -103,12 +107,24 @@
       width: 3rem;
     }
 
-    .dot {
+    .dot, .dot-off {
       background-color: #9a3a4a;
       margin: auto;
       height: 1rem;
       width: 1rem;
       border-radius: 50%;
+    }
+
+    .dot-off {
+      background-color: #777;
+    }
+
+    .transparente {
+      opacity: 0.6 !important;
+    }
+
+    .transparente a {
+      color: #333;
     }
 
     </style>

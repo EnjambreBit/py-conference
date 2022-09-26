@@ -3,6 +3,7 @@ from conferences.models.talk_rooms import TalkRoom
 from conferences.models.events import Event
 import datetime
 from dateutil.relativedelta import relativedelta
+from django.utils import timezone
 
 
 def talk_room_to_data(talk_room):
@@ -15,7 +16,6 @@ def talk_room_to_data(talk_room):
         "speakers": talk_room.talk.speakers(),
         "gmap_link": f"https://www.google.com/maps/search/?api=1&query={lat},{lng}"
     }
-    
 
 class TalkScheduleView(TemplateView):
     template_name = "event-schedule/talk_schedule.html"
@@ -42,7 +42,8 @@ class TalkScheduleView(TemplateView):
         start = queryset.first().start
         data = []
         hour_data = { 
-            "start": start.strftime("%H:%M"), 
+            "start": start.strftime("%H:%M"),
+            "off": if_ended(active_date, start), 
             "talks_room": [] 
         } 
         for talk_room in queryset:
@@ -52,6 +53,7 @@ class TalkScheduleView(TemplateView):
                     start = talk_room.start
                     hour_data = { 
                         "start": talk_room.start.strftime("%H:%M"), 
+                        "off": if_ended(active_date, talk_room.start),
                         "talks_room": [
                             talk_room_to_data(talk_room)
                         ] 
@@ -67,3 +69,16 @@ class TalkScheduleView(TemplateView):
         context["days"] = days
         context["active_date"] = active_date
         return context
+
+
+def if_ended(date, start):
+    now = datetime.datetime.now()
+    if isinstance(date, str):
+        date = datetime.datetime.strptime(date, "%Y-%m-%d")
+    current = datetime.datetime.combine(date, start) + relativedelta(hours=1)
+    if now > current:
+        return True
+    return False
+
+
+
