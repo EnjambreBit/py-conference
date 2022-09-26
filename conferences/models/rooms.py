@@ -11,11 +11,10 @@ class Room(models.Model):
     address = models.ForeignKey(
         "Address", on_delete=models.CASCADE, related_name="rooms", null=True, blank=True
     )
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
     lat = models.CharField(max_length=25, default='')
     long = models.CharField(max_length=25, default='')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "rooms"

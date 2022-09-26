@@ -5,8 +5,46 @@
 
   <div class="container pa-4 min-vh-100">
     <div>
-      
+      <h3>
+        {{ talk_room.talk.name }} - Asistencia {{ talk_room.id }}
+      </h3>
+      <div>
+        <h4>
+          {{ talk_room.date_as_str }} {{ talk_room.start_as_str }} - {{ talk_room.end_as_str }}
+        </h4>
+      </div>
+    </div>
+
+    <div class="py-4">
+      <table class="w-100 table">
+        <thead>
+          <tr>
+            <th>Nombre y Apellido</th>
+            <th>Email</th>
+            <th>DNI/Pasaporte</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for attendant in attendees %}
+          <tr>
+            <td>{{ attendant.profile.full_name }}</td>
+            <td>{{ attendant.profile.email }}</td>
+            <td>
+              {% if attendant.profile.document_number %}
+                {{ attendant.profile.get_document_type_display }} - {{ attendant.profile.document_number }}
+              {% else %}
+                -
+              {% endif %}
+            </td>
+            <td>{{ attendant.profile.id }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
   </div>
 {% endblock %}
+
+
 

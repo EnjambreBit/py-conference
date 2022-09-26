@@ -38,6 +38,7 @@ from conferences.admin_class.addresses import Address, AddressAdmin
 from conferences.admin_class.event_links import EventLink, EventLinkAdmin
 
 from conferences.admin_class.talk_registration import  TalkRegistration, TalkRegistrationAdmin
+from conferences.admin_class.attendance_talk import AttendanceTalk, AttendanceTalkAdmin
 
 # Register your models here.
 admin.site.register(Country, CountryAdmin)
@@ -64,3 +65,5 @@ admin.site.register(Resource, ResourceAdmin)
 admin.site.register(ResourceFile, ResourceFileAdmin)
 admin.site.register(ResourceImage, ResourceImageAdmin)
 admin.site.register(ResourceLink, ResourceLinkAdmin)
+admin.site.register(AttendanceTalk, AttendanceTalkAdmin)
+

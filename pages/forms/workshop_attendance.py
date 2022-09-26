@@ -3,4 +3,6 @@ from django import forms
 
 
 class WorkshopAttendanceForm(forms.Form):
-    pass
+    profile = forms.IntegerField(required=False)
+    talk_room = forms.IntegerField(required=False)
+

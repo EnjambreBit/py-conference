@@ -24,6 +24,10 @@ class TalkRoomAdmin(admin.ModelAdmin):
         "start_as_str",
         "end_as_str",
     )
+    search_fields = (
+        "talk",
+        "room",
+    )
     autocomplete_fields = (
         "talk",
         "room",

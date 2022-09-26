@@ -22,7 +22,7 @@ class TalkRoom(models.Model):
         verbose_name_plural = "Talk rooms"
 
     def __str__(self):
-        return f"{self.talk} - {self.room}"
+        return f"{self.date_as_str()} {self.start_as_str()}: {self.talk} - {self.room}"
 
     def date_as_str(self):
         if self.date:
