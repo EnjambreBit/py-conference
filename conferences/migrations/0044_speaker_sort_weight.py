@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0043_register_all_user_active_event'),
+        ("conferences", "0043_register_all_user_active_event"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='speaker',
-            name='sort_weight',
+            model_name="speaker",
+            name="sort_weight",
             field=models.IntegerField(default=0),
         ),
     ]

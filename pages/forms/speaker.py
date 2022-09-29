@@ -5,10 +5,7 @@ from django import forms
 class SpeakerForm(forms.ModelForm):
     class Meta:
         model = Speaker
-        fields = [
-            "photo",
-            "biography"
-        ]
+        fields = ["photo", "biography"]
         labels = {
             "photo": "Foto de perfil",
             "biography": "Resumen",

@@ -10,6 +10,10 @@ class SpeakerProfileView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         profile = self.get_object()
-        talks = [spt.talk for spt in profile.speakers_per_talk.all() if spt.talk.status == "published"]
+        talks = [
+            spt.talk
+            for spt in profile.speakers_per_talk.all()
+            if spt.talk.status == "published"
+        ]
         context["talks"] = talks
         return context

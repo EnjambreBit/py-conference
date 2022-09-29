@@ -20,11 +20,15 @@ class ProfileDetailView(LoginRequiredMixin, TemplateView):
             pass
 
         context["profile"] = profile
-        context["qr_text"] = f"Python Científico Latino América 2022 - Salta UNSa Argentina\n\n{profile.full_name}\n{profile.email}"
+        context[
+            "qr_text"
+        ] = f"Python Científico Latino América 2022 - Salta UNSa Argentina\n\n{profile.full_name}\n{profile.email}"
 
-        #evento actual activo
+        # evento actual activo
         now = timezone.now()
-        event: Event = Event.objects.filter(active=True, call_for_talks_start__gte=now, call_for_talks_end__lte=now).first()
+        event: Event = Event.objects.filter(
+            active=True, call_for_talks_start__gte=now, call_for_talks_end__lte=now
+        ).first()
         context["event"] = event
 
         if profile is not None:
@@ -33,11 +37,10 @@ class ProfileDetailView(LoginRequiredMixin, TemplateView):
 
             speaker_profile = Speaker.objects.filter(profile=profile).first()
 
-            if speaker_profile is None and self.request.user.groups.filter(name="Colaboradores"):
-                speaker_profile = Speaker.objects.create(
-                    profile=profile,
-                    biography=""
-                )
+            if speaker_profile is None and self.request.user.groups.filter(
+                name="Colaboradores"
+            ):
+                speaker_profile = Speaker.objects.create(profile=profile, biography="")
 
             if speaker_profile:
                 tids = [

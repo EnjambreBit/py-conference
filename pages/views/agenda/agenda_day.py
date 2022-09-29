@@ -18,7 +18,7 @@ class AgendaDayPageView(FormView):
         event = Event.objects.filter(active=True).first()
         queryset = TalkRoom.objects.filter(talk__event=event)
 
-        room_id = request.GET.get('room', False)
+        room_id = request.GET.get("room", False)
 
         if room_id:
             queryset = queryset.filter(room__id=room_id)
@@ -26,7 +26,7 @@ class AgendaDayPageView(FormView):
         if day:
             date_ = date(2022, 9, day)
             queryset = queryset.filter(date=date_)
-            queryset = queryset.order_by('start')
+            queryset = queryset.order_by("start")
 
         else:
             queryset = []
@@ -45,14 +45,14 @@ class AgendaDayPageView(FormView):
     # def form_invalid(self, form) -> HttpResponse:
     #    return super().form_invalid(form)
 
-
     def form_valid(self, form):
-        self.room = form.cleaned_data['room']
+        self.room = form.cleaned_data["room"]
         url = reverse_lazy(
-                "talks-agenda-day",
-                kwargs={
-                    "day": self.kwargs.get('day'),
-                })
+            "talks-agenda-day",
+            kwargs={
+                "day": self.kwargs.get("day"),
+            },
+        )
         return HttpResponseRedirect(f"{url}?room={form.cleaned_data['room']}")
 
 

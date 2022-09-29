@@ -5,7 +5,7 @@ from django import forms
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        #fields = "__all__"
+        # fields = "__all__"
         fields = [
             "first_name",
             "last_name",
@@ -39,7 +39,3 @@ class ProfileForm(forms.ModelForm):
             "study_program": "Carrera",
             "student_id": "Identificación Estudiantil",
         }
-
-
-
-

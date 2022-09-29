@@ -9,6 +9,7 @@ from django.urls import reverse_lazy
 from conferences.models.event_registrations import EventRegistration
 from conferences.models.events import Event
 
+
 class AccountRegistrationView(FormView):
     template_name = "account/account-registration.html"
     form_class = AccountRegistrationForm
@@ -42,10 +43,7 @@ class AccountRegistrationView(FormView):
 
         active_event = Event.objects.filter(active=True).first()
         if active_event:
-            EventRegistration.objects.create(
-                event=active_event,
-                profile=profile
-            )
+            EventRegistration.objects.create(event=active_event, profile=profile)
 
         return HttpResponseRedirect(self.get_success_url())
 

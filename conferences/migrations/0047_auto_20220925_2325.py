@@ -7,26 +7,52 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0046_auto_20220917_1612'),
+        ("conferences", "0046_auto_20220917_1612"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='talkroom',
-            options={'ordering': ['date', 'start'], 'verbose_name': 'Talk room', 'verbose_name_plural': 'Talk rooms'},
+            name="talkroom",
+            options={
+                "ordering": ["date", "start"],
+                "verbose_name": "Talk room",
+                "verbose_name_plural": "Talk rooms",
+            },
         ),
         migrations.CreateModel(
-            name='AttendanceTalk',
+            name="AttendanceTalk",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='attendance_talks', to='conferences.profile')),
-                ('talk_room', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='attendance_talks', to='conferences.talkroom')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                (
+                    "profile",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="attendance_talks",
+                        to="conferences.profile",
+                    ),
+                ),
+                (
+                    "talk_room",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="attendance_talks",
+                        to="conferences.talkroom",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Attendance at the talk',
-                'verbose_name_plural': 'Attendance at the talk',
-                'db_table': 'attendance_talk',
+                "verbose_name": "Attendance at the talk",
+                "verbose_name_plural": "Attendance at the talk",
+                "db_table": "attendance_talk",
             },
         ),
     ]

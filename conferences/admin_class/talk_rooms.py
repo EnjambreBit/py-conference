@@ -36,6 +36,7 @@ class TalkRoomResource(resources.ModelResource):
     def dehydrate_attendance(self, obj):
         return obj.attendance_talks.all().count()
 
+
 class TalkRoomAdmin(ExportMixin, admin.ModelAdmin):
     model = TalkRoom
     resource_class = TalkRoomResource

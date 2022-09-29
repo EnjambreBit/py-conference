@@ -29,9 +29,11 @@ class EventTalksPageView(TemplateView):
 
 class EventSprintPageView(EventTalksPageView):
     template_name = "event-schedule/sprints.html"
-    
+
     def get_queryset(self, event):
-        queryset = Talk.objects.filter(event=event, talk_type="sprints", status="published")
+        queryset = Talk.objects.filter(
+            event=event, talk_type="sprints", status="published"
+        )
         return queryset
 
 
@@ -39,7 +41,9 @@ class EventWorkshopPageView(EventTalksPageView):
     template_name = "event-schedule/workshops.html"
 
     def get_queryset(self, event):
-        queryset = Talk.objects.filter(event=event, talk_type="workshop", status="published")
+        queryset = Talk.objects.filter(
+            event=event, talk_type="workshop", status="published"
+        )
         return queryset
 
 
@@ -47,5 +51,7 @@ class EventKeynotePageView(EventTalksPageView):
     template_name = "event-schedule/keynotes.html"
 
     def get_queryset(self, event):
-        queryset = Talk.objects.filter(event=event, talk_type="keynote", status="published")
+        queryset = Talk.objects.filter(
+            event=event, talk_type="keynote", status="published"
+        )
         return queryset

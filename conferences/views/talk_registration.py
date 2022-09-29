@@ -10,4 +10,3 @@ class TalkRegistrationViewSet(viewsets.ModelViewSet):
     queryset = TalkRegistration.objects.all()
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     serializer_class = TalkRegistrationSerializer
-

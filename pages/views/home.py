@@ -5,6 +5,7 @@ from conferences.models.speakers_per_talk import SpeakerPerTalk
 from conferences.models.sponsor_levels import SponsorLevel
 from conferences.models.sponsors import Sponsor
 
+
 class HomePageView(TemplateView):
     template_name = "home.html"
 
@@ -13,7 +14,7 @@ class HomePageView(TemplateView):
         event = Event.objects.filter(active=True).first()
         context["event"] = event
 
-        #keynotes
+        # keynotes
         speakers_ids = [
             sp.speaker.id
             for sp in SpeakerPerTalk.objects.filter(
@@ -21,13 +22,17 @@ class HomePageView(TemplateView):
             )
         ]
         speakers = Speaker.objects.filter(id__in=speakers_ids)
-        keynotes = [(s, s.weight(event)) for s in speakers if s.type(event) == "keynote"]
-        keynotes.sort(key=lambda tup: tup[1], reverse=True) 
+        keynotes = [
+            (s, s.weight(event)) for s in speakers if s.type(event) == "keynote"
+        ]
+        keynotes.sort(key=lambda tup: tup[1], reverse=True)
         keynotes = [s[0] for s in keynotes]
         context["keynotes"] = keynotes
 
-        speakers = [(s, s.weight(event)) for s in speakers if s.type(event) != "keynote"]
-        speakers.sort(key=lambda tup: tup[1], reverse=True) 
+        speakers = [
+            (s, s.weight(event)) for s in speakers if s.type(event) != "keynote"
+        ]
+        speakers.sort(key=lambda tup: tup[1], reverse=True)
         speakers = [s[0] for s in speakers]
         context["speakers"] = speakers
 

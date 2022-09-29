@@ -16,4 +16,3 @@ class SpeakerAdmin(admin.ModelAdmin):
         "profile__first_name",
         "profile__last_name",
     )
-

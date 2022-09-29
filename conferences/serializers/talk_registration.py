@@ -5,4 +5,4 @@ from conferences.models.talk_registration import TalkRegistration
 class TalkRegistrationSerializer(ModelSerializer):
     class Meta:
         model = TalkRegistration
-        fields = '__all__'
+        fields = "__all__"

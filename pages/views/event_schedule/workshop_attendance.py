@@ -13,7 +13,6 @@ from conferences.models.profiles import Profile
 from conferences.models.attendance_talk import AttendanceTalk
 
 
-
 class WorkshopAttendanceView(TemplateView):
     template_name = "event-schedule/workshop-attendance.html"
     form_class = WorkshopAttendanceForm
@@ -27,26 +26,34 @@ class WorkshopAttendanceView(TemplateView):
         time_now = now.time()
 
         talk_id = self.kwargs.get("talk_id", None)
-        talk_rooms = TalkRoom.objects.filter(talk__id=talk_id, date=date_now).order_by("end")
+        talk_rooms = TalkRoom.objects.filter(talk__id=talk_id, date=date_now).order_by(
+            "end"
+        )
         talk_room = None
         if talk_rooms.count() == 0:
             return HttpResponseRedirect(reverse_lazy("talks-schedule"))
 
         elif talk_rooms.count() == 1:
             talk_room = talk_rooms.first()
-        
+
         else:
-            #talks_room = [tr for tr in talk_rooms]
+            # talks_room = [tr for tr in talk_rooms]
             for tr in talk_rooms:
-                end = datetime.datetime.combine(tr.date, tr.end) + relativedelta(minutes=30)
+                end = datetime.datetime.combine(tr.date, tr.end) + relativedelta(
+                    minutes=30
+                )
                 end = end.time()
                 if time_now < end:
                     talk_room = tr
                     break
 
-        attendees = TalkRegistration.objects.filter(talk__id=talk_id).order_by("profile__first_name")
+        attendees = TalkRegistration.objects.filter(talk__id=talk_id).order_by(
+            "profile__first_name"
+        )
 
-        confirmed_assistance = AttendanceTalk.objects.filter(talk_room=talk_room).values_list('profile__id', flat=True)
+        confirmed_assistance = AttendanceTalk.objects.filter(
+            talk_room=talk_room
+        ).values_list("profile__id", flat=True)
         print("::", confirmed_assistance)
 
         context_data = self.get_context_data()
@@ -58,7 +65,7 @@ class WorkshopAttendanceView(TemplateView):
 
     def take_attendance(self):
         if self.request.user.is_authenticated:
-            groups = list(self.request.user.groups.values_list('name', flat=True))
+            groups = list(self.request.user.groups.values_list("name", flat=True))
             if "Colaboradores" in groups:
                 return True
         return False
@@ -77,7 +84,9 @@ class UpdateAttendanceView(TemplateView):
         try:
             profile = Profile.objects.get(id=profile_id)
             talk_room = TalkRoom.objects.get(id=talk_room_id)
-            atendance, _created = AttendanceTalk.objects.get_or_create(talk_room=talk_room, profile=profile)
+            atendance, _created = AttendanceTalk.objects.get_or_create(
+                talk_room=talk_room, profile=profile
+            )
             if not _created:
                 atendance.delete()
 
@@ -87,12 +96,13 @@ class UpdateAttendanceView(TemplateView):
         except Profile.DoesNotExist:
             return HttpResponseRedirect(reverse_lazy("talks-schedule"))
 
-        return HttpResponseRedirect(reverse_lazy("workshop-attendance", kwargs={"talk_id": talk_room.talk.id }))
-
+        return HttpResponseRedirect(
+            reverse_lazy("workshop-attendance", kwargs={"talk_id": talk_room.talk.id})
+        )
 
     def take_attendance(self):
         if self.request.user.is_authenticated:
-            groups = list(self.request.user.groups.values_list('name', flat=True))
+            groups = list(self.request.user.groups.values_list("name", flat=True))
             if "Colaboradores" in groups:
                 return True
         return False

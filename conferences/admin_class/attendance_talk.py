@@ -10,7 +10,6 @@ from import_export.fields import Field
 from import_export.formats import base_formats
 
 
-
 class AttendanceTalkResource(resources.ModelResource):
     full_name = Field(column_name="Nombre y Apellido")
     talk = Field(column_name="Workshop/Sprint")
@@ -18,11 +17,7 @@ class AttendanceTalkResource(resources.ModelResource):
 
     class Meta:
         model = AttendanceTalk
-        fields = (
-            "full_name",
-            "talk",
-            "created_at"
-        )
+        fields = ("full_name", "talk", "created_at")
 
     def dehydrate_full_name(self, obj):
         return obj.profile.full_name
@@ -30,13 +25,14 @@ class AttendanceTalkResource(resources.ModelResource):
     def dehydrate_talk(self, obj):
         return obj.talk_room.talk.name
 
+
 class AttendanceTalkAdmin(ExportMixin, admin.ModelAdmin):
     model = AttendanceTalk
     resource_class = AttendanceTalkResource
     list_display = (
-        'id',
-        'profile',
-        'talk_room',
+        "id",
+        "profile",
+        "talk_room",
         "created_at",
     )
     search_fields = (
@@ -50,8 +46,5 @@ class AttendanceTalkAdmin(ExportMixin, admin.ModelAdmin):
     )
     list_filter = (
         ("talk_room__talk", RelatedDropdownFilter),
-        #("date", DateRangeFilter),
+        # ("date", DateRangeFilter),
     )
-
-
-

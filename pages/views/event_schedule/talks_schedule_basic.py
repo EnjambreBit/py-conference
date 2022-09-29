@@ -13,13 +13,13 @@ class EventTalksScheduleBasicPageView(TemplateView):
         else:
             event = Event.objects.filter(active=True).first()
 
-        talks = [ (t, t.weight()) for t in self.get_queryset(event)]
-        talks.sort(key=lambda tup: tup[1], reverse=True) 
+        talks = [(t, t.weight()) for t in self.get_queryset(event)]
+        talks.sort(key=lambda tup: tup[1], reverse=True)
         talks = [t[0] for t in talks]
 
-        #el usuario logueado puede tomar asistencia
+        # el usuario logueado puede tomar asistencia
         take_attendance = False
-        groups = self.request.user.groups.values_list('name', flat=True)
+        groups = self.request.user.groups.values_list("name", flat=True)
         if "Colaboradores" in groups:
             take_attendance = True
 

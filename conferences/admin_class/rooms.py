@@ -12,6 +12,4 @@ class RoomAdmin(admin.ModelAdmin):
         "lat",
         "long",
     )
-    search_fields = (
-        "name",
-    )
+    search_fields = ("name",)

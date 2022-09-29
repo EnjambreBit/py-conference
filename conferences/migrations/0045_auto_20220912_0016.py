@@ -6,23 +6,59 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0044_speaker_sort_weight'),
+        ("conferences", "0044_speaker_sort_weight"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='talk',
-            name='language',
-            field=models.CharField(blank=True, choices=[('english', 'Inglés'), ('spanish', 'Español'), ('portuguese', 'Portugues'), ('english/spanish', 'Inglés/Español')], default=None, max_length=30, null=True),
+            model_name="talk",
+            name="language",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("english", "Inglés"),
+                    ("spanish", "Español"),
+                    ("portuguese", "Portugues"),
+                    ("english/spanish", "Inglés/Español"),
+                ],
+                default=None,
+                max_length=30,
+                null=True,
+            ),
         ),
         migrations.AlterField(
-            model_name='talk',
-            name='language_slider',
-            field=models.CharField(blank=True, choices=[('english', 'Inglés'), ('spanish', 'Español'), ('portuguese', 'Portugues'), ('english/spanish', 'Inglés/Español')], default=None, max_length=30, null=True),
+            model_name="talk",
+            name="language_slider",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("english", "Inglés"),
+                    ("spanish", "Español"),
+                    ("portuguese", "Portugues"),
+                    ("english/spanish", "Inglés/Español"),
+                ],
+                default=None,
+                max_length=30,
+                null=True,
+            ),
         ),
         migrations.AlterField(
-            model_name='talk',
-            name='talk_type',
-            field=models.CharField(blank=True, choices=[('talk', 'Charla'), ('workshop', 'Workshop/Taller'), ('keynote', 'Keynote/Charla magistral'), ('lightning_talk', 'Lightning Talk'), ('sprints', 'Sprints'), ('open_space', 'Open Space'), ('panel', 'Panel')], default=None, max_length=30, null=True),
+            model_name="talk",
+            name="talk_type",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("talk", "Charla"),
+                    ("workshop", "Workshop/Taller"),
+                    ("keynote", "Keynote/Charla magistral"),
+                    ("lightning_talk", "Lightning Talk"),
+                    ("sprints", "Sprints"),
+                    ("open_space", "Open Space"),
+                    ("panel", "Panel"),
+                ],
+                default=None,
+                max_length=30,
+                null=True,
+            ),
         ),
     ]

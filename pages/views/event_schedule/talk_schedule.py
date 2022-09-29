@@ -14,8 +14,9 @@ def talk_room_to_data(talk_room):
         "type": talk_room.talk.get_talk_type_display(),
         "room": talk_room.room.name,
         "speakers": talk_room.talk.speakers(),
-        "gmap_link": f"https://www.google.com/maps/search/?api=1&query={lat},{lng}"
+        "gmap_link": f"https://www.google.com/maps/search/?api=1&query={lat},{lng}",
     }
+
 
 class TalkScheduleView(TemplateView):
     template_name = "event-schedule/talk_schedule.html"
@@ -24,7 +25,7 @@ class TalkScheduleView(TemplateView):
         event = Event.objects.filter(active=True).first()
         queryset = TalkRoom.objects.filter(talk__event=event)
 
-        #dias del evento
+        # dias del evento
         date = event.start_date
         days = [date]
         while date < event.end_date:
@@ -38,30 +39,28 @@ class TalkScheduleView(TemplateView):
 
         queryset = TalkRoom.objects.filter(date=active_date)
 
-        #charlas
+        # charlas
         start = queryset.first().start
         data = []
-        hour_data = { 
+        hour_data = {
             "start": start.strftime("%H:%M"),
-            "off": if_ended(active_date, start), 
-            "talks_room": [] 
-        } 
+            "off": if_ended(active_date, start),
+            "talks_room": [],
+        }
         for talk_room in queryset:
             if talk_room.start:
                 if talk_room.start > start:
                     data.append(hour_data)
                     start = talk_room.start
-                    hour_data = { 
-                        "start": talk_room.start.strftime("%H:%M"), 
+                    hour_data = {
+                        "start": talk_room.start.strftime("%H:%M"),
                         "off": if_ended(active_date, talk_room.start),
-                        "talks_room": [
-                            talk_room_to_data(talk_room)
-                        ] 
-                    } 
+                        "talks_room": [talk_room_to_data(talk_room)],
+                    }
                 else:
                     hour_data["talks_room"].append(talk_room_to_data(talk_room))
 
-        data.append(hour_data) 
+        data.append(hour_data)
 
         context = super().get_context_data(**kwargs)
         context["event"] = event
@@ -79,6 +78,3 @@ def if_ended(date, start):
     if now > current:
         return True
     return False
-
-
-

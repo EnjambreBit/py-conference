@@ -3,7 +3,6 @@
 from django.db import migrations
 
 
-
 def register_all_users_on_active_event(apps, schema):
     Event = apps.get_model("conferences", "Event")
     Profile = apps.get_model("conferences", "Profile")
@@ -12,18 +11,17 @@ def register_all_users_on_active_event(apps, schema):
     active_event = Event.objects.filter(active=True).first()
     if active_event is not None:
         for profile in Profile.objects.all():
-            EventRegistration.objects.get_or_create(
-                event=active_event,
-                profile=profile
-            )
+            EventRegistration.objects.get_or_create(event=active_event, profile=profile)
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('conferences', '0042_talkregistration'),
+        ("conferences", "0042_talkregistration"),
     ]
 
     operations = [
-        migrations.RunPython(register_all_users_on_active_event, migrations.RunPython.noop),
+        migrations.RunPython(
+            register_all_users_on_active_event, migrations.RunPython.noop
+        ),
     ]

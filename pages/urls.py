@@ -2,53 +2,59 @@ from operator import index
 
 from conferences.views.entrada import EntradaView
 from django.conf.urls import include, url
-from django.contrib.auth.views import (PasswordChangeDoneView,
-                                       PasswordChangeView)
+from django.contrib.auth.views import PasswordChangeDoneView, PasswordChangeView
 from django.urls import path, register_converter
 from my_addons.utils import DateConverter
 
 from pages.views.accounts.account_profile_detail import ProfileDetailView
 from pages.views.accounts.account_profile_edit import ProfileUpdateView
 from pages.views.accounts.account_registration import AccountRegistrationView
-from pages.views.accounts.account_speaker_profile_edit import \
-    SpeakeProfileUpdateView
+from pages.views.accounts.account_speaker_profile_edit import SpeakeProfileUpdateView
 from pages.views.agenda.agenda import AgendaPageView
 from pages.views.agenda.agenda_day import AgendaDayPageView
-from pages.views.event_schedule.download_ics_event import \
-    download_talk_ics_file
+from pages.views.event_schedule.download_ics_event import download_talk_ics_file
 from pages.views.event_schedule.speaker_profile import SpeakerProfileView
 from pages.views.event_schedule.speakers import EventSpeakersPageView
 from pages.views.event_schedule.talk_detail import TalkDetailView
 from pages.views.event_schedule.talk_schedule import TalkScheduleView
-from pages.views.event_schedule.talks import (EventKeynotePageView,
-                                              EventSprintPageView,
-                                              EventTalksPageView,
-                                              EventWorkshopPageView)
-from pages.views.event_schedule.talks_schedule_basic import \
-    EventTalksScheduleBasicPageView
-from pages.views.event_schedule.workshop_attendance import WorkshopAttendanceView, UpdateAttendanceView
-from pages.views.events.collaborators import (AcademicCommitteeView,
-                                              CollaboratorDetailView,
-                                              CollaboratorsView,
-                                              ProceedingsView)
+from pages.views.event_schedule.talks import (
+    EventKeynotePageView,
+    EventSprintPageView,
+    EventTalksPageView,
+    EventWorkshopPageView,
+)
+from pages.views.event_schedule.talks_schedule_basic import (
+    EventTalksScheduleBasicPageView,
+)
+from pages.views.event_schedule.workshop_attendance import (
+    WorkshopAttendanceView,
+    UpdateAttendanceView,
+)
+from pages.views.events.collaborators import (
+    AcademicCommitteeView,
+    CollaboratorDetailView,
+    CollaboratorsView,
+    ProceedingsView,
+)
 from pages.views.events.event_registration import EventRegistrationView
-from pages.views.events.event_registration_list import \
-    EventRegistrationListView
+from pages.views.events.event_registration_list import EventRegistrationListView
 from pages.views.events.event_talk_preview import TalkPreviewView
 from pages.views.events.event_talk_registration import (
-    EventTalkRegistrationSuccesfull, EventTalkRegistrationView)
-from pages.views.events.event_talk_resource_create import \
-    TalkResourceCreateView
-from pages.views.events.event_talk_resource_create_by_type import \
-    TalkResourceCreateByTypeView
-from pages.views.events.event_talk_resource_delete import \
-    EventTalkResourceDeleteView
-from pages.views.events.event_talk_resource_update import \
-    EventTalkResourceUpdateView
+    EventTalkRegistrationSuccesfull,
+    EventTalkRegistrationView,
+)
+from pages.views.events.event_talk_resource_create import TalkResourceCreateView
+from pages.views.events.event_talk_resource_create_by_type import (
+    TalkResourceCreateByTypeView,
+)
+from pages.views.events.event_talk_resource_delete import EventTalkResourceDeleteView
+from pages.views.events.event_talk_resource_update import EventTalkResourceUpdateView
 from pages.views.events.event_talk_update import EventTalkUpdateView
-from pages.views.events.talk_registration import (TalkRegistration,
-                                                  TalkRegistrationAdd,
-                                                  TalkRegistrationDel)
+from pages.views.events.talk_registration import (
+    TalkRegistration,
+    TalkRegistrationAdd,
+    TalkRegistrationDel,
+)
 from pages.views.home import HomePageView
 from pages.views.location import LocationPageView
 from pages.views.not_implemented import NotImplementedView
@@ -57,7 +63,7 @@ from pages.views.sponsors import SponsorListView
 from pages.views.static_page import render_static_page
 from pages.views.twitter_news import TwitterNewsView
 
-register_converter(DateConverter, 'yyyy')
+register_converter(DateConverter, "yyyy")
 
 # Create your views here.
 urlpatterns = [
@@ -131,7 +137,11 @@ urlpatterns = [
         EventTalkResourceDeleteView.as_view(),
         name="talk_resource_delete",
     ),
-    path("talks/download-event-calendar/<int:pk>/", download_talk_ics_file, name="download-ics-event"),
+    path(
+        "talks/download-event-calendar/<int:pk>/",
+        download_talk_ics_file,
+        name="download-ics-event",
+    ),
     path("location", LocationPageView.as_view(), name="location"),
     path("noticias", TwitterNewsView.as_view(), name="twitter_news"),
     path("speakers", EventSpeakersPageView.as_view(), name="speakers"),
@@ -157,27 +167,37 @@ urlpatterns = [
         EventTalksScheduleBasicPageView.as_view(),
         name="talks-schedule",
     ),
-    path(
-        "schedule/", EventTalksScheduleBasicPageView.as_view(), name="talks-schedule"
-    ),
+    path("schedule/", EventTalksScheduleBasicPageView.as_view(), name="talks-schedule"),
     path("talks/schedule/", TalkScheduleView.as_view(), name="event-talk-schedule"),
-    path("talks/attendance/<int:talk_id>/", WorkshopAttendanceView.as_view(), name="workshop-attendance"),
-    path("talks/attendance/update/<int:talk_room_id>/<int:profile_id>/", UpdateAttendanceView.as_view(), name="workshop-attendance-update"),
-    path("talks/schedule/<yyyy:date>/", TalkScheduleView.as_view(), name="event-talk-schedule"),
+    path(
+        "talks/attendance/<int:talk_id>/",
+        WorkshopAttendanceView.as_view(),
+        name="workshop-attendance",
+    ),
+    path(
+        "talks/attendance/update/<int:talk_room_id>/<int:profile_id>/",
+        UpdateAttendanceView.as_view(),
+        name="workshop-attendance-update",
+    ),
+    path(
+        "talks/schedule/<yyyy:date>/",
+        TalkScheduleView.as_view(),
+        name="event-talk-schedule",
+    ),
     # Agenda
-    path(
-        "agenda/", AgendaPageView.as_view(), name="talks-agenda"
-    ),
-    path(
-        "agenda_day/<int:day>/", AgendaDayPageView.as_view(), name="talks-agenda-day"
-    ),
-    path(
-        "entrada/", EntradaView, name="entrada"
-    ),
+    path("agenda/", AgendaPageView.as_view(), name="talks-agenda"),
+    path("agenda_day/<int:day>/", AgendaDayPageView.as_view(), name="talks-agenda-day"),
+    path("entrada/", EntradaView, name="entrada"),
     path("colaboradores", CollaboratorsView.as_view(), name="collaborators"),
     path("actas", ProceedingsView.as_view(), name="proceedings"),
-    path("comite-academico", AcademicCommitteeView.as_view(), name="academic-committee"),
-    path("colaboradores/<int:pk>/", CollaboratorDetailView.as_view(), name="collaborator_profile"),
+    path(
+        "comite-academico", AcademicCommitteeView.as_view(), name="academic-committee"
+    ),
+    path(
+        "colaboradores/<int:pk>/",
+        CollaboratorDetailView.as_view(),
+        name="collaborator_profile",
+    ),
     path("", HomePageView.as_view(), name="home"),
     path("not-found/", NotImplementedView.as_view(), name="not_found"),
 ]

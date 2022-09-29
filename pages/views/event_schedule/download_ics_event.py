@@ -5,7 +5,6 @@ from django.http import HttpResponse
 from qr_code.qrcode.utils import EventClass, EventStatus, EventTransparency, VEvent
 
 
-
 def download_talk_ics_file(request, pk):
     room = TalkRoom.objects.filter(talk__id=pk).first()
     if room is not None:
@@ -23,13 +22,13 @@ def download_talk_ics_file(request, pk):
             status=EventStatus.CONFIRMED,
             event_class=EventClass.PUBLIC,
             transparency=EventTransparency.OPAQUE,
-            #organizer="foo@bar.com",
-            #url="https://bar.com",
+            # organizer="foo@bar.com",
+            # url="https://bar.com",
             description=talk.summary[:200],
         )
 
         response = HttpResponse(event.make_qr_code_data(), content_type="text/calendar")
-        response['Content-Disposition'] = f'attachment; filename=charla.ics' 
+        response["Content-Disposition"] = f"attachment; filename=charla.ics"
         return response
 
     else:

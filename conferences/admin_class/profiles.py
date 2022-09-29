@@ -7,8 +7,6 @@ from import_export.fields import Field
 from import_export.formats import base_formats
 
 
-
-
 class SocialMediaInline(admin.TabularInline):
     model = SocialMedia
     extra = 0
@@ -29,18 +27,14 @@ class ProfileAdmin(ExportMixin, admin.ModelAdmin):
         "email",
         "phone",
         "country",
-        "created_at"
+        "created_at",
     )
     search_fields = (
         "first_name",
         "last_name",
         "user__email",
     )
-    autocomplete_fields = (
-        "country",
-    )
+    autocomplete_fields = ("country",)
     inlines = [
         SocialMediaInline,
     ]
-
-

@@ -11,8 +11,9 @@ class CollaboratorsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        queryset = User.objects.filter(groups__name='Colaboradores') \
-            .order_by("profile__first_name")
+        queryset = User.objects.filter(groups__name="Colaboradores").order_by(
+            "profile__first_name"
+        )
         context["profiles"] = [user.profile for user in queryset]
         context["title"] = "Colaboradores"
         return context
@@ -21,8 +22,9 @@ class CollaboratorsView(TemplateView):
 class AcademicCommitteeView(CollaboratorsView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        queryset = User.objects.filter(groups__name='Comité académico') \
-            .order_by("profile__first_name")
+        queryset = User.objects.filter(groups__name="Comité académico").order_by(
+            "profile__first_name"
+        )
         context["profiles"] = [user.profile for user in queryset]
         context["title"] = "Comité académico"
         return context
@@ -31,8 +33,9 @@ class AcademicCommitteeView(CollaboratorsView):
 class ProceedingsView(CollaboratorsView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        queryset = User.objects.filter(groups__name='Actas') \
-            .order_by("profile__first_name")
+        queryset = User.objects.filter(groups__name="Actas").order_by(
+            "profile__first_name"
+        )
         context["profiles"] = [user.profile for user in queryset]
         context["title"] = "Actas"
         return context
@@ -47,10 +50,7 @@ class CollaboratorDetailView(DetailView):
         profile = self.get_object()
 
         if Speaker.objects.filter(profile=profile).count() == 0:
-            Speaker.objects.create(
-                profile=profile,
-                biography=""
-            )
+            Speaker.objects.create(profile=profile, biography="")
         return context
 
     def get(self, request, *args, **kwargs):

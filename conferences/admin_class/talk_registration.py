@@ -11,8 +11,12 @@ class TalkRegistrationResource(resources.ModelResource):
     name = Field(attribute="talk__name", column_name="Taller")
     first_name = Field(attribute="profile__first_name", column_name="Nombre")
     last_name = Field(attribute="profile__last_name", column_name="Apellido")
-    document_type = Field(attribute="profile__document_type", column_name="Tipo de documento")
-    document_number = Field(attribute="profile__document_number", column_name="Número de documento")
+    document_type = Field(
+        attribute="profile__document_type", column_name="Tipo de documento"
+    )
+    document_number = Field(
+        attribute="profile__document_number", column_name="Número de documento"
+    )
 
     class Meta:
         model = TalkRegistration
@@ -35,6 +39,7 @@ class TalkRegistrationResource(resources.ModelResource):
             "name",
         )
 
+
 class TalkRegistrationAdmin(ExportMixin, admin.ModelAdmin):
     model = TalkRegistration
     resource_class = TalkRegistrationResource
@@ -45,32 +50,31 @@ class TalkRegistrationAdmin(ExportMixin, admin.ModelAdmin):
         "get_document_type",
         "get_document_number",
         "get_talk_name",
-        
     )
-    search_fields = (
-        "talk",
-        "profile"
-    )
-    list_filter = (
-        ("talk", RelatedDropdownFilter),
-    )
+    search_fields = ("talk", "profile")
+    list_filter = (("talk", RelatedDropdownFilter),)
 
     def get_first_name(self, obj):
         return obj.profile.first_name
-    get_first_name.short_description = 'Nombre'
-    
+
+    get_first_name.short_description = "Nombre"
+
     def get_last_name(self, obj):
         return obj.profile.last_name
-    get_last_name.short_description = 'Apellido'
+
+    get_last_name.short_description = "Apellido"
 
     def get_document_type(self, obj):
         return obj.profile.document_type
-    get_document_type.short_description = 'Tipo Documento'
+
+    get_document_type.short_description = "Tipo Documento"
 
     def get_document_number(self, obj):
         return obj.profile.document_number or "-"
-    get_document_number.short_description = 'Nro Documento'
+
+    get_document_number.short_description = "Nro Documento"
 
     def get_talk_name(self, obj):
         return obj.talk.name
-    get_talk_name.short_description = 'Charla/Taller'
+
+    get_talk_name.short_description = "Charla/Taller"

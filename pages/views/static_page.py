@@ -13,7 +13,7 @@ def render_static_page(request, slug=None):
     print(page.content)
 
     content = page.content
-    title = content.partition('\n')[0]
+    title = content.partition("\n")[0]
     title = title.replace("#", "")
     title = title.replace("**", "")
 

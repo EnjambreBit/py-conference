@@ -11,9 +11,7 @@ class SpeakerPerTalkAdmin(admin.ModelAdmin):
         "talk",
     )
     autocomplete_fields = (
-        "talk", 
+        "talk",
         "speaker",
     )
-    list_filter = (
-        ("talk", RelatedDropdownFilter),
-    )
+    list_filter = (("talk", RelatedDropdownFilter),)

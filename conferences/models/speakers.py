@@ -4,6 +4,7 @@ from django.db import models
 from sorl.thumbnail import ImageField
 from django.apps import apps as django_apps
 
+
 class Speaker(models.Model):
     profile = models.OneToOneField(
         "Profile", related_name="speaker", on_delete=models.CASCADE
@@ -31,7 +32,9 @@ class Speaker(models.Model):
             Event = django_apps.get_model("conferences.Event")
             event = Event.objects.filter(active=True).first()
 
-        for spt in self.speakers_per_talk.filter(talk__event=event, talk__status="published"):
+        for spt in self.speakers_per_talk.filter(
+            talk__event=event, talk__status="published"
+        ):
             if spt.talk.weight() > weight:
                 weight = spt.talk.weight()
         return weight + self.sort_weight

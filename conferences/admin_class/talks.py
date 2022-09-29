@@ -81,9 +81,7 @@ class TalkAdmin(ExportMixin, admin.ModelAdmin):
         "duration",
         "status",
     )
-    search_fields = (
-        "name",
-    )
+    search_fields = ("name",)
     inlines = [
         SpeakerPerTalkInline,
         TalkRoomMediaInline,
@@ -98,8 +96,5 @@ class TalkAdmin(ExportMixin, admin.ModelAdmin):
     )
 
     def get_export_formats(self):
-        formats = (
-            base_formats.CSV,
-        )
+        formats = (base_formats.CSV,)
         return [f for f in formats if f().can_export()]
-
