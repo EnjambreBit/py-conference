@@ -1,4 +1,4 @@
-[!scipy logo](scipy-header.png)
+![scipy logo](https://raw.githubusercontent.com/EnjambreBit/py-conference/main/scipy-header.png)
 
 # py-conference
 
