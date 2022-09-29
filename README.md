@@ -1,36 +1,20 @@
+[!scipy logo](scipy-header.png)
+
 # py-conference
+
+Codigo fuente del sitio oficial de la Scipy Latin America 2022 - Salta - Argentina, desarrollado en colaboración con [EnjambreBit S.R.L](https://enjambrebit.com.ar)
 
 ## Instalacíon
 
 Requisitos previos
 
+- python 3.9.x
 - postgres 10.x +
-- maildev 
+- [maildev](https://github.com/maildev/maildev)
 
-Instalacion
+## Colaboradores
 
-  make install
-
-ó
-
-  pipenv install
-
-## Configuracion
-
-Archivo .env
-
-```
-DEBUG=on
-ENVIROMENT='DEVELOPMENT'
-DATABASE_URL="postgres://postgres:postgress@localhost/conference"
-REDIS_URL="redis://localhost:6379/2"
-ALLOWED_HOSTS="127.0.0.1;localhost"
-SENTRY_DSN=""
-ENABLE_SENTRY=off
-EMAIL_PORT=1025
-EMAIL_HOST=localhost
-EMAIL_HOST_USER=""
-EMAIL_HOST_PASSWORD=""
-EMAIL_USE_TLS=off
-```
-
+- Ricardo D. Quiroga [l2radamanthys](https://github.com/l2radamanthys)
+- Fernando J Bardelli [fjbardelli](https://github.com/fjbardelli)
+- Ivan Hoffman [digitalh](https://github.com/digitalh)
+- Ariel S. N. Ramos [asnramos](https://github.com/asnramos)
