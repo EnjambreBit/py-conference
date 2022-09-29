@@ -16,5 +16,5 @@ Requisitos previos
 
 - Ricardo D. Quiroga [l2radamanthys](https://github.com/l2radamanthys)
 - Fernando J Bardelli [fjbardelli](https://github.com/fjbardelli)
-- Ivan Hoffman [digitalh](https://github.com/digitalh)
+- Iván Hoffmann [digitalh](https://github.com/digitalh)
 - Ariel S. N. Ramos [asnramos](https://github.com/asnramos)
