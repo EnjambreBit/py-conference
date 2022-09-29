@@ -161,7 +161,6 @@ urlpatterns = [
         "schedule/", EventTalksScheduleBasicPageView.as_view(), name="talks-schedule"
     ),
     path("talks/schedule/", TalkScheduleView.as_view(), name="event-talk-schedule"),
-    path("cronogram/", TalkScheduleView.as_view(), name="event-talk-schedule"),
     path("talks/attendance/<int:talk_id>/", WorkshopAttendanceView.as_view(), name="workshop-attendance"),
     path("talks/attendance/update/<int:talk_room_id>/<int:profile_id>/", UpdateAttendanceView.as_view(), name="workshop-attendance-update"),
     path("talks/schedule/<yyyy:date>/", TalkScheduleView.as_view(), name="event-talk-schedule"),
