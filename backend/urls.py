@@ -12,11 +12,3 @@ urlpatterns = [
     path("api/", include("conferences.urls")),
     path("", include("pages.urls")),
 ]
-
-if (
-    settings.ENVIRONMENT == "DEVELOPMENT"
-):  # en produccion los archivos estaticos son servido por nginx
-    # urlpatterns = urlpatterns + [url(r'^assets/(?P<path>.*)$', RedirectView.as_view(url=settings.STATIC_URL + 'dist/assets/%(path)s', permanent=True), name='cloud-static'),]
-    urlpatterns = urlpatterns + static(
-        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
-    )
